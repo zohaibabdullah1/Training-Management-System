@@ -11,8 +11,11 @@ import Button from 'react-bootstrap/Button';
 // import Form from 'react-bootstrap/Form';
 
 
-function LoginForm() {
+function RegForm() {
     // const [checked, setChecked] = useState(false);
+    
+    // const toggleColor= {backgroundColor:'#ff6d34'};
+    // const toggleColors= {border:'blue'};
     const [radioValue, setRadioValue] = useState('1');
     const radios = [
         { name: 'Login', value: '1' },
@@ -42,26 +45,33 @@ function LoginForm() {
     </div>
 
 
-
     
 
     <div className="Login-Form">
       <div className="login">
         <Form action="post">
-          <h2 className="display-6">Login</h2>
+          <h2 className="display-6">Register</h2>
+          <FormGroup className="position-relative">
+            <Label for="username">User Name</Label>
+            <Input type="username" required />
+          </FormGroup>
           <FormGroup className="position-relative">
             <Label for="email">Email Address</Label>
             <Input type="email" required />
           </FormGroup>
           <FormGroup className="position-relative">
-            <Label for="password">Password</Label>
+            <Label for="password">Create Password</Label>
             <Input type="password" required />
           </FormGroup>
-          <Form.Check aria-label="option 1" label="Remember me" />
+          <FormGroup className="position-relative">
+            <Label for="password">Confirm Password</Label>
+            <Input type="password" required />
+          </FormGroup>
+          <Form.Check aria-label="option 1" label="I have read terms & conditions" />
           <div className="d-grid gap-2">
-          <Button size="lg">Login</Button>
+          <Button size="lg">Sign up</Button>
           </div>
-          <a className="Forgot-Pass" href="#">Lost your Password? </a>
+          {/* <a className="Forgot-Pass" href="#">Lost your Password? </a> */}
         </Form>
       </div>
 
@@ -69,5 +79,5 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default RegForm;
 //   export default CheckExample;
