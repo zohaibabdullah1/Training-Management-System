@@ -7,8 +7,8 @@ function Cards({img}){
 
         <div>
       <Col>
-          <Card className='cards'>
-            <Card.Img variant="top" src={img} />
+          <Card className='cat-cards'>
+            <Card.Img className='cat-img' variant="top" src={img} />
             <Card.Body>
               <Card.Title>Card title</Card.Title>
               <Card.Text>
