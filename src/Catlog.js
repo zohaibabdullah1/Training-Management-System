@@ -1,6 +1,5 @@
 import NavComp from "./NavBrandComp";
 import Cards from "./Card";
-import logo from "./Icoures.png"
 import img1 from "./img1.jpg"
 import img2 from "./img2.jpg"
 import img3 from "./img3.jpg"
@@ -35,5 +34,3 @@ function Catlogs() {
 }
 
 export default Catlogs;
-<iframe class="full-screen-preview__frame" src="http://iguru.wgl-demo.net/" name="preview-frame" frameborder="0" noresize="noresize" data-view="fullScreenPreview" allow="geolocation 'self'; autoplay 'self'" style="height: 481px;">
-</iframe>

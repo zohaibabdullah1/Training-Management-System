@@ -166,6 +166,16 @@ hr{
 }
 
 
+.Reset-Form{
+
+  width: 25%;
+  margin: auto;
+  margin-top: 6rem;
+  padding: 1.5rem;
+  box-shadow: 0px 0px 30px 1px rgb(227, 227, 227);
+  border-radius: 5%;
+}
+
 
 body {
   margin: 0;
