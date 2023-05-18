@@ -1,50 +1,106 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
+import React from 'react'
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import logo from './Icoures.png';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Home() {
-  const Navigate = useNavigate();
-  const login = () => {
-    Navigate("/login");
-  };
+
+  // const TitleColor ={fontSize: '33px', fontColor: 'red'};
   return (
     <div>
-      <div>
-        <Navbar className="main-header" bg="dark" expand="sm">
-          <Container fluid>
-            <Navbar.Brand href="#" className="nav_color">
-              12th Floor, Askari Corporate Tower.
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll" className="nav-color">
-              <Nav
-                className="me-auto my-2 my-lg-0 nav_color"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
-                <Nav href="#action1">mrxyz@gamil.com</Nav>
-              </Nav>
-              <Form className="d-flex">
-                <Button className="signin_btn_decore" onClick={login}>
-                  <i className="fa fa-regular fa-user"></i> Sign in
-                </Button>
-                <i className="fa fa-brands fa-twitter i_design nav_color"></i>
-                <i className="fa fa-brands fa-facebook i_design nav_color"></i>
-                <i className="fa fa-brands fa-linkedin i_design nav_color"></i>
-                <i className="fa fa-brands fa-instagram i_design nav_color"></i>
-              </Form>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+      <div className='background_image'>
+        <div >
+          <Navbar className='main-header' bg="dark" expand="sm" >
+            <Container fluid>
+              <Navbar.Brand href="#" className='nav_color'>12th Floor, Askari Corporate Tower.</Navbar.Brand>
+              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Collapse id="navbarScroll" className='nav-color'>
+                <Nav
+                  className="me-auto my-2 my-lg-0 nav_color"
+                  style={{ maxHeight: '100px' }}
+                  navbarScroll
+                >
+                  <Nav href="#action1">mrxyz@gamil.com</Nav>
+
+                </Nav>
+                <Form className="d-flex">
+                  <Button className="signin_btn_decore">
+                    <i className="fa fa-regular fa-user"></i> Sign in</Button>
+                  <i className="fa fa-brands fa-twitter i_design nav_color"></i>
+                  <i className="fa fa-brands fa-facebook i_design nav_color"></i>
+                  <i className="fa fa-brands fa-linkedin i_design nav_color"></i>
+                  <i className="fa fa-brands fa-instagram i_design nav_color"></i>
+                </Form>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
+        </div>
+        <div>
+
+        </div>
+
+        <div className='main-container-navbar'>
+          <Navbar>
+            <Container fluid>
+              <Navbar.Brand href="#home">
+                <img
+                  alt=""
+                  src={logo}
+                  width="120"
+                  height="55"
+                  className="d-inline-block align-top"
+                />{' '}
+              </Navbar.Brand>
+              <Navbar.Toggle aria-controls="navbarScroll" className="nav_brand_margin" />
+              <Navbar.Collapse id="navbarScroll">
+                <Nav
+                  className="me-auto my-2 my-lg-0 "
+                  style={{ maxHeight: '100px' }}
+                  navbarScroll
+                >
+                  <Nav className='nav_padding' href="#action1">Home</Nav>
+                  <NavDropdown className='dropdown_padding' title="COURSES" id="navbarScrollingDropdown">
+                    <NavDropdown.Item href="#action3">Courses List</NavDropdown.Item>
+                    <NavDropdown.Item href="#action4">
+                      Enrolled Courses
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action5">
+                      Instructors
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action6">
+                      Instructors Profile
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="#action7">
+                      My Profile
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  <Nav className='nav_padding' href="#">ABOUT US</Nav>
+                  <Nav className='nav_padding' href="#">CONTACT US</Nav>
+                </Nav>
+              </Navbar.Collapse>
+
+            </Container>
+          </Navbar>
+
+
+        </div>
+        <div className='titlebar_home'>
+          <p className='grey_titilebar'><b className='' >!</b> Fuel Your Future</p>
+          <h1>More Than 15k+ Couses Online</h1>
+          <p className='grey_titilebar'>Get access to high quality learning whereever you are, with online courses, programs and degrees created by leading universities.</p>
+          <Button className='titlebar_btn' >View Courses</Button>
+
+        </div>
+
       </div>
-      <div></div>
-      <br />
+
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
