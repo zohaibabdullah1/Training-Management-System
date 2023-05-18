@@ -1,5 +1,3 @@
-import "./App.css";
-import "./index.css";
 import { FormGroup, Label, Input } from "reactstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
@@ -7,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Button from "react-bootstrap/Button";
-import NavComp from "./NavBrandComp";
+import NavComp from "../../NavBrandComp";
 
 function RegForm() {
   const Navigate = useNavigate();
