@@ -4,7 +4,7 @@ import { FormGroup, Label, Input } from "reactstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Button from "react-bootstrap/Button";
@@ -66,9 +66,7 @@ function LoginForm() {
             <div className="d-grid gap-2">
               <Button size="lg">Login</Button>
             </div>
-            <a className="Forgot-Pass" href="/">
-              Lost your Password?{" "}
-            </a>
+            <Link className="Forgot-Pass" to="/forget">Lost your Password?</Link>
           </Form>
         </div>
       </div>
