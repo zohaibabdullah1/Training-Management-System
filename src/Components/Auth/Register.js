@@ -1,26 +1,23 @@
-import "./App.css";
-import "./index.css";
 import { FormGroup, Label, Input } from "reactstrap";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Button from "react-bootstrap/Button";
-import NavComp from "./NavBrandComp";
+import NavComp from "../../NavBrandComp";
 
-function LoginForm() {
+function RegForm() {
   const Navigate = useNavigate();
-  const register = () => {
-    Navigate("/register");
+  const login = () => {
+    Navigate("/login");
   };
 
   const [radioValue, setRadioValue] = useState("1");
   const radios = [
-    { name: "Login", value: "1" },
+    { name: "Login", value: "3" },
 
-    { name: "Register", value: "3" },
+    { name: "Register", value: "1" },
   ];
   return (
     <>
@@ -42,7 +39,7 @@ function LoginForm() {
               value={radio.value}
               checked={radioValue === radio.value}
               onChange={(e) => setRadioValue(e.currentTarget.value)}
-              onClick={register}
+              onClick={login}
             >
               {radio.name}
             </ToggleButton>
@@ -53,22 +50,30 @@ function LoginForm() {
       <div className="Login-Form">
         <div className="login">
           <Form action="post">
-            <h2 className="display-6">Login</h2>
+            <h2 className="display-6">Register</h2>
+            <FormGroup className="position-relative">
+              <Label for="username">User Name</Label>
+              <Input type="username" required />
+            </FormGroup>
             <FormGroup className="position-relative">
               <Label for="email">Email Address</Label>
               <Input type="email" required />
             </FormGroup>
             <FormGroup className="position-relative">
-              <Label for="password">Password</Label>
+              <Label for="password">Create Password</Label>
               <Input type="password" required />
             </FormGroup>
-            <Form.Check aria-label="option 1" label="Remember me" />
+            <FormGroup className="position-relative">
+              <Label for="password">Confirm Password</Label>
+              <Input type="password" required />
+            </FormGroup>
+            <Form.Check
+              aria-label="option 1"
+              label="I have read terms & conditions"
+            />
             <div className="d-grid gap-2">
-              <Button size="lg">Login</Button>
+              <Button size="lg">Sign up</Button>
             </div>
-            <a className="Forgot-Pass" href="#">
-              Lost your Password?{" "}
-            </a>
           </Form>
         </div>
       </div>
@@ -76,5 +81,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
-
+export default RegForm;
