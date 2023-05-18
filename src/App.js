@@ -1,10 +1,11 @@
 import Router from "./Routes";
-import Dashboard from "./Components/Admin/Dashboard"
+import Catlogs from "./Catlog";
+
 function App() {
   return (
     <div className="App">
+      <Catlogs/>
       <Router />
-      <Dashboard/>
     </div>
   );
 }

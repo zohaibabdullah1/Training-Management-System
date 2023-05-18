@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 function TempCard({title,img}) {
   return (
     <Card style={{width:"15rem"}}>
-      <Card.Img variant="top" src={img} alt={title}/>
+      <Card.Img className='temp-img'  variant="top" src={img} alt={title}/>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Button variant="info">Click Here</Button>
