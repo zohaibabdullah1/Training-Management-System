@@ -300,6 +300,58 @@ code {
   font-weight: 300;
   margin-top: 4rem;
 }
+.ham_button{
+  /* border: #00bda6 1px solid; */
+  display: flex;
+  /* width: 2rem; */
+  margin: 1rem;
+  font-size: 22px;
+  background-color: rgb(161, 161, 161);
+  border: 1px solid rgb(161, 161, 161);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.ham_button:hover{
+  /* border: #00bda6 1px solid; */
+  display: flex;
+  margin: 1rem;
+  font-size: 22px;
+  background-color: rgb(207, 207, 207);
+  border: 1px solid rgb(161, 161, 161);
+  color: #fff;
+}
+
+.ham-Header{
+  width: 95%;
+  justify-content: end;
+  margin: auto;
+  font-weight: 200;
+  padding: 0.3rem;
+  /* border: #00bda6 1px solid; */
+}
+
+.ham-title{
+  text-align: center;
+  font-weight: 600;
+  /* margin: 1rem; */
+  /* border: 1px solid #00bda6; */
+  padding: 1rem;
+
+}
+
+.ham-list{
+  font-weight: 200;
+}
+.exit{
+  margin-left: 0.5rem;
+  color: #8e8e90;
+}
+.drawer-container{
+  height: 1rem;
+  opacity: 95%;
+  /* border: #00bda6 4px solid; */
+}
 
 /* ####################################################################################################### */
 .aboutUs{
