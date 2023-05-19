@@ -25,6 +25,9 @@ function LoginForm() {
   return (
     <>
       {<NavComp />}
+      <div className="arrow">
+    <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+      </div>
       <div className="Toggle">
         <ButtonGroup>
           {radios.map((radio, idx) => (

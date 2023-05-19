@@ -10,11 +10,13 @@ import App from "./Drawer";
 import AdminPanel from "./Admin";
 import Quiz from "./Quiz";
 import Cpp from "./C++";
+import AboutUs from "./AboutUs";
+import ContactUs from "./ContactUs";
 
 function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegForm />} />
       <Route path="/catlog" element={<Catlogs />} />
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/ap" element={<AdminPanel />} />
       <Route path="/quiz" element={<Quiz />} />
       <Route path="/cpp" element={<Cpp />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/contact" element={<ContactUs />} />
     </Routes>
   );
 }
