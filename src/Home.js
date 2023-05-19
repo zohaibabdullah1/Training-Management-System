@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './Icoures.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FormGroup, Label, Input } from "reactstrap";
 
 function Home() {
   return (
@@ -44,8 +45,8 @@ function Home() {
                 <img
                   alt=""
                   src={logo}
-                  width="80"
-                  height="100"
+                  width="130"
+                  height="60"
                   className="d-inline-block align-top"
                 />{' '}
               </Navbar.Brand>
@@ -87,6 +88,48 @@ function Home() {
           <Button className='titlebar_btn' >View Courses</Button>
         </div>
       </div>
+
+      <div className='bg_color_home'>
+        <div className='second_home'>
+          <div className="col-sm-4 second_data">
+            <i class="fa fa-sharp fa-light fa-rocket  icon_size"></i>
+            <h3><b className='coler'>Learn </b>Anything</h3>
+            <div>Join millions of people from around the world learning together.Try it now!</div>
+          </div>
+          <div className="col-sm-4 second_data">
+            <i class="fa fa-sharp fa-light fa-globe icon_size"></i>
+            <h3><b className='coler'>Learn </b> Together</h3>
+            <div>Join millions of people from around the world learning together.Try it now!</div>
+          </div>
+          <div className="col-sm-4 feedback">
+            <div className='feedback_bg'>
+              <h2 className='feedbback_center'>Feedback Form</h2>
+            </div>
+
+            <Form>
+              <FormGroup className="position-relative">
+                <Input className='feedback_field' type="text" placeholder='Your Name' />
+              </FormGroup>
+              <FormGroup className="position-relative">
+                <Input className='feedback_field' type="email" placeholder='Your@mail.com' />
+              </FormGroup>
+              <div className="d-grid gap-2">
+                <Button className='feedback_btn' size="lg">Submit</Button>
+              </div>
+            </Form>
+          </div>
+        </div>
+        
+      </div>
+
+      <div className='third_home'>
+          <h5 className='coler'> DISCOVER NEW</h5>
+          <h1>OUR TOP ONLINE COURSES</h1>
+          <p>We’ll then ask you to tell us your current level of English or invite you to take our quick 20 minute placement test so we can make sure you start learning English at the level that’s right for you.
+
+          </p>
+
+        </div>
     </div>
   )
 }
