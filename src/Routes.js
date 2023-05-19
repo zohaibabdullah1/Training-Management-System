@@ -5,6 +5,11 @@ import LoginForm from "./Components/Auth/Login";
 import RegForm from "./Components/Auth/Register";
 import Catlogs from "./Catlog";
 import PassReset from "./Pass_reset";
+import Dashboard from "./Components/Admin/Dashboard";
+import App from "./Drawer";
+import AdminPanel from "./Admin";
+import Quiz from "./Quiz";
+import Cpp from "./C++";
 
 function Router() {
   return (
@@ -14,6 +19,11 @@ function Router() {
       <Route path="/register" element={<RegForm />} />
       <Route path="/catlog" element={<Catlogs />} />
       <Route path="/forget" element={<PassReset />} />
+      <Route path="/admin" element={<Dashboard />} />
+      <Route path="/lms" element={<App />} />
+      <Route path="/ap" element={<AdminPanel />} />
+      <Route path="/quiz" element={<Quiz />} />
+      <Route path="/cpp" element={<Cpp />} />
     </Routes>
   );
 }
