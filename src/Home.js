@@ -8,8 +8,6 @@ import logo from './Icoures.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Home() {
-
-  // const TitleColor ={fontSize: '33px', fontColor: 'red'};
   return (
     <div>
       <div className='background_image'>
@@ -24,12 +22,11 @@ function Home() {
                   style={{ maxHeight: '100px' }}
                   navbarScroll
                 >
-                  <Nav href="#action1">mrxyz@gamil.com</Nav>
-
+                  <Nav href="#action1">Support@Icoures.com</Nav>
                 </Nav>
                 <Form className="d-flex">
                   <Button className="signin_btn_decore">
-                    <i className="fa fa-regular fa-user"></i> Sign in</Button>
+                  <i className="fa fa-regular fa-user"></i> Sign in</Button>
                   <i className="fa fa-brands fa-twitter i_design nav_color"></i>
                   <i className="fa fa-brands fa-facebook i_design nav_color"></i>
                   <i className="fa fa-brands fa-linkedin i_design nav_color"></i>
@@ -39,9 +36,6 @@ function Home() {
             </Container>
           </Navbar>
         </div>
-        <div>
-
-        </div>
 
         <div className='main-container-navbar'>
           <Navbar>
@@ -50,8 +44,8 @@ function Home() {
                 <img
                   alt=""
                   src={logo}
-                  width="120"
-                  height="55"
+                  width="80"
+                  height="100"
                   className="d-inline-block align-top"
                 />{' '}
               </Navbar.Brand>
@@ -60,8 +54,7 @@ function Home() {
                 <Nav
                   className="me-auto my-2 my-lg-0 "
                   style={{ maxHeight: '100px' }}
-                  navbarScroll
-                >
+                  navbarScroll>
                   <Nav className='nav_padding' href="#action1">Home</Nav>
                   <NavDropdown className='dropdown_padding' title="COURSES" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#action3">Courses List</NavDropdown.Item>
@@ -83,22 +76,17 @@ function Home() {
                   <Nav className='nav_padding' href="#">CONTACT US</Nav>
                 </Nav>
               </Navbar.Collapse>
-
             </Container>
           </Navbar>
-
 
         </div>
         <div className='titlebar_home'>
           <p className='grey_titilebar'><b className='' >!</b> Fuel Your Future</p>
-          <h1>More Than 15k+ Couses Online</h1>
+          <h1>More Than 15k+ Courses Online</h1>
           <p className='grey_titilebar'>Get access to high quality learning whereever you are, with online courses, programs and degrees created by leading universities.</p>
           <Button className='titlebar_btn' >View Courses</Button>
-
         </div>
-
       </div>
-
     </div>
   )
 }
