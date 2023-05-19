@@ -6,7 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './Icoures.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Input } from "reactstrap";
+import {Link} from 'react-router-dom';
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
         <div >
           <Navbar className='main-header' bg="dark" expand="sm" >
             <Container fluid>
-              <Navbar.Brand href="#" className='nav_color'>12th Floor, Askari Corporate Tower.</Navbar.Brand>
+              <Navbar.Brand className='nav_color'>12th Floor, Askari Corporate Tower</Navbar.Brand>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll" className='nav-color'>
                 <Nav
@@ -23,11 +24,11 @@ function Home() {
                   style={{ maxHeight: '100px' }}
                   navbarScroll
                 >
-                  <Nav href="#action1">Support@Icoures.com</Nav>
+                  <Nav className='nav-mail' href="#action1">Support@Icoures.com</Nav>
                 </Nav>
                 <Form className="d-flex">
-                  <Button className="signin_btn_decore">
-                  <i className="fa fa-regular fa-user"></i> Sign in</Button>
+                <Link to="/login" className="signin_btn_decore">
+                  <i className="fa fa-regular fa-user"></i> Sign in</Link>
                   <i className="fa fa-brands fa-twitter i_design nav_color"></i>
                   <i className="fa fa-brands fa-facebook i_design nav_color"></i>
                   <i className="fa fa-brands fa-linkedin i_design nav_color"></i>
@@ -38,15 +39,17 @@ function Home() {
           </Navbar>
         </div>
 
+        <div className='main-container'>
         <div className='main-container-navbar'>
           <Navbar>
             <Container fluid>
-              <Navbar.Brand href="#home">
+              <Navbar.Brand className='home-icon'>
+
                 <img
                   alt=""
                   src={logo}
-                  width="130"
-                  height="60"
+                  width="100"
+                  height="45"
                   className="d-inline-block align-top"
                 />{' '}
               </Navbar.Brand>
@@ -56,7 +59,8 @@ function Home() {
                   className="me-auto my-2 my-lg-0 "
                   style={{ maxHeight: '100px' }}
                   navbarScroll>
-                  <Nav className='nav_padding' href="#action1">Home</Nav>
+                  
+                  <Link className='nav_padding' to="/home">Home</Link>
                   <NavDropdown className='dropdown_padding' title="COURSES" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#action3">Courses List</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
@@ -73,14 +77,17 @@ function Home() {
                       My Profile
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav className='nav_padding' href="#">ABOUT US</Nav>
-                  <Nav className='nav_padding' href="#">CONTACT US</Nav>
+                  <Link className='nav_padding' to="/about">About us</Link>
+                  <Link className='nav_padding' to="/contact">Contact us</Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
           </Navbar>
 
         </div>
+
+        </div>
+        
         <div className='titlebar_home'>
           <p className='grey_titilebar'><b className='' >!</b> Fuel Your Future</p>
           <h1>More Than 15k+ Courses Online</h1>
@@ -106,17 +113,20 @@ function Home() {
               <h2 className='feedbback_center'>Feedback Form</h2>
             </div>
 
-            <Form>
+          <div className='feedback_field'>
+          <Form>
               <FormGroup className="position-relative">
-                <Input className='feedback_field' type="text" placeholder='Your Name' />
+                <Input className='field-set' type="text" placeholder='Full Name' />
               </FormGroup>
               <FormGroup className="position-relative">
-                <Input className='feedback_field' type="email" placeholder='Your@mail.com' />
+                <Input  className='field-set' type="email" placeholder='Email Address' />
               </FormGroup>
               <div className="d-grid gap-2">
                 <Button className='feedback_btn' size="lg">Submit</Button>
               </div>
             </Form>
+          </div>
+            
           </div>
         </div>
         

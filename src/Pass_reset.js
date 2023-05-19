@@ -24,7 +24,7 @@ function PassReset() {
                 <Label for="password">Confirm Password</Label>
                 <Input type="password" required />
               </FormGroup>
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-2" id="reset-id">
                 <Button size="lg">Create New Password</Button>
               </div>
             </Form>

@@ -1,10 +1,19 @@
 import React from "react";
+import NavComp from './NavBrandComp';
+import { Link, useNavigate } from "react-router-dom";
 
 function ContactUs () {
 
 
   return(
-<div className="ContactUs">
+    <>
+
+{<NavComp />}
+      <div className="arrow">
+    <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+      </div>
+    
+    <div className="ContactUs">
  
 <h1><b className="contact_color">CONTACT</b> INFORMATION</h1>
       <h4 className="contact_second">Get In Touch With Us</h4>
@@ -26,6 +35,10 @@ function ContactUs () {
         
       </div>
   </div>
+
+    
+    </>
+
   );
 }
 export default ContactUs;

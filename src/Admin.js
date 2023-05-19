@@ -4,7 +4,6 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import NavComp from "./NavBrandComp";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const AdminPanel = () => {
   const [isOpen, setIsOpen] = React.useState(true);
