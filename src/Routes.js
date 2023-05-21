@@ -16,7 +16,7 @@ import ContactUs from "./ContactUs";
 function Router() {
   return (
     <Routes>
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegForm />} />
       <Route path="/catlog" element={<Catlogs />} />
