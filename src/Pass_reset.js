@@ -1,4 +1,5 @@
 import { FormGroup, Label, Input } from "reactstrap";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavComp from "./NavBrandComp";
@@ -7,7 +8,12 @@ function PassReset() {
  
     return (
       <>
-        {<NavComp />}  
+      <div className="login-container">
+
+      {<NavComp />}
+        <div className="arrow">
+    <Link to='/login'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+      </div>  
         <div className="Reset-Form">
           <div className="login">
             <Form action="post">
@@ -30,6 +36,11 @@ function PassReset() {
             </Form>
           </div>
         </div>
+
+
+
+      </div>
+        
       </>
     );
   }

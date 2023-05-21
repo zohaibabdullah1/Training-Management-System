@@ -9,6 +9,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import Button from "react-bootstrap/Button";
 import NavComp from "../../NavBrandComp";
+import NavBarComponent from "../../NavBar";
 
 function LoginForm() {
   const Navigate = useNavigate();
@@ -24,7 +25,10 @@ function LoginForm() {
   ];
   return (
     <>
-      {<NavComp />}
+    <div className="login-container">
+    {<NavComp />}
+      
+      
       <div className="arrow">
     <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
       </div>
@@ -73,6 +77,9 @@ function LoginForm() {
           </Form>
         </div>
       </div>
+
+    </div>
+      
     </>
   );
 }

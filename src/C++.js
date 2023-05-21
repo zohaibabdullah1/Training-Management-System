@@ -5,7 +5,7 @@ function Cpp(){
 
         <>
         {<NavComp/>}
-            <h2 className="quiz-text">  Ready to start Quiz?</h2>
+            <h2 className="HeaderQuiz-text">  Ready to start Quiz?</h2>
 
             
         
