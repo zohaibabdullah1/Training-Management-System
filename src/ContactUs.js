@@ -1,6 +1,6 @@
 import React from "react";
 import NavComp from './NavBrandComp';
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function ContactUs () {
 
@@ -10,7 +10,7 @@ function ContactUs () {
 
 {<NavComp />}
       <div className="arrow">
-    <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+    <Link to='/'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
       </div>
     
     <div className="ContactUs">

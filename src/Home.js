@@ -59,8 +59,7 @@ function Home() {
                   className="me-auto my-2 my-lg-0 "
                   style={{ maxHeight: '100px' }}
                   navbarScroll>
-                  
-                  <Link className='nav_padding' to="/home">Home</Link>
+                  <Link className='nav_padding' to="/">Home</Link>
                   <NavDropdown className='dropdown_padding' title="COURSES" id="navbarScrollingDropdown">
                     <NavDropdown.Item href="#action3">Courses List</NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
