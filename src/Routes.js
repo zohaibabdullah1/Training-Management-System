@@ -8,10 +8,11 @@ import PassReset from "./Pass_reset";
 import Dashboard from "./Components/Admin/Dashboard";
 import App from "./Drawer";
 import AdminPanel from "./Admin";
-import Quiz from "./Quiz";
+import SelectQuiz from "./SelectQuiz";
 import Cpp from "./C++";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
+import Quiz from "./Quiz";
 
 function Router() {
   return (
@@ -24,7 +25,8 @@ function Router() {
       <Route path="/admin" element={<Dashboard />} />
       <Route path="/lms" element={<App />} />
       <Route path="/ap" element={<AdminPanel />} />
-      <Route path="/quiz" element={<Quiz />} />
+      <Route path="/selectquiz" element={<SelectQuiz />} />
+      <Route path="/startquiz" element={<Quiz/>} />
       <Route path="/cpp" element={<Cpp />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />

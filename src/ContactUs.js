@@ -1,17 +1,20 @@
 import React from "react";
 import NavComp from './NavBrandComp';
-import { Link} from "react-router-dom";
+// import { Link } from "react-router-dom";
+import NavBarComponent from "./NavBar";
 
-function ContactUs () {
-
-
-  return(
+function ContactUs() {
+  return (
     <>
+      <NavComp />
 
-{<NavComp />}
-      <div className="arrow">
-    <Link to='/'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
-      </div>
+      <div className='main-container'>
+          <NavBarComponent/>
+           </div>
+
+      {/* <div className="arrow">
+    <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+      </div> */}
     
     <div className="ContactUs">
  
@@ -34,11 +37,9 @@ function ContactUs () {
         </div>
         
       </div>
-  </div>
 
-    
+      </div>
     </>
-
   );
 }
 export default ContactUs;

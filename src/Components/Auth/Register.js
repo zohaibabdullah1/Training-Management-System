@@ -21,7 +21,10 @@ function RegForm() {
   ];
   return (
     <>
-      {<NavComp />}
+    <div className="login-container">
+
+    {<NavComp />}
+
       <div className="arrow">
     <Link to='/login'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
       </div>
@@ -80,6 +83,10 @@ function RegForm() {
           </Form>
         </div>
       </div>
+
+
+    </div>
+      
     </>
   );
 }

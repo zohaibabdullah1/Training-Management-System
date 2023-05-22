@@ -1,18 +1,19 @@
 import React from 'react'
 import NavComp from './NavBrandComp';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import NavBarComponent from './NavBar';
 
-
-function AboutUs(){
-
-  return(
-
+function AboutUs() {
+  return (
     <>
     
     {<NavComp />}
-      <div className="arrow">
-    <Link to='/'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
-      </div>
+    <div className='main-container'>
+          <NavBarComponent/>
+           </div>
+      {/* <div className="arrow">
+    <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+      </div> */}
     
     <div className='aboutUs'> 
     <h1>
@@ -27,8 +28,6 @@ function AboutUs(){
     </div>
 
     </>
-
-    
   );
 }
 export default AboutUs;

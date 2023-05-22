@@ -35,7 +35,7 @@ const App = () => {
             <ListGroup.Item className="ham-list" action href="/">
               Home
             </ListGroup.Item>
-            <ListGroup.Item className="ham-list"  action href="/quiz">
+            <ListGroup.Item className="ham-list"  action href="/selectquiz">
               Take a Quiz
             </ListGroup.Item>
             <ListGroup.Item className="ham-list"  action>
