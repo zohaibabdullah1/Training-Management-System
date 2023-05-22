@@ -1,6 +1,5 @@
 import React from "react";
 import NavComp from './NavBrandComp';
-// import { Link } from "react-router-dom";
 import NavBarComponent from "./NavBar";
 
 function ContactUs() {
