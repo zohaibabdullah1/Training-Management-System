@@ -1,6 +1,7 @@
 import React from "react";
 import NavComp from './NavBrandComp';
-import { Link, useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import NavBarComponent from "./NavBar";
 
 function ContactUs() {
   return (
@@ -11,10 +12,9 @@ function ContactUs() {
           <NavBarComponent/>
            </div>
 
-{<NavComp />}
-      <div className="arrow">
+      {/* <div className="arrow">
     <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
-      </div>
+      </div> */}
     
     <div className="ContactUs">
  
@@ -36,6 +36,8 @@ function ContactUs() {
         <div>info@contour-software.com</div>
         </div>
         
+      </div>
+
       </div>
     </>
   );
