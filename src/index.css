@@ -579,3 +579,53 @@ code {
   margin-top: 7rem;
   margin-bottom: 7rem;
 }
+
+.fotter_bg{
+  background-color: rgb(18,20,27);
+}
+
+.fotter_main{
+  display: flex;
+  margin: auto;
+  width:80%;
+  height: 15rem;
+  color: white;
+  text-align: left; 
+  font-size: 0.7rem;
+  padding-top: 2rem;
+  /* border: #00bda6 solid; */
+  /* margin-top: 1rem; */
+}
+.footer-con{
+  /* border: solid rgb(62, 58, 56); */
+  text-align: justify;
+  padding: 4rem 2rem 2rem 4rem;
+
+}
+.footer_spacing{
+  /* border: red solid; */
+  text-align: center;
+  /* margin: 2rem 0rem 0rem 2rem; */
+  margin: auto;
+}
+.p_hover:hover{
+  color:rgb(255,109,52)
+}
+.p_margin{
+
+  /* margin-top: 1rem; */
+}
+.p_hover{
+  text-align: center;
+}
+.ft_allign{
+  text-align: center;
+}
+
+.footer_last{
+  background-color: black;
+  color: #8e8e90;
+  font-size: 12px;
+  height: 1.2rem;
+  margin: auto;
+}

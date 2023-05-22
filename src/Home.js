@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { FormGroup, Input } from "reactstrap";
 import {Link} from 'react-router-dom';
 import NavBarComponent from './NavBar';
+import Footer from './Footer';
 
 function Home() {
   return (
@@ -93,6 +94,10 @@ function Home() {
           <p>We’ll then ask you to tell us your current level of English or invite you to take our quick 20 minute placement test so we can make sure you start learning English at the level that’s right for you.
 
           </p>
+
+        </div>
+        <div>
+      <Footer/>
 
         </div>
     </div>
