@@ -1,6 +1,7 @@
 import React from "react";
 import NavComp from './NavBrandComp';
 import NavBarComponent from "./NavBar";
+import Footer from "./Footer";
 
 function ContactUs() {
   return (
@@ -36,6 +37,10 @@ function ContactUs() {
         </div>
         
       </div>
+
+      </div>
+      <div>
+      <Footer/>
 
       </div>
     </>

@@ -7,6 +7,8 @@ function Quiz(){
         <div className="StartQuiz">
         <div className="start-quiz-body">
 
+            
+
 
         </div>
         </div>
