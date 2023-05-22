@@ -2,6 +2,7 @@ import React from 'react'
 import NavComp from './NavBrandComp';
 // import { Link } from "react-router-dom";
 import NavBarComponent from './NavBar';
+import Footer from './Footer';
 
 function AboutUs() {
   return (
@@ -25,6 +26,9 @@ function AboutUs() {
       <p className='about-para'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus sint et laboriosam rerum, repudiandae ipsum dolores vitae, voluptas quidem ducimus delectus suscipit. Culpa quidem consectetur, laborum quo cum est eum repellat amet porro quisquam! Minus perferendis aperiam animi hic consectetur illo fuga earum, consequuntur quas similique qui accusantium, placeat debitis!
       </p>
+    </div>
+    <div>
+      <Footer/>
     </div>
 
     </>
