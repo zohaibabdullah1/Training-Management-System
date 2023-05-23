@@ -10,7 +10,6 @@ import NavComp from "../../NavBrandComp";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function LoginForm() {
   const navigate = useNavigate();
 
@@ -18,13 +17,12 @@ function LoginForm() {
   const [password, setPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     // Validate email and password
-    if (!email|| email==="zohaib@gmail.com") {
-      toast.error("Please enter email",
-      {
+    if (!email) {
+      toast.error("Please Enter Email", {
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -35,8 +33,7 @@ function LoginForm() {
     }
 
     else if (!password) {
-      toast.error("Please enter password",
-      {
+      toast.error("Please Enter Password", {
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -45,26 +42,53 @@ function LoginForm() {
       });
       return;
     }
- 
 
-    // Perform login operation here
-    // You can make an API call or perform authentication logic
+    // try {
+    //   // Perform login operation by making an API call to the backend server
+    //   const response = await fetch("/api/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ email, password }),
+    //   });
 
-    // Clear form fields
-    setEmail("");
-    setPassword("");
+    //   if (response.ok) {
+    //     // Clear form fields
+    //     setEmail("");
+    //     setPassword("");
 
-    // Redirect to the desired page after successful login
-    toast.success("Welcome! You are logged in. ",
-    {
-      // position: 'top-center',
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true
-    });
-    navigate("/lms");
+    //     // Redirect to the desired page after successful login
+        toast.success("Welcome! You are logged in.", {
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true
+        });
+        navigate("/lms");
+    //   } else {
+    //     // Handle login error
+    //     const errorData = await response.json();
+    //     toast.error(errorData.message, {
+    //       autoClose: 5000,
+    //       hideProgressBar: true,
+    //       closeOnClick: true,
+    //       pauseOnHover: true,
+    //       draggable: true
+    //     });
+    //   }
+    // } catch (error) {
+    //   // Handle network or server errors
+    //   console.error("Login failed:", error);
+    //   toast.error("Login failed. Please try again later.", {
+    //     autoClose: 5000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true
+    //   });
+    // }
   };
 
   const handleInputChange = (e) => {
@@ -91,7 +115,9 @@ function LoginForm() {
       <div className="login-container">
         <NavComp />
         <div className="arrow">
-          <Link to="/"><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+          <Link to="/">
+            <i class='fas fa-chevron-circle-left back-arrow'></i>
+          </Link>
         </div>
         <div className="Toggle">
           <ButtonGroup>
@@ -124,17 +150,31 @@ function LoginForm() {
               <h2 className="display-6">Login</h2>
               <FormGroup className="position-relative">
                 <Label for="email">Email Address</Label>
-                <Input type="email" name="email" value={email} onChange={handleInputChange} />
+                <Input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={handleInputChange}
+                />
               </FormGroup>
               <FormGroup className="position-relative">
                 <Label for="password">Password</Label>
-                <Input type="password" name="password" value={password} onChange={handleInputChange} />
+                <Input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={handleInputChange}
+                />
               </FormGroup>
               <Form.Check aria-label="option 1" label="Remember me" />
               <div className="d-grid gap-2">
-                <Button size="lg" type="submit">Login</Button>
+                <Button size="lg" type="submit">
+                  Login
+                </Button>
               </div>
-              <Link className="Forgot-Pass" to="/forget">Lost your Password?</Link>
+              <Link className="Forgot-Pass" to="/forget">
+                Lost your Password?
+              </Link>
             </Form>
           </div>
         </div>

@@ -13,6 +13,7 @@ import Cpp from "./C++";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
 import Quiz from "./Quiz";
+import Instructors from "./Instructors";
 
 function Router() {
   return (
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/cpp" element={<Cpp />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
+      <Route path="/inst" element={<Instructors />} />
     </Routes>
   );
 }
