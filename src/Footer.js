@@ -1,5 +1,5 @@
 import gmaps from './Images/gmaps.jpg';
-import logo from './Icoures.png';
+// import logo from './Icoures.png';
 function Footer(){
 
     return(
