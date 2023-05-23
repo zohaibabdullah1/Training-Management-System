@@ -478,8 +478,8 @@ code {
   /* width: 2rem; */
   margin: 1rem;
   font-size: 22px;
-  background-color: rgb(161, 161, 161);
-  border: 1px solid rgb(161, 161, 161);
+  background-color: lightslategrey;
+  border: 1px solid lightslategrey;
   border-radius: 5px;
   color: #fff;
 }
@@ -490,8 +490,8 @@ code {
   display: flex;
   margin: 1rem;
   font-size: 22px;
-  background-color: rgb(207, 207, 207);
-  border: 1px solid rgb(161, 161, 161);
+  background-color: rgb(126, 146, 167);
+  border: 1px solid rgb(126, 146, 167);
   color: #fff;
 }
 
@@ -698,7 +698,7 @@ code {
   margin: auto;
 }
 .p_hover:hover{
-  color:rgb(255,109,52)
+  color:rgb(255,109,52);
 }
 .p_hover{
   text-align: center;
@@ -730,11 +730,11 @@ height: 20rem;
 
 .lms_home{
   background-color:rgb(40,40,43);
-  height: 100%;
+  color: white;
 }
 
 .nav_bg{
-  background-color: darkgray;
+  background-color: lightslategrey;
   height: 3rem;
 }
 
@@ -743,18 +743,21 @@ height: 20rem;
   font-size: 12px;
 }
 .lms_n{
-  height: 100%;
   margin: auto;
-  padding: 0rem 1rem;
-  font-size: 14px;
+  margin-right: 3rem;
+
+}
+
+.font_size{
+  font-size: 20px;
 }
 
 .latest_course{
-  width: 60%;
+  width: 80%;
   margin: auto;
-
   color: white;
-  text-align: left;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .latest_flex{
@@ -764,41 +767,18 @@ height: 20rem;
 .lms_card{
   box-shadow: 0 4px 8px 0;
   margin: 1rem 1rem;
-
+  background-color: white;
+  color: black;
+  border-radius: 2% 2% 2% 2%;
+  padding-bottom: 1rem;
 }
 
-.instructor{
-
-  width: 60%;
-  /* border: #28282B solid 1px; */
-  margin: 5rem auto 5rem auto;
-  padding: 2rem;
-  display: flex;
-  box-shadow: 0px 0px 30px 1px rgb(210, 209, 209);
-  border-radius: 15px;
-  /* margin-bottom: 5rem; */
-
-
+.latest_heading{
+  text-align: left;
+  margin: 1rem 0rem 1rem 3rem;
 }
-.inst-img{
-  /* width: 100%; */
-  border-radius: 15px;
-  height: 25rem;
-  margin-left: -80px;
-  margin-top: -75px;
-  margin-right: 3rem;
-}
-.instructor p{
-  font-size: 16px;
-  text-align: justify;
-  margin: 1.5rem;
-}
-.instructor h6{
-  font-size: 18px;
+.latest_heading:hover{
   color: #00bda6;
-}
-.instructor h3{
-  font-size: 36px;
 }
 
 
