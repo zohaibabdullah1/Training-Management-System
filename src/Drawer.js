@@ -8,13 +8,18 @@ import logo from './Icoures.png';
 import php from './Images/php.jpg';
 import mongo from './Images/mongo.png';
 import java from './Images/Java.jpg';
-import javascript from './Images/javascript.jpg';
+import aws from './Images/aws.png';
 import nodejs from './Images/nodejs.jpg';
+import html from './Images/html.jpg';
+import css from './Images/css.jpg';
+import reactjs from './Images/reactjs.jpeg';
+import bootstrap from './Images/bootstrap.jpg';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Footer from './Footer';
 
 
 
@@ -48,14 +53,14 @@ const App = () => {
                   <img
                     alt=""
                     src={logo}
-                    width="60"
-                    height="30"
+                    width="90"
+                    height="40"
                     className="d-inline-block align-top"
                   />
                 </Nav>
 
                 <Nav href="#action2" className="nav_lms_center">
-                  <NavDropdown title="MY LMS " id="navbarScrollingDropdown">
+                  <NavDropdown className="font_size" title={<i class="fa fa-regular fa-user lms-profile"></i>}  id="person-icon">
                     <NavDropdown.Item href="#action3"> Dashboard</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action4">
@@ -74,7 +79,6 @@ const App = () => {
                   </NavDropdown>
 
                   <p className="lms_n"> USER NAME</p>
-                  <i class="fa fa-regular fa-user lms_n"></i>
                 </Nav>
 
                 <Form className="d-flex">
@@ -124,61 +128,79 @@ const App = () => {
           </Drawer>
         </div>
 
-        <div className="">
+        <div className="border_class">
+          <h4 className="latest_heading">Latest Courses:</h4>
           <div className="latest_course">
-            <h4>Latest Courses</h4>
+
             <div className="latest_flex">
-              <div className="col-sm-3 lms_card">
+              <div className="col-sm-2 lms_card">
                 <img
                   alt=""
                   src={php}
                   width="100%"
+
                 />
                 <div class="container">
-                  <h4><b>PHP</b></h4>
-                  <h6>MR. HARRY</h6>
-                  <p>Learn the fundamentals and advanced techniques of PHP programming to build dynamic and interactive websites with ease. Develop practical skills in web development and unleash the power of PHP for creating robust and scalable web applications.</p>
-                </div>
+                  <h5><b>PHP</b></h5>
+                  <h6>Mr. Harry</h6>
+                  <p></p>                </div>
               </div>
 
-              <div className="col-sm-3 lms_card">
+              <div className="col-sm-2 lms_card">
                 <img
                   alt=""
                   src={mongo}
                   width="100%"
+
                 />
                 <div class="container">
-                  <h4><b>Mongo Data</b></h4>
-                  <p>MR. Alaxender</p>
+                  <h5><b>Mongo Data</b></h5>
+                  <h6>Mr. Alaxender</h6>
                 </div>
 
               </div>
 
-              <div className="col-sm-3 lms_card">
+              <div className="col-sm-2 lms_card">
                 <img
                   alt=""
                   src={java}
                   width="100%"
+
+
                 />
                 <div class="container">
-                  <h4><b>Java</b></h4>
-                  <p>Mr. Hales</p>
+                  <h5><b>Java</b></h5>
+                  <h6>Mr. Hales</h6>
                 </div>
 
               </div>
-              <div className="col-sm-3 lms_card">
-              <img
+              <div className="col-sm-2 lms_card">
+                <img
                   alt=""
                   src={nodejs}
                   width="100%"
+
                 />
-                  <div class="container">
-                    <h4><b>JavaScript</b></h4>
-                    <p>Mr .Chips</p>
-                  </div>
+                <div class="container">
+                  <h5><b>JavaScript</b></h5>
+                  <h6>Mr .Chips</h6>
+                </div>
 
               </div>
 
+              <div className="col-sm-2 lms_card">
+                <img
+                  alt=""
+                  src={aws}
+                  width="100%"
+
+                />
+                <div class="container">
+                  <h5><b>AWS</b></h5>
+                  <h6>Mr .Jack</h6>
+                </div>
+
+              </div>
 
             </div>
 
@@ -186,8 +208,71 @@ const App = () => {
           </div>
 
         </div>
+        <div className="border_class">
+          <h4 className="latest_heading">Enrolled Courses:</h4>
+
+          <div className="enroll_course">
+
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={html}
+                width="100%"
+
+              />
+              <div class="container">
+                <h5><b>HTML</b></h5>
+                <h6>Mr .Alex</h6>
+              </div>
+
+            </div>
+
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={css}
+                width="100%"
+
+              />
+              <div class="container">
+                <h5><b>CSS</b></h5>
+                <h6>Mr .Saren</h6>
+              </div>
+
+            </div>
+
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={reactjs}
+                width="100%"
+
+              />
+              <div class="container">
+                <h5><b>React JS</b></h5>
+                <h6>Mr .Jackel</h6>
+              </div>
+
+            </div>
+
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={bootstrap}
+                width="100%"
+
+              />
+              <div class="container">
+                <h5><b>Bootstrap</b></h5>
+                <h6>Mr .Aram</h6>
+              </div>
+
+            </div>
+          </div>
 
 
+        </div>
+        <Footer/>
       </div>
     </>
   );
