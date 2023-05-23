@@ -256,6 +256,7 @@ code {
 .main-container{
   /* border: #00bda6 1px solid; */
   width: 70%;
+  /* border: #00bda6 3px solid; */
   margin: auto;
 }
 
@@ -511,26 +512,24 @@ code {
 
 /* ####################################################################################################### */
 .aboutUs{
-  box-shadow: 0px 0px 20px rgb(255,109,52);
-  width: 50%;
-  height:70%;
-  text-align: center;
+  width: 80%;
+  text-align: left;
   margin: auto;
-  margin-top: 9rem;
-  padding: 20px;
-  border-radius: 20px;
+  margin-top: 4%;
 }
-.about-para{
-  padding: 40px;
-  justify-content: center;
-}
+
 .about_color{
   color: rgb(255,109,52);
 }
 
-.about-para{
-  padding: 50px;
-  justify-content: center;
+.about_flex{
+  display: flex;
+  margin: 3rem 0rem;
+}
+
+.list_spacing{
+  margin:2rem 0rem;
+  width: 40%;
 }
 
 .ContactUs{
@@ -699,3 +698,57 @@ code {
   height: 1.2rem;
   margin: auto;
 }
+
+.aboutus_bg{
+background-image: url("./Images/aboutus_bg.jpg");
+background-size:cover;
+width: 100%;
+height: 20rem;
+}
+.contats_h{
+  color: white;
+  margin: 3.5rem 0rem;
+}
+
+/* ################################################################################## */
+
+.lms_home{
+  background-color:rgb(40,40,43);
+  height: 100%;
+}
+
+.nav_bg{
+  background-color: darkgray;
+  height: 3rem;
+}
+
+.nav_lms_center{
+  color: white;
+  font-size: 12px;
+}
+.lms_n{
+  height: 100%;
+  margin: auto;
+  padding: 0rem 1rem;
+  font-size: 14px;
+}
+
+.latest_course{
+  width: 60%;
+  margin: auto;
+
+  color: white;
+  text-align: left;
+}
+
+.latest_flex{
+  display: flex;
+}
+
+.lms_card{
+  box-shadow: 0 4px 8px 0;
+  margin: 1rem 1rem;
+
+}
+
+
