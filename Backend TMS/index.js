@@ -1,8 +1,8 @@
 const express=require('express');
 const app=express();
-const data=require('./data');
 const dbConfig = require("./config");
 const mongoose = require("mongoose");
+const Router = require('./src/router/routes');
 
 const DB = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`;
 mongoose.set("strictQuery", false);
@@ -17,13 +17,9 @@ mongoose
     .catch((err) => {
         console.log("ERROR in connecting DB", err);
     });
-    app.get("/", (req, res) => {
-        res.send(data);
-    });
-app.get('/trainer',(req,res)=>{
-    res.send("Hello, I'm Trainer")
+
+    app.use(express.json());
+    app.use("/",Router);
+app.listen(4000,()=>{
+    console.log('Server is Running on Port 4000')
 });
-app.get('/trainee',(req,res)=>{
-    res.send("Hello, I'm Trainee of bootcamp")
-});
-app.listen(4000);
