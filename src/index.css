@@ -291,10 +291,26 @@ code {
 }
 
 .dropdown_padding{
-  /* border: #00bda6 1px solid; */
+  /* border: #00bda6  1px solid; */
   font-size: 15px;
+  /* text-align: center; */
   margin: 0.5rem 0rem 0rem 0rem;
   font-weight: 600;
+}
+
+.drop-down-menu{
+  text-decoration: none;
+  align-items: center;
+  /* border: #00bda6 solid; */
+  margin: auto;
+  text-align: justify;
+  margin: 0.8rem 0rem 0.5rem 0.6rem;
+  color: #626262;
+}
+
+.drop-down-menu:hover{
+  color: rgb(255, 135, 88);
+
 }
 
 #navbarScrollingDropdown:hover{
@@ -765,26 +781,4 @@ height: 20rem;
   color: #00bda6;
 }
 
-.border_class{
-  border-bottom: 2px solid #8e8e90;
-}
-#person-icon{
-
-  color: #fff;
-
-}
-#person-icon:hover{
-
-  color:rgb(255,109,52);
-
-}
-.enroll_course{
-  display: flex;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 3rem;
-}
-.container h6{
-  font-weight: 300;
-}
 
