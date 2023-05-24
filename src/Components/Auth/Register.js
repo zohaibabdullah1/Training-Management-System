@@ -7,27 +7,23 @@ import Button from "react-bootstrap/Button";
 import NavComp from "../../NavBrandComp";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 function RegForm() {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
-  const handleRegistration = (e) => {
+  const handleRegistration = async(e) => {
     e.preventDefault();
-
-    // Validate form fields
-    if (!username) {
-      // Display an error message or toast notification
-      
-      
+    if (!name) {
       toast.error("Please Enter Username",
       {
-        // position: 'top-center',
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -35,11 +31,8 @@ function RegForm() {
         draggable: true
       });
       return;
-    
-  }
-
+    }
   else if (!email){
-
     toast.error("Please Enter Email Address",
     {
       autoClose: 5000,
@@ -50,10 +43,7 @@ function RegForm() {
       });
       return; 
     }
-
-
   else if (!password || !confirmPassword){
-
     toast.error("Please Enter Password",
     {
       autoClose: 5000,
@@ -76,35 +66,30 @@ function RegForm() {
     });
     return;
   }
-
-
-    // Perform registration operation here
-    // You can make an API call to register the user and store the data
-
-    // Clear form fields
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-
-    // Redirect to the desired page after successful registration
-    toast.success("You are registered!",
-      {
-        // position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true
-      });
-    navigate("/login");
+      let save={name,email,password,role};
+      axios.post("http://localhost:4000/register",save)
+      .then((res)=>{
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        toast.success("You are registered!",
+          {
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true
+          });
+          navigate("/login");
+      })
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "username") {
-      setUsername(value);
+    setRole("user");
+    if (name === "name") {
+      setName(value);
     } else if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -164,13 +149,12 @@ function RegForm() {
             <Form onSubmit={handleRegistration}>
               <h2 className="display-6">Register</h2>
               <FormGroup className="position-relative">
-                <Label for="username">User Name</Label>
+                <Label for="name">User Name</Label>
                 <Input
                   type="text"
-                  name="username"
-                  value={username}
+                  name="name"
+                  value={name}
                   onChange={handleInputChange}
-                  
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -180,7 +164,6 @@ function RegForm() {
                   name="email"
                   value={email}
                   onChange={handleInputChange}
-                  
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -190,7 +173,6 @@ function RegForm() {
                   name="password"
                   value={password}
                   onChange={handleInputChange}
-                  
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -200,7 +182,14 @@ function RegForm() {
                   name="confirmPassword"
                   value={confirmPassword}
                   onChange={handleInputChange}
-                  
+                />
+              </FormGroup>
+              <FormGroup className="position-relative">
+                <Input
+                  type="hidden"
+                  name="role"
+                  value={role}
+                  onChange={handleInputChange}
                 />
               </FormGroup>
               <Form.Check
