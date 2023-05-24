@@ -52,22 +52,22 @@ const App = () => {
                 >
                   <Nav href="#action1"></Nav>
                   <Link className="nav_padding" to="/">
-                  <img
-                    alt=""
-                    src={logo}
-                    width="90"
-                    height="40"
-                    className="d-inline-block align-top"
-                  />
+                    <img
+                      alt=""
+                      src={logo}
+                      width="90"
+                      height="40"
+                      className="d-inline-block align-top"
+                    />
                   </Link>
                 </Nav>
 
                 <Nav href="#action2" className="nav_lms_center">
-                  <NavDropdown className="font_size" title={<i class="fa fa-regular fa-user lms-profile"></i>}  id="person-icon">
-                  <div className="drop-down-menu">
+                  <NavDropdown className="font_size" title={<i class="fa fa-regular fa-user lms-profile"></i>} id="person-icon">
+                    <div className="drop-down-menu">
                       <Link className="drop-down-menu" to="/inst">Dashboard</Link>
                     </div>
-                    <hr/>
+                    <hr />
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" to="/profile">Profile</Link>
                     </div><div className="drop-down-menu">
@@ -76,7 +76,7 @@ const App = () => {
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" to="/inst">Account Settings</Link>
                     </div>
-                    <hr/>
+                    <hr />
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" to="/inst">Logout</Link>
                     </div>
@@ -106,28 +106,35 @@ const App = () => {
                 <Offcanvas.Title className="ham-title" >
                   Student Portal
                 </Offcanvas.Title>
-                <ListGroup.Item className="ham-list" action href="/">
-                  Home
-                </ListGroup.Item>
-                
-                <Link className="ham-list" to='/selectquiz'> Take a Quiz</Link>
 
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to='/'>Home</Link>
+                </ListGroup.Item>
 
-                <ListGroup.Item className="ham-list" action>
-                  Attendence
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to='/selectquiz'>Take a Quiz</Link>
                 </ListGroup.Item>
-                <ListGroup.Item className="ham-list" action>
-                  Enrolled Courses
+
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to='/'>Attendence</Link>
                 </ListGroup.Item>
-                <ListGroup.Item className="ham-list" action>
-                  New Courses
+
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to=''>Enrolled Courses</Link>
                 </ListGroup.Item>
-                <ListGroup.Item className="ham-list" action >
-                  Results
+
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to=''>New Courses</Link>
                 </ListGroup.Item>
-                <ListGroup.Item className="ham-list" href="/login" action>
-                  Sign Out
+
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to=''>Results</Link>
                 </ListGroup.Item>
+
+                <ListGroup.Item className="ham-list">
+                  <Link className="ham-list" to='/login'>Sign Out</Link>
+                </ListGroup.Item>
+
               </ListGroup>
             </div>
           </Drawer>
@@ -136,78 +143,78 @@ const App = () => {
         <div>
           <h4 className="latest_heading">Latest Courses:</h4>
 
-            <div className="latest_flex">
-              <div className="col-sm-2 lms_card">
-                <img
-                  alt=""
-                  src={php}
-                  width="100%"
+          <div className="latest_flex">
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={php}
+                width="100%"
 
-                />
-                <div class="container">
-                  <h5><b>PHP</b></h5>
-                  <h6>Mr. Harry</h6>
-                  <p></p>                </div>
-              </div>
+              />
+              <div class="container">
+                <h5><b>PHP</b></h5>
+                <h6>Mr. Harry</h6>
+                <p></p>                </div>
+            </div>
 
-              <div className="col-sm-2 lms_card">
-                <img
-                  alt=""
-                  src={mongo}
-                  width="100%"
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={mongo}
+                width="100%"
 
-                />
-                <div class="container">
-                  <h5><b>Mongo Data</b></h5>
-                  <h6>Mr. Alaxender</h6>
-                </div>
-
-              </div>
-
-              <div className="col-sm-2 lms_card">
-                <img
-                  alt=""
-                  src={java}
-                  width="100%"
-
-
-                />
-                <div class="container">
-                  <h5><b>Java</b></h5>
-                  <h6>Mr. Hales</h6>
-                </div>
-
-              </div>
-              <div className="col-sm-2 lms_card">
-                <img
-                  alt=""
-                  src={nodejs}
-                  width="100%"
-
-                />
-                <div class="container">
-                  <h5><b>JavaScript</b></h5>
-                  <h6>Mr .Chips</h6>
-                </div>
-
-              </div>
-
-              <div className="col-sm-2 lms_card">
-                <img
-                  alt=""
-                  src={aws}
-                  width="100%"
-
-                />
-                <div class="container">
-                  <h5><b>AWS</b></h5>
-                  <h6>Mr .Jack</h6>
-                </div>
-
+              />
+              <div class="container">
+                <h5><b>Mongo Data</b></h5>
+                <h6>Mr. Alaxender</h6>
               </div>
 
             </div>
 
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={java}
+                width="100%"
+
+
+              />
+              <div class="container">
+                <h5><b>Java</b></h5>
+                <h6>Mr. Hales</h6>
+              </div>
+
+            </div>
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={nodejs}
+                width="100%"
+
+              />
+              <div class="container">
+                <h5><b>JavaScript</b></h5>
+                <h6>Mr .Chips</h6>
+              </div>
+
+            </div>
+
+            <div className="col-sm-2 lms_card">
+              <img
+                alt=""
+                src={aws}
+                width="100%"
+
+              />
+              <div class="container">
+                <h5><b>AWS</b></h5>
+                <h6>Mr .Jack</h6>
+              </div>
+
+            </div>
+
+          </div>
+          <hr />
 
         </div>
         <div>
@@ -271,9 +278,10 @@ const App = () => {
 
             </div>
           </div>
-      
+          <hr />
+
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

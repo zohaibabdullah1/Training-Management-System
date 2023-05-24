@@ -515,6 +515,8 @@ code {
 
 .ham-list{
   font-weight: 200;
+  text-decoration: none;
+  color: black;
 }
 .exit{
   margin-left: 0.5rem;
@@ -805,6 +807,12 @@ height: 20rem;
 .instructor h3{
   font-size: 36px;
 }
+
+.latest_heading{
+  text-align: left;
+  margin: 2rem 1rem 1rem 5rem;
+}
+
 .latest_heading:hover{
   color: #00bda6;
 }
@@ -818,4 +826,10 @@ height: 20rem;
 
 #person-icon:hover{
   color: rgb(255,109,52);
+}
+
+/* ############################################################################# */
+
+.my_profile_main{
+  background-color: rgb(40,40,43);
 }

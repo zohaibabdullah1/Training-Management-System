@@ -1,10 +1,17 @@
+import React from 'react';
+import Enrolled_Courses from'./enrolled_courses';
+import NavBarComponent from './NavBar';
+
 function UserProfile(){
+    
 
     return(
         <>
+        <div className='my_profile_main'>
         
-        <h3>hello</h3>
-        
+        <NavBarComponent/>
+        <Enrolled_Courses/>
+        </div>
         </>
     );
 }
