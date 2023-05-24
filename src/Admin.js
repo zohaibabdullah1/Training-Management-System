@@ -48,7 +48,7 @@ const AdminPanel = () => {
                 Manage Quizzes
               </ListGroup.Item>
               <ListGroup.Item className="ham-list" action>
-                Manage Attendence
+                Manage Attendance
               </ListGroup.Item>
               <ListGroup.Item className="ham-list" action>
                 Create/Update Results
