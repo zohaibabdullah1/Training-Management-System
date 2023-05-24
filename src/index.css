@@ -752,16 +752,16 @@ height: 20rem;
   font-size: 20px;
 }
 
-.latest_course{
+.latest_flex{
+  display: flex;
+
   width: 80%;
   margin: auto;
   color: white;
   text-align: center;
   margin-bottom: 2rem;
-}
+  justify-content: center;
 
-.latest_flex{
-  display: flex;
 }
 
 .lms_card{
@@ -789,5 +789,14 @@ height: 20rem;
 .latest_heading:hover{
   color: #00bda6;
 }
+.border_class{
+  border-bottom: 2px solid #8e8e90;
+}
 
+#person-icon{
+  color: white;
+}
 
+#person-icon:hover{
+  color: rgb(255,109,52);
+}
