@@ -6,7 +6,7 @@ import RegForm from "./Components/Auth/Register";
 import Catlogs from "./Catlog";
 import PassReset from "./Pass_reset";
 import Dashboard from "./Components/Admin/Dashboard";
-import App from "./Drawer";
+import App from "./StudentPortal";
 import AdminPanel from "./Admin";
 import SelectQuiz from "./SelectQuiz";
 import Cpp from "./C++";
