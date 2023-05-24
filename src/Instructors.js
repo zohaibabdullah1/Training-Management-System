@@ -33,9 +33,11 @@ function Instructor() {
       <div className="aboutUs">
         <InstComp img={inst1} desc={desc} />
       </div>
+      <hr className="hr" />
       <div className="aboutUs">
         <InstComp img={inst1} desc={desc} />
       </div>
+      <hr className="hr" />
 
       <div className="aboutUs">
         <InstComp img={inst1} desc={desc} />
