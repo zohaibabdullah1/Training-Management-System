@@ -20,6 +20,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Footer from './Footer';
+import { Link } from "react-router-dom";
 
 
 
@@ -61,21 +62,22 @@ const App = () => {
 
                 <Nav href="#action2" className="nav_lms_center">
                   <NavDropdown className="font_size" title={<i class="fa fa-regular fa-user lms-profile"></i>}  id="person-icon">
-                    <NavDropdown.Item href="#action3"> Dashboard</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action4">
-                      Profile
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
-                      Grades
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action6">
-                      Messages
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action7">
-                      Log Out
-                    </NavDropdown.Item>
+                  <div className="drop-down-menu">
+                      <Link className="drop-down-menu" to="/inst">Dashboard</Link>
+                    </div>
+                    <hr/>
+                    <div className="drop-down-menu">
+                      <Link className="drop-down-menu" to="/profile">Profile</Link>
+                    </div><div className="drop-down-menu">
+                      <Link className="drop-down-menu" to="/inst">Notifications</Link>
+                    </div>
+                    <div className="drop-down-menu">
+                      <Link className="drop-down-menu" to="/inst">Account Settings</Link>
+                    </div>
+                    <hr/>
+                    <div className="drop-down-menu">
+                      <Link className="drop-down-menu" to="/inst">Logout</Link>
+                    </div>
                   </NavDropdown>
 
                   <p className="lms_n"> USER NAME</p>
@@ -105,9 +107,10 @@ const App = () => {
                 <ListGroup.Item className="ham-list" action href="/">
                   Home
                 </ListGroup.Item>
-                <ListGroup.Item className="ham-list" action href="/selectquiz">
-                  Take a Quiz
-                </ListGroup.Item>
+                
+                <Link className="ham-list" to='/selectquiz'> Take a Quiz</Link>
+
+
                 <ListGroup.Item className="ham-list" action>
                   Attendence
                 </ListGroup.Item>
@@ -202,6 +205,8 @@ const App = () => {
               </div>
 
             </div>
+
+            <hr className="hr" />
 
 
         </div>
