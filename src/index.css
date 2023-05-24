@@ -507,9 +507,9 @@ code {
 .ham-title{
   text-align: center;
   font-weight: 600;
-  /* margin: 1rem; */
   /* border: 1px solid #00bda6; */
   padding: 1rem;
+  color: #626262;
 
 }
 
