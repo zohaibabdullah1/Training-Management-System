@@ -7,7 +7,7 @@ function InstComp({img,desc}) {
 
       <div className="aboutUs">
         <div className="instructor">
-          <img className="inst-img" src={img} alt="Instructor Image" />
+          <img className="inst-img" src={img} alt="Instructor" />
           <div>
             <h3>Nicole Brown</h3>
             <h6>Programming Teacher</h6>
