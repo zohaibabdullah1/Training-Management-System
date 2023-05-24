@@ -805,13 +805,6 @@ height: 20rem;
 .instructor h3{
   font-size: 36px;
 }
-
-.hr{
-  width: 60%;
-  margin: auto;
-  color: #999898;
-}
-
 .latest_heading:hover{
   color: #00bda6;
 }
