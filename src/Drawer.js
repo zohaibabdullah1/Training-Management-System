@@ -39,7 +39,7 @@ const App = () => {
           <Navbar className="nav_bg">
             <Container fluid>
               <Navbar.Brand><button className="ham_button" onClick={toggleDrawer}>
-                <i class="fa fa-regular fa-bars"></i>
+                <i className="fa fa-regular fa-bars"></i>
               </button>
               </Navbar.Brand>
               <Navbar.Toggle aria-controls="navbarScroll" />
@@ -60,7 +60,7 @@ const App = () => {
                 </Nav>
 
                 <Nav href="#action2" className="nav_lms_center">
-                  <NavDropdown className="font_size" title={<i class="fa fa-regular fa-user lms-profile"></i>}  id="person-icon">
+                  <NavDropdown className="font_size" title={<i className="fa fa-regular fa-user lms-profile"></i>}  id="person-icon">
                     <NavDropdown.Item href="#action3"> Dashboard</NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action4">
@@ -139,7 +139,7 @@ const App = () => {
                   width="100%"
 
                 />
-                <div class="container">
+                <div className="container">
                   <h5><b>PHP</b></h5>
                   <h6>Mr. Harry</h6>
                   <p></p>                </div>
@@ -152,7 +152,7 @@ const App = () => {
                   width="100%"
 
                 />
-                <div class="container">
+                <div className="container">
                   <h5><b>Mongo Data</b></h5>
                   <h6>Mr. Alaxender</h6>
                 </div>
@@ -167,7 +167,7 @@ const App = () => {
 
 
                 />
-                <div class="container">
+                <div className="container">
                   <h5><b>Java</b></h5>
                   <h6>Mr. Hales</h6>
                 </div>
@@ -180,7 +180,7 @@ const App = () => {
                   width="100%"
 
                 />
-                <div class="container">
+                <div className="container">
                   <h5><b>JavaScript</b></h5>
                   <h6>Mr .Chips</h6>
                 </div>
@@ -194,7 +194,7 @@ const App = () => {
                   width="100%"
 
                 />
-                <div class="container">
+                <div className="container">
                   <h5><b>AWS</b></h5>
                   <h6>Mr .Jack</h6>
                 </div>
@@ -217,7 +217,7 @@ const App = () => {
                 width="100%"
 
               />
-              <div class="container">
+              <div className="container">
                 <h5><b>HTML</b></h5>
                 <h6>Mr .Alex</h6>
               </div>
@@ -231,7 +231,7 @@ const App = () => {
                 width="100%"
 
               />
-              <div class="container">
+              <div className="container">
                 <h5><b>CSS</b></h5>
                 <h6>Mr .Saren</h6>
               </div>
@@ -245,7 +245,7 @@ const App = () => {
                 width="100%"
 
               />
-              <div class="container">
+              <div className="container">
                 <h5><b>React JS</b></h5>
                 <h6>Mr .Jackel</h6>
               </div>
@@ -259,7 +259,7 @@ const App = () => {
                 width="100%"
 
               />
-              <div class="container">
+              <div className="container">
                 <h5><b>Bootstrap</b></h5>
                 <h6>Mr .Aram</h6>
               </div>
