@@ -130,7 +130,6 @@ const App = () => {
 
         <div className="border_class">
           <h4 className="latest_heading">Latest Courses:</h4>
-          <div className="latest_course">
 
             <div className="latest_flex">
               <div className="col-sm-2 lms_card">
@@ -205,13 +204,11 @@ const App = () => {
             </div>
 
 
-          </div>
-
         </div>
         <div className="border_class">
           <h4 className="latest_heading">Enrolled Courses:</h4>
 
-          <div className="enroll_course">
+          <div className="latest_flex">
 
             <div className="col-sm-2 lms_card">
               <img
