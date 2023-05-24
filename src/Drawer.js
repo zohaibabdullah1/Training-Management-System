@@ -20,6 +20,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Footer from './Footer';
+import { Link } from "react-router-dom";
 
 
 
@@ -50,6 +51,7 @@ const App = () => {
                   navbarScroll
                 >
                   <Nav href="#action1"></Nav>
+                  <Link className="nav_padding" to="/">
                   <img
                     alt=""
                     src={logo}
@@ -57,6 +59,7 @@ const App = () => {
                     height="40"
                     className="d-inline-block align-top"
                   />
+                  </Link>
                 </Nav>
 
                 <Nav href="#action2" className="nav_lms_center">
@@ -128,7 +131,7 @@ const App = () => {
           </Drawer>
         </div>
 
-        <div className="border_class">
+        <div>
           <h4 className="latest_heading">Latest Courses:</h4>
 
             <div className="latest_flex">
@@ -203,9 +206,8 @@ const App = () => {
 
             </div>
 
-
         </div>
-        <div className="border_class">
+        <div>
           <h4 className="latest_heading">Enrolled Courses:</h4>
 
           <div className="latest_flex">
@@ -266,8 +268,7 @@ const App = () => {
 
             </div>
           </div>
-
-
+      
         </div>
         <Footer/>
       </div>
