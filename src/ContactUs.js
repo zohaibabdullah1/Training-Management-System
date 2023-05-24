@@ -2,6 +2,7 @@ import React from "react";
 import NavComp from './NavBrandComp';
 import NavBarComponent from "./NavBar";
 import Footer from "./Footer";
+import flex_img from './Images/aboutus flex.jpeg';
 
 function ContactUs() {
   return (
@@ -12,36 +13,52 @@ function ContactUs() {
           <NavBarComponent/>
            </div>
 
-      {/* <div className="arrow">
-    <Link to='/home'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
-      </div> */}
+           <div className='aboutUs'>
+        <h2>What We Do:</h2>
+        <p className='about-para'>
+          Our online course website offers a wide range of educational opportunities for learners of all levels. With our user-friendly interface and intuitive navigation, you can easily browse and enroll in courses that align with your interests and goals. Our experienced instructors, who are experts in their respective fields, deliver engaging and interactive lessons that promote active learning. Whether you're looking to acquire new skills, enhance your knowledge, or explore a new passion, our platform provides a flexible and convenient way to achieve your educational aspirations. Join our community of motivated learners and embark on a journey of personal and professional growth today.
+        </p>
+        <h2>Requirements We Fulfill:</h2>
+        <p className='about-para'>
+        Our online course website fulfills several key requirements to ensure a seamless learning experience. First, we offer a diverse range of courses in various subject areas, catering to the needs and interests of our learners. Our courses are designed to be accessible and engaging, utilizing multimedia content, interactive quizzes, and practical exercises to enhance understanding and retention.
+        </p>
+        <p>Second, our platform provides a user-friendly interface that simplifies course discovery, enrollment, and progress tracking. Learners can easily navigate through course catalogs, view detailed syllabi, and monitor their own learning journey with progress indicators and completion certificates.</p>
+        <p>
+        Third, our website features a robust learning management system (LMS) that facilitates effective course delivery and communication. Our instructors have access to tools for uploading course materials, creating assignments, and providing personalized feedback to learners. Additionally, learners can interact with instructors and peers through discussion forums, messaging systems, and virtual classrooms.
+        </p>
+        <p>
+        Furthermore, our online course website prioritizes flexibility, allowing learners to access course content at their own pace and convenience. Our platform is compatible with various devices, enabling learners to study on their preferred devices, whether it's a desktop, laptop, tablet, or smartphone.
+        </p>
+
+        <p>
+        Lastly, we prioritize the security and privacy of our users' information. Our website adheres to industry-standard security protocols and employs encryption technologies to safeguard personal data.
+        </p>
+        <p>
+        By fulfilling these requirements, we ensure that our online course website delivers a seamless and enriching learning experience for our users.
+        </p>
+        <div className='about_flex'>
+          <div className='col-sm-5'>
+            <img
+              alt=""
+              src={flex_img}
+              width="600"
+              height=""
+              className="d-inline-block align-top"
+            />
+          </div>
+          <div className='col-sm-7 list_spacing'>
+            <h2>Software Development & Quality Assurance Services</h2>
+            <ul>
+              <li>Software Development, Testing, Automated Testing, User Documentation, UI/UX Design.</li>
+              <li>Legacy Migration, Legacy Support, Maintenance, SQA Automation, Manual QA, Augmented R&D, Initiative Support/Development, Modernization…</li>
+              <li>.NET, Java, JavaScript (Angular, React, TypeScript, Node, etc), HTML5, Responsive, iOS, Android, Salesforce, SharePoint, VB6, Delphi, FoxPro, PROGRESS, C/C++, Oracle Apex, PowerBuilder, RPG, COBOL, DBA, Robohelp, Test Complete, Selenium, Coded UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>   
     
-    <div className="ContactUs">
- 
-<h1><b className="contact_color">CONTACT</b> INFORMATION</h1>
-      <h4 className="contact_second">Get In Touch With Us</h4>
-      <h3 className="contact_second">Fuel Your Future<b className="coler"> simplify your life</b></h3>
-      <div className='main-flex'>
-
-        <div className="col-sm-4" id='information' ><h5> <b className="coler">A</b>DDRESS</h5>
-        <div>Askari Corporate Towers, 12th Floor, 75- Block D1, Gulberg –III, LAHORE, Punjab, 54660, Pakistan</div>
-        </div>
-        
-        <div className="col-sm-4"  id='information'><h5> <b className="coler">P</b>HONE</h5>
-        <div>+92 42 35788961 </div>
-        <div> +92 42 35788963</div>
-        </div>
-        
-        <div className="col-sm-4" id='information'><h5> <b className="coler">M</b>AIL</h5>
-        <div>info@contour-software.com</div>
-        </div>
-        
-      </div>
-
-      </div>
       <div>
       <Footer/>
-
       </div>
     </>
   );
