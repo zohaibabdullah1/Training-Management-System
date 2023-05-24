@@ -12,6 +12,7 @@ function RegForm() {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,15 +20,9 @@ function RegForm() {
 
   const handleRegistration = (e) => {
     e.preventDefault();
-
-    // Validate form fields
     if (!username) {
-      // Display an error message or toast notification
-      
-      
       toast.error("Please Enter Username",
       {
-        // position: 'top-center',
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -35,11 +30,8 @@ function RegForm() {
         draggable: true
       });
       return;
-    
-  }
-
+    }
   else if (!email){
-
     toast.error("Please Enter Email Address",
     {
       autoClose: 5000,
@@ -50,10 +42,7 @@ function RegForm() {
       });
       return; 
     }
-
-
   else if (!password || !confirmPassword){
-
     toast.error("Please Enter Password",
     {
       autoClose: 5000,
@@ -77,27 +66,21 @@ function RegForm() {
     return;
   }
 
-
-    // Perform registration operation here
-    // You can make an API call to register the user and store the data
-
-    // Clear form fields
     setUsername("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
-
-    // Redirect to the desired page after successful registration
     toast.success("You are registered!",
       {
-        // position: 'top-center',
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true
       });
-    navigate("/login");
+      console.log(role)
+      // const save={}
+    // navigate("/login");
   };
 
   const handleInputChange = (e) => {
@@ -170,7 +153,6 @@ function RegForm() {
                   name="username"
                   value={username}
                   onChange={handleInputChange}
-                  
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -180,7 +162,6 @@ function RegForm() {
                   name="email"
                   value={email}
                   onChange={handleInputChange}
-                  
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -190,7 +171,6 @@ function RegForm() {
                   name="password"
                   value={password}
                   onChange={handleInputChange}
-                  
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -200,7 +180,14 @@ function RegForm() {
                   name="confirmPassword"
                   value={confirmPassword}
                   onChange={handleInputChange}
-                  
+                />
+              </FormGroup>
+              <FormGroup className="position-relative">
+                <Input
+                  type="hidden"
+                  name="role"
+                  value={role}
+                  onChange={setRadioValue("user")}
                 />
               </FormGroup>
               <Form.Check

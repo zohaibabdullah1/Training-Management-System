@@ -10,6 +10,7 @@ exports.UserRegister = async (req, res) => {
             name: req.body.name,
             email: req.body.email,
             password: hashed,
+            role:req.body.role
         });
 
         await userData.save();
@@ -26,12 +27,12 @@ exports.UserRegister = async (req, res) => {
 };
 
 exports.UserLogin = async (req, res) => {
-    const { email, password } = req.body;
-    if (email && password) {
+    const { email, password,role } = req.body;
+    if (email && password && role) {
         const userData = await userdata.findOne({ email: email });
         if (userData) {
             const compass = bcrypt.compare(password, userData.password);
-            if (userData.email === email && compass) {
+            if (userData.email === email && compass && userData.role===role) {
                 jwt.sign({ name: userData.email }, "seckey", (err, token) => {
                     if (token) {
                         res.json({
@@ -47,17 +48,17 @@ exports.UserLogin = async (req, res) => {
                 });
             } else {
                 res.json({
-                    message: "plz enter your correct password"
+                    message: "please enter your correct password"
                 });
             }
         } else {
             res.json({
-                message: "plz enter your correct email"
+                message: "please enter your correct email"
             });
         }
     } else {
         res.json({
-            message: "plz enter all field"
+            message: "please enter all field"
         });
     }
 };
