@@ -7,20 +7,21 @@ import Button from "react-bootstrap/Button";
 import NavComp from "../../NavBrandComp";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 function RegForm() {
   const navigate = useNavigate();
 
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
-  const handleRegistration = (e) => {
+  const handleRegistration = async(e) => {
     e.preventDefault();
-    if (!username) {
+    if (!name) {
       toast.error("Please Enter Username",
       {
         autoClose: 5000,
@@ -65,29 +66,30 @@ function RegForm() {
     });
     return;
   }
-
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    toast.success("You are registered!",
-      {
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true
-      });
-      console.log(role)
-      // const save={}
-    // navigate("/login");
+      let save={name,email,password,role};
+      axios.post("http://localhost:4000/register",save)
+      .then((res)=>{
+        setName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        toast.success("You are registered!",
+          {
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true
+          });
+          navigate("/login");
+      })
   };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "username") {
-      setUsername(value);
+    setRole("user");
+    if (name === "name") {
+      setName(value);
     } else if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -147,11 +149,11 @@ function RegForm() {
             <Form onSubmit={handleRegistration}>
               <h2 className="display-6">Register</h2>
               <FormGroup className="position-relative">
-                <Label for="username">User Name</Label>
+                <Label for="name">User Name</Label>
                 <Input
                   type="text"
-                  name="username"
-                  value={username}
+                  name="name"
+                  value={name}
                   onChange={handleInputChange}
                 />
               </FormGroup>
@@ -187,7 +189,7 @@ function RegForm() {
                   type="hidden"
                   name="role"
                   value={role}
-                  onChange={setRadioValue("user")}
+                  onChange={handleInputChange}
                 />
               </FormGroup>
               <Form.Check

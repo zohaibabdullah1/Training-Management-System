@@ -9,18 +9,17 @@ import Button from "react-bootstrap/Button";
 import NavComp from "../../NavBrandComp";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 function LoginForm() {
   const navigate = useNavigate();
-
+  const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    // Validate email and password
     if (!email) {
       toast.error("Please Enter Email", {
         autoClose: 5000,
@@ -31,7 +30,6 @@ function LoginForm() {
       });
       return;
     }
-
     else if (!password) {
       toast.error("Please Enter Password", {
         autoClose: 5000,
@@ -42,23 +40,11 @@ function LoginForm() {
       });
       return;
     }
-
-    // try {
-    //   // Perform login operation by making an API call to the backend server
-    //   const response = await fetch("/api/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({ email, password }),
-    //   });
-
-    //   if (response.ok) {
-    //     // Clear form fields
-    //     setEmail("");
-    //     setPassword("");
-
-    //     // Redirect to the desired page after successful login
+    let save={email,password,role};
+      axios.post("http://localhost:4000/register",save)
+      .then((res)=>{
+        setEmail("");
+        setPassword("");
         toast.success("Welcome! You are logged in.", {
           autoClose: 5000,
           hideProgressBar: true,
@@ -67,56 +53,31 @@ function LoginForm() {
           draggable: true
         });
         navigate("/lms");
-    //   } else {
-    //     // Handle login error
-    //     const errorData = await response.json();
-    //     toast.error(errorData.message, {
-    //       autoClose: 5000,
-    //       hideProgressBar: true,
-    //       closeOnClick: true,
-    //       pauseOnHover: true,
-    //       draggable: true
-    //     });
-    //   }
-    // } catch (error) {
-    //   // Handle network or server errors
-    //   console.error("Login failed:", error);
-    //   toast.error("Login failed. Please try again later.", {
-    //     autoClose: 5000,
-    //     hideProgressBar: true,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true
-    //   });
-    // }
+      })
   };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
+    setRole("user");
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
     }
   };
-
   const register = () => {
     navigate("/register");
   };
-
   const radios = [
     { name: "Login", value: "1" },
     { name: "Register", value: "3" },
   ];
-
   return (
     <>
       <div className="login-container">
         <NavComp />
         <div className="arrow">
           <Link to="/">
-            <i class='fas fa-chevron-circle-left back-arrow'></i>
+            <i className='fas fa-chevron-circle-left back-arrow'></i>
           </Link>
         </div>
         <div className="Toggle">
@@ -163,6 +124,14 @@ function LoginForm() {
                   type="password"
                   name="password"
                   value={password}
+                  onChange={handleInputChange}
+                />
+              </FormGroup>
+              <FormGroup className="position-relative">
+                <Input
+                  type="hidden"
+                  name="role"
+                  value={role}
                   onChange={handleInputChange}
                 />
               </FormGroup>

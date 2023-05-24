@@ -2,6 +2,7 @@ const express=require('express');
 const app=express();
 const dbConfig = require("./config");
 const mongoose = require("mongoose");
+const cors = require('cors')
 const Router = require('./src/router/routes');
 
 const DB = `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`;
@@ -19,6 +20,7 @@ mongoose
     });
 
     app.use(express.json());
+    app.use(cors());
     app.use("/",Router);
 app.listen(4000,()=>{
     console.log('Server is Running on Port 4000')
