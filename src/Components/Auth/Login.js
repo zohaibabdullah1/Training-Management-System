@@ -41,18 +41,26 @@ function LoginForm() {
       return;
     }
     let save={email,password,role};
-      axios.post("http://localhost:4000/register",save)
+      axios.post("http://localhost:4000/login",save)
       .then((res)=>{
         setEmail("");
         setPassword("");
         toast.success("Welcome! You are logged in.", {
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true
         });
         navigate("/lms");
+      }).catch((error)=>{
+        toast.error(error.response.data.message, {
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true
+        });
       })
   };
   const handleInputChange = (e) => {
