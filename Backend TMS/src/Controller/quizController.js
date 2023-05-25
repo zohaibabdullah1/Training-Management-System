@@ -3,9 +3,9 @@ const quiz = require("../Model/QuizModel");
 exports.getQuiz = async (req, res) => {
     try {
         const allQuiz = await quiz.find();
-        res.send(allQuiz);
+        res.status(200).send(allQuiz);
     } catch (error) {
-        res.json({
+        res.status(400).json({
             message: "no data found",
             error
         });
@@ -22,12 +22,12 @@ exports.postQuiz = async (req, res) => {
             opt4: req.body.opt4,
         });
         await Quiz.save();
-        res.json({
+        res.status(200).json({
             message: "Quiz Created Successfully"
         });
     } catch (error) {
         console.log(error);
-        res.json({
+        res.status(400).json({
             message: "Quiz Not Generated"
         });
     }
@@ -60,12 +60,12 @@ exports.updateQuiz = async (req, res) => {
 
         await updatingQuiz.save();
         console.log(updatingQuiz)
-        res.json({
+        res.status(200).json({
             message: "Quiz Question update"
         });
     } catch (error) {
         console.log(error);
-        res.json({
+        res.status(400).json({
             message: "we cannot find data against this Question ID"
         });
     }
@@ -77,12 +77,12 @@ exports.deleteQuiz = async (req, res) => {
             _id: req.params.id
         });
         await deleteQuiz.delete();
-        res.json({
+        res.status(200).json({
             message: "Quiz Question Delete"
         });
     } catch (error) {
         console.log(error);
-        res.json({
+        res.status(400).json({
             message: "we cannot find data against this ID"
         });
     }
