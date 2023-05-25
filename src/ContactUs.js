@@ -9,7 +9,7 @@ function ContactUs() {
     <div className="contact_bg">
       <NavComp />
 
-      <div className='aboutus_bg'>
+      <div className='conatctus_bg'>
         <div className='main-container'>
           <NavBarComponent />
         </div>

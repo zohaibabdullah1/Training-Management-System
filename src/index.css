@@ -173,7 +173,8 @@ hr {
 .col1 {
   /* border: #00bda6 1px solid; */
   display: flex;
-  margin: 2rem;
+  margin: 4rem 0rem 4rem 0rem;
+
   /* height: 2px; */
 }
 .Catlog-Para {
@@ -713,6 +714,21 @@ code {
   width: 100%;
   height: 20rem;
 }
+
+.conatctus_bg {
+  background-image: url("./Images/contact_us.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 20rem;
+}
+
+.courses_bg{
+  background-image: url("./Images/courses_bg.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 15rem;
+}
+
 .contats_h {
   color: white;
   margin: 3.5rem 0rem;
@@ -999,8 +1015,6 @@ code {
 }
 
 
-}
-
 /* ########################################## */
 
 
@@ -1052,4 +1066,9 @@ code {
   color: rgb(255,109,52);
   background-color: white;
   border: 2px solid rgb(255,109,52);
+}
+
+.course_bg{
+  background-color:rgb(40,40,43);
+
 }
