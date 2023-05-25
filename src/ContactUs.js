@@ -46,19 +46,19 @@ function ContactUs() {
         <div className="col-sm-6 contact_right">
           <div className="inner_right">
           <form>
-            <label className="coler" for="full-name">Full Name:</label>
+            <label for="full-name">Full Name:</label>
             <br/>
             <input className="textfield_align" type="text" id="full-name" name="full-name" required /><br /><br />
 
-            <label className="coler" for="email">Email:</label>
+            <label  for="email">Email:</label>
             <br/>
             <input className="textfield_align" type="email" id="email" name="email" required /><br /><br />
 
-            <label className="coler" for="phone">Phone Number:</label>
+            <label  for="phone">Phone Number:</label>
             <br/>
             <input className="textfield_align" type="tel" id="phone" name="phone" required /><br /><br />
 
-            <label  className="coler" for="message">Message:</label><br/>
+            <label   for="message">Message:</label><br/>
               <textarea className="textfield_align" id="message" name="message" rows="3" required /><br/><br/>
 
             <input className="submit_btn" type="submit" value="Submit" />
