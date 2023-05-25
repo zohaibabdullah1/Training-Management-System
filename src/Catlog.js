@@ -7,13 +7,19 @@ import img4 from "./Images/img4.jpg";
 import img5 from "./Images/img5.jpg";
 import img6 from "./Images/img6.jpg";
 import NavBarComponent from "./NavBar";
+import Footer from "./Footer";
 
 function Catlogs() {
   return (
     <>
-      {<NavComp />}
-      <NavBarComponent />
+      {<NavComp/>}
 
+      <div className='courses_bg'>
+        <div className='main-container'>
+          <NavBarComponent />
+        </div>
+        <h1 className='contats_h '> Courses</h1>
+      </div>
       <div className="Catlogs">
         <h6>LEARN WITHOUT LIMITS</h6>
         <h2>Explore Our Online Courses</h2>
@@ -32,6 +38,10 @@ function Catlogs() {
           {<Cards img={img5} />}
           {<Cards img={img6} />}
         </div>
+      </div>
+
+      <div>
+        <Footer/>
       </div>
     </>
   );
