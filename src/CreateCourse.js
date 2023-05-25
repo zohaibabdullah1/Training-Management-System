@@ -65,6 +65,7 @@ function CreateCourse() {
 
   return (
     <>
+
       <div>
         {/* <NavComp/> */}
         <AdminNav toggle={toggleDrawer} open={isOpen} />
@@ -75,6 +76,7 @@ function CreateCourse() {
           <i className="fas fa-chevron-circle-left back-arrow"></i>
         </Link>
       </div>
+
       <div className="main-container-create-course">
         <h1>Add Course</h1>
         <form className="form-create-course" onSubmit={handleSubmit}>
