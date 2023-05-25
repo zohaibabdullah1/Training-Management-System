@@ -43,14 +43,14 @@ function NavBarComponent() {
                       <Link className="drop-down-menu" to="/catlog">Courses List</Link>
                     </div>
                     <div className="drop-down-menu">
-                      <Link className="drop-down-menu" to="/inst">Enrolled Courses</Link>
+                      <Link className="drop-down-menu" to="/login">Enrolled Courses</Link>
                     </div>
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" to="/inst">Instructors</Link>
                     </div>
                     <hr/>
                     <div className="drop-down-menu">
-                      <Link className="drop-down-menu" to="/inst">My Profile</Link>
+                      <Link className="drop-down-menu" to="/login">My Profile</Link>
                     </div>
                   </div>
                 </NavDropdown>

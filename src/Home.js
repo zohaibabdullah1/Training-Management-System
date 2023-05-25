@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import NavBarComponent from './NavBar';
 import Footer from './Footer';
 
+
 function Home() {
   return (
     <div>
@@ -48,19 +49,22 @@ function Home() {
           <p className='grey_titilebar'><b className='' >!</b> Fuel Your Future</p>
           <h1>More Than 15k+ Courses Online</h1>
           <p className='grey_titilebar'>Get access to high quality learning whereever you are, with online courses, programs and degrees created by leading universities.</p>
-          <Button className='titlebar_btn' >View Courses</Button>
+          <Link to='/catlog'>
+          <Button className='titlebar_btn' >View Courses </Button>
+          </Link>
+          
         </div>
       </div>
 
       <div className='bg_color_home'>
         <div className='second_home'>
           <div className="col-sm-4 second_data">
-            <i class="fa fa-sharp fa-light fa-rocket  icon_size"></i>
+            <i className="fa fa-sharp fa-light fa-rocket  icon_size"></i>
             <h3><b className='coler'>Learn </b>Anything</h3>
             <div>Join millions of people from around the world learning together.Try it now!</div>
           </div>
           <div className="col-sm-4 second_data">
-            <i class="fa fa-sharp fa-light fa-globe icon_size"></i>
+            <i className="fa fa-sharp fa-light fa-globe icon_size"></i>
             <h3><b className='coler'>Learn </b> Together</h3>
             <div>Join millions of people from around the world learning together.Try it now!</div>
           </div>
