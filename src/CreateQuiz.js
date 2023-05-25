@@ -1,31 +1,35 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function CreateCourse() {
-  const [courseTitle, setCourseTitle] = useState("");
-  const [instructorName, setInstructorName] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
-  const [courseImage, setCourseImage] = useState(null);
+function CreateQuiz() {
+  const [quizQuestion, setQuizQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [optionOne, setOptionOne] = useState("");
+  const [optionTwo, setOptionTwo] = useState("");
+  const [optionThree, setOptionThree] = useState("");
+  const [optionFour, setOptionFour] = useState("");
 
-  const handleCourseTitleChange = (e) => {
-    setCourseTitle(e.target.value);
+  const handleQuizQuestionChange = (e) => {
+    setQuizQuestion(e.target.value);
   };
 
-  const handleInstructorNameChange = (e) => {
-    setInstructorName(e.target.value);
+  const handleAnswerChange = (e) => {
+    setAnswer(e.target.value);
   };
 
-  const handleCourseDescriptionChange = (e) => {
-    setCourseDescription(e.target.value);
+  const handleOptionOneChange = (e) => {
+    setOptionOne(e.target.value);
   };
 
-  const handleCourseImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.match("image/jpeg|image/jpg|image/png")) {
-      setCourseImage(file);
-    } else {
-      setCourseImage(null);
-    }
+  const handleOptionTwoChange = (e) => {
+    setOptionTwo(e.target.value);
+  };
+
+  const handleOptionThreeChange = (e) => {
+    setOptionThree(e.target.value);
+  };
+  const handleOptionFourChange = (e) => {
+    setOptionFour(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -33,22 +37,27 @@ function CreateCourse() {
 
     // Create a new FormData object
     const formData = new FormData();
-    formData.append("title", courseTitle);
-    formData.append("instructorName", instructorName);
-    formData.append("description", courseDescription);
-    formData.append("image", courseImage);
+    formData.append("quetiosn", quizQuestion);
+    formData.append("answer", answer);
+    formData.append("optionOne", optionOne);
+    formData.append("optionTwo", optionTwo);
+    formData.append("optionThree", optionThree);
+    formData.append("optionFour", optionFour);
 
     // Make an API call to add the course to the database
     axios
-      .post("/api/courses", formData)
+      .post("/api/createquiz", formData)
       .then((response) => {
         // Handle success response
         console.log(response.data);
         // Reset the form fields
-        setCourseTitle("");
-        setInstructorName("");
-        setCourseDescription("");
-        setCourseImage(null);
+        setQuizQuestion("");
+        setAnswer("");
+        setOptionOne("");
+        setOptionTwo("");
+        setOptionThree("");
+        setOptionFour("");
+        
       })
       .catch((error) => {
         // Handle error response
@@ -59,49 +68,70 @@ function CreateCourse() {
   return (
     <>
       <div className="main-container-create-course">
-        <h1>Add Course</h1>
+        <h1>Create Quiz</h1>
         <form className="form-create-course" onSubmit={handleSubmit}>
           <div>
             <input
               className="form-element-create-course"
               type="text"
-              id="courseTitle"
-              value={courseTitle}
-              placeholder="Course Title"
-              onChange={handleCourseTitleChange}
+              id="quizQuestion"
+              value={quizQuestion}
+              placeholder="Write Question"
+              onChange={handleQuizQuestionChange}
             />
           </div>
           <div>
             <input
               className="form-element-create-course"
               type="text"
-              id="instructorName"
-              value={instructorName}
-              placeholder="Instructor Name"
-              onChange={handleInstructorNameChange}
+              id="answer"
+              value={answer}
+              placeholder="Answer"
+              onChange={handleAnswerChange}
             />
           </div>
           <div>
-            <textarea
-              className="form-element-create-course"
-              id="courseDescription"
-              value={courseDescription}
-              placeholder="Course Description"
-              onChange={handleCourseDescriptionChange}
-            ></textarea>
-          </div>
-          <div className="create-course-img">
-            <label htmlFor="courseImage">Course Image (JPEG/PNG)</label>
             <input
-              className="form-element-create-course-choose-img"
-              type="file"
-              id="courseImage"
-              accept="image/jpeg, image/jpg, image/png"
-              onChange={handleCourseImageChange}
+              className="form-element-create-course"
+              type="text"
+              id="optionOne"
+              value={optionOne}
+              placeholder="Option One"
+              onChange={handleOptionOneChange}
             />
           </div>
-          <button type="submit" disabled={!courseImage}>
-            Add Course
+          <div>
+            <input
+              className="form-element-create-course"
+              type="text"
+              id="optionTwo"
+              value={optionTwo}
+              placeholder="Option Two"
+              onChange={handleOptionTwoChange}
+            />
+          </div>
+          <div>
+            <input
+              className="form-element-create-course"
+              type="text"
+              id="optionThree"
+              value={optionThree}
+              placeholder="Option Three"
+              onChange={handleOptionThreeChange}
+            />
+          </div>
+          <div>
+            <input
+              className="form-element-create-course"
+              type="text"
+              id="optionFour"
+              value={optionFour}
+              placeholder="Option Four"
+              onChange={handleOptionFourChange}
+            />
+          </div>
+          <button type="submit">
+            Create Quiz
           </button>
         </form>
       </div>
@@ -109,4 +139,4 @@ function CreateCourse() {
   );
 }
 
-export default CreateCourse;
+export default CreateQuiz;

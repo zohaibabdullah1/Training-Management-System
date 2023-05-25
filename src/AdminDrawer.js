@@ -1,9 +1,10 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import Drawer from "react-modern-drawer";
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import NavComp from "./NavBrandComp";
+// import NavComp from "./NavBrandComp";
+import {NavLink} from 'react-router-dom'
 
 function AdminDrawerComp({toggle, open}){
 
@@ -26,27 +27,31 @@ function AdminDrawerComp({toggle, open}){
                 </Offcanvas.Title>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/createcourse'>Create Course</Link>
+                  <NavLink className="ham-list" to='/ap'>Dashboard</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/selectquiz'>Create Quiz</Link>
+                  <NavLink className="ham-list" to='/createcourse'>Create Course</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/'>Manage Courses</Link>
+                  <NavLink className="ham-list" to='/createquiz'>Create Quiz</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to=''>Manage Quizes</Link>
+                  <NavLink className="ham-list" to='/'>Manage Courses</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to=''>Create/Update Results</Link> 
+                  <NavLink className="ham-list" to='/'>Manage Quizes</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to=''>Add Instructor</Link>
+                  <NavLink className="ham-list" to='/'>Create/Update Results</NavLink> 
+                </ListGroup.Item>
+
+                <ListGroup.Item className="ham-list">
+                  <NavLink className="ham-list" to='/'>Add Instructor</NavLink>
                 </ListGroup.Item>
 
               </ListGroup>

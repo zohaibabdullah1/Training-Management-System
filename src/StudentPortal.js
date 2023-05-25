@@ -21,6 +21,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import CourseComp from "./CourseComp";
+import {NavLink} from 'react-router-dom'
 
 const App = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -132,31 +133,31 @@ const App = () => {
                 </Offcanvas.Title>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/'>Home</Link>
+                  <NavLink className="ham-list" to='/'>Home</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/selectquiz'>Take a Quiz</Link>
+                  <NavLink className="ham-list" to='/selectquiz'>Take a Quiz</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/'>Attendence</Link>
+                  <NavLink className="ham-list" to='/'>Attendence</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to=''>Enrolled Courses</Link>
+                  <NavLink className="ham-list" to=''>Enrolled Courses</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to=''>New Courses</Link>
+                  <NavLink className="ham-list" to=''>New Courses</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to=''>Results</Link>
+                  <NavLink className="ham-list" to=''>Results</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <Link className="ham-list" to='/login'>Sign Out</Link>
+                  <NavLink className="ham-list" to='/login'>Sign Out</NavLink>
                 </ListGroup.Item>
 
               </ListGroup>
