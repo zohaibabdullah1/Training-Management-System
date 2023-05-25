@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import NavComp from "./NavBrandComp";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
@@ -68,7 +67,6 @@ function CreateCourse() {
     <>
 
 <div>
-            {/* <NavComp/> */}
             <AdminNav toggle={toggleDrawer} open={isOpen}/>
             <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
         </div>
