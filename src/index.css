@@ -526,6 +526,20 @@ code {
   font-weight: 400;
   color: rgb(93, 93, 93);
 }
+.ham-list .active{
+  font-weight: 500;
+  color: rgb(0,189,166);
+  /* color: rgb(128, 69, 69); */
+  text-decoration: none;
+}
+
+/* .active{
+  background-color: rgb(160, 160, 160);
+  font-weight: 300;
+  text-decoration: none;
+  color: rgb(40, 39, 39);
+  color: #fff;
+} */
 .exit{
   margin-left: 0.5rem;
   color: #8e8e90;
@@ -992,4 +1006,57 @@ margin: 2rem 1rem 1rem 5rem;
   font-weight: 500;
   font-size: 18px;
 
+}
+
+/* ########################################## */
+
+
+.contact_bg{
+  color: white;
+  background-color:rgb(40,40,43);
+}
+
+.contact_flex{
+  display: flex;
+  margin: 4rem 0rem;
+}
+.contact_heading{
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact_left{
+  text-align: left;
+  margin: auto;
+}
+
+.inner_left{
+  width: 70%;
+  margin: auto;
+}
+.inner_right{
+  width: 60%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.contact_right{
+  text-align: left;
+}
+
+.textfield_align{
+  width: 22rem;
+  background-color: #ccc;
+}
+
+.submit_btn{
+  color: white;
+  background-color: rgb(255,109,52);
+  width: 6rem;
+  height: 2.5rem;
+}
+.submit_btn:hover{
+  color: rgb(255,109,52);
+  background-color: white;
+  border: 2px solid rgb(255,109,52);
 }
