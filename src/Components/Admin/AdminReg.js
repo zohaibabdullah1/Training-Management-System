@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
-function RegForm() {
+function AdminReg() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -81,7 +81,7 @@ function RegForm() {
             pauseOnHover: true,
             draggable: true
           });
-          navigate("/login");
+          navigate("/adminlogin");
       })
       .catch((err)=>{
         toast.error(err.response.data.message, {
@@ -96,7 +96,7 @@ function RegForm() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setRole("user");
+    setRole("admin");
     if (name === "name") {
       setName(value);
     } else if (name === "email") {
@@ -114,7 +114,7 @@ function RegForm() {
   ];
 
   const login = () => {
-    navigate("/login");
+    navigate("/adminlogin");
   };
 
   return (
@@ -218,4 +218,4 @@ function RegForm() {
   );
 }
 
-export default RegForm;
+export default AdminReg;
