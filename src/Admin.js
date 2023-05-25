@@ -1,18 +1,15 @@
 import React from "react";
 import "react-modern-drawer/dist/index.css";
-import title from "./Images/php.jpg";
-import mongo from "./Images/mongo.png";
-import java from "./Images/Java.jpg";
-import aws from "./Images/aws.png";
-import nodejs from "./Images/nodejs.jpg";
-import html from "./Images/html.jpg";
-import css from "./Images/css.jpg";
-import reactjs from "./Images/reactjs.jpeg";
-import bootstrap from "./Images/bootstrap.jpg";
 import Footer from "./Footer";
 import CourseComp from "./CourseComp";
 import AdminDrawerComp from "./AdminDrawer";
 import AdminNav from "./AdminNav";
+import course from "./Images/course.jpg";
+import instructor from "./Images/instructor.jpg";
+import result from "./Images/result.jpg";
+import quiz from "./Images/quiz icon.jpg";
+import managecourse from "./Images/manage course.jpg";
+import managequiz from "./Images/manage quiz.jpg";
 
 const App = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -20,20 +17,18 @@ const App = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const courses = [
-    { img: html, Iname: "Mr. Alex", heading: "HTML" },
-    { img: css, Iname: "Mr. Saren", heading: "CSS" },
-    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap" },
-    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS" },
-    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS" },
+  const dashboard = [
+    { img: quiz, heading: "Create Quiz", pageSrc: "/createquiz" },
+    { img: course, heading: "Create Course", pageSrc: "/createcourse" },
+    { img: result, heading: "Results", pageSrc: "/ap" },
+    { img: instructor, heading: "Add Instructor", pageSrc: "/addinstructor" },
+    // { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
     // Add more course objects as needed
   ];
 
-  const enrolled_course = [
-    { img: title, Iname: "Mr. Jack", heading: "PHP" },
-    { img: mongo, Iname: "Mr. Alaxender", heading: "Mongo Data" },
-    { img: java, Iname: "Mr. Hales", heading: "Java" },
-    { img: aws, Iname: "Mr. Jack", heading: "AWS" },
+  const more_options = [
+    { img: managecourse, heading: "Manage Course", pageSrc: "/" },
+    { img: managequiz, heading: "Manage Quiz", pageSrc: "/" },
   ];
 
   return (
@@ -44,31 +39,30 @@ const App = () => {
           <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
         </div>
 
-        <div>
-          <h4 className="latest_heading">Latest Courses:</h4>
+        <div className="admin-dashboard-main">
+          <h4 className="latest_heading">Quick Access:</h4>
 
-          <div className="latest_flex">
-            {courses.map((course, index) => (
+          <div className="admin-dashboard">
+            {dashboard.map((course, index) => (
               <CourseComp
                 key={index}
                 img={course.img}
                 Iname={course.Iname}
                 heading={course.heading}
+                pageSrc={course.pageSrc}
               />
             ))}
           </div>
         </div>
 
-        <div>
-          <h4 className="latest_heading">Enrolled Courses:</h4>
-
-          <div className="latest_flex">
-            {enrolled_course.map((course, index) => (
+        <div className="admin-dashboard-main">
+          <div className="admin-dashboard">
+            {more_options.map((more_options, index) => (
               <CourseComp
                 key={index}
-                img={course.img}
-                Iname={course.Iname}
-                heading={course.heading}
+                img={more_options.img}
+                Iname={more_options.Iname}
+                heading={more_options.heading}
               />
             ))}
           </div>

@@ -31,20 +31,19 @@ const App = () => {
 
   const courses = [
    
-    { img: html, Iname: "Mr. Alex", heading: "HTML" },
-    { img: css, Iname: "Mr. Saren", heading: "CSS" },
-    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap" },
-    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS" },
-    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS" },
-    // Add more course objects as needed
+    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc:"/ap" },
+    { img: css, Iname: "Mr. Saren", heading: "CSS", pageSrc:"/" },
+    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc:"/login" },
+    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc:"/" },
+    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
   ];
 
   const enrolled_course =[
 
-    { img: title, Iname: "Mr. Jack", heading: "PHP" },
-    { img: mongo, Iname: "Mr. Alaxender", heading: "Mongo Data" },
-    { img: java, Iname: "Mr. Hales", heading: "Java" },
-    { img: aws, Iname: "Mr. Jack", heading: "AWS" }
+    { img: title, Iname: "Mr. Jack", heading: "PHP", pageSrc:"/" },
+    { img: mongo, Iname: "Mr. Alaxender", heading: "MongoDB", pageSrc:"/" },
+    { img: java, Iname: "Mr. Hales", heading: "Java", pageSrc:"/" },
+    { img: aws, Iname: "Mr. Jack", heading: "AWS", pageSrc:"/" }
 
   ];
 
@@ -175,6 +174,7 @@ const App = () => {
                 img={course.img}
                 Iname={course.Iname}
                 heading={course.heading}
+                pageSrc={course.pageSrc}
               />
             ))}
           </div>

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AdminNav from "./AdminNav";
+import AdminDrawerComp from "./AdminDrawer";
+import { Link } from "react-router-dom";
 
 function CreateQuiz() {
   const [quizQuestion, setQuizQuestion] = useState("");
@@ -8,6 +11,11 @@ function CreateQuiz() {
   const [optionTwo, setOptionTwo] = useState("");
   const [optionThree, setOptionThree] = useState("");
   const [optionFour, setOptionFour] = useState("");
+
+  const [isOpen, setIsOpen] = React.useState(false);
+  const toggleDrawer = () => {
+    setIsOpen((prevState) => !prevState);
+  };
 
   const handleQuizQuestionChange = (e) => {
     setQuizQuestion(e.target.value);
@@ -57,7 +65,6 @@ function CreateQuiz() {
         setOptionTwo("");
         setOptionThree("");
         setOptionFour("");
-        
       })
       .catch((error) => {
         // Handle error response
@@ -67,6 +74,16 @@ function CreateQuiz() {
 
   return (
     <>
+      <div>
+        {/* <NavComp/> */}
+        <AdminNav toggle={toggleDrawer} open={isOpen} />
+        <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
+      </div>
+      <div className="arrow">
+        <Link to="/ap">
+          <i className="fas fa-chevron-circle-left back-arrow"></i>
+        </Link>
+      </div>
       <div className="main-container-create-course">
         <h1>Create Quiz</h1>
         <form className="form-create-course" onSubmit={handleSubmit}>
@@ -130,9 +147,7 @@ function CreateQuiz() {
               onChange={handleOptionFourChange}
             />
           </div>
-          <button type="submit">
-            Create Quiz
-          </button>
+          <button type="submit">Create Quiz</button>
         </form>
       </div>
     </>

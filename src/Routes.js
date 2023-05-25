@@ -17,6 +17,7 @@ import Instructors from "./Instructors";
 import UserProfilePage from "./UserProfile";
 import CreateCourse from "./CreateCourse";
 import CreateQuiz from "./CreateQuiz";
+import AddInstructor from "./AddInstructor";
 
 function Router() {
   return (
@@ -30,14 +31,15 @@ function Router() {
       <Route path="/lms" element={<App />} />
       <Route path="/ap" element={<AdminPanel />} />
       <Route path="/selectquiz" element={<SelectQuiz />} />
-      <Route path="/startquiz" element={<Quiz/>} />
+      <Route path="/startquiz" element={<Quiz />} />
       <Route path="/cpp" element={<Cpp />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/inst" element={<Instructors />} />
-      <Route path="/profile" element={<UserProfilePage/>} />
-      <Route path="/createcourse" element={<CreateCourse/>}/>
-      <Route path="/createquiz" element={<CreateQuiz/>}/>
+      <Route path="/profile" element={<UserProfilePage />} />
+      <Route path="/createcourse" element={<CreateCourse />} />
+      <Route path="/createquiz" element={<CreateQuiz />} />
+      <Route path="/addinstructor" element={<AddInstructor />} />
     </Routes>
   );
 }

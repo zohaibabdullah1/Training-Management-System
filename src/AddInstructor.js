@@ -4,34 +4,35 @@ import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 import { Link } from "react-router-dom";
 
-function CreateCourse() {
+function AddInstructor() {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
-  const [courseTitle, setCourseTitle] = useState("");
-  const [instructorName, setInstructorName] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
-  const [courseImage, setCourseImage] = useState(null);
 
-  const handleCourseTitleChange = (e) => {
-    setCourseTitle(e.target.value);
+  const [instructorName, setInstructorName] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [coursesTeaching, setCoursesTeaching] = useState("");
+  const [instructorImage, setInstructorImage] = useState(null);
+
+  const handleQualificationChange = (e) => {
+    setQualification(e.target.value);
   };
 
   const handleInstructorNameChange = (e) => {
     setInstructorName(e.target.value);
   };
 
-  const handleCourseDescriptionChange = (e) => {
-    setCourseDescription(e.target.value);
+  const handleCoursesTeachingChange = (e) => {
+    setCoursesTeaching(e.target.value);
   };
 
-  const handleCourseImageChange = (e) => {
+  const handleInstructorImageChange = (e) => {
     const file = e.target.files[0];
     if (file && file.type.match("image/jpeg|image/jpg|image/png")) {
-      setCourseImage(file);
+      setInstructorImage(file);
     } else {
-      setCourseImage(null);
+      setInstructorImage(null);
     }
   };
 
@@ -40,22 +41,24 @@ function CreateCourse() {
 
     // Create a new FormData object
     const formData = new FormData();
-    formData.append("title", courseTitle);
+
     formData.append("instructorName", instructorName);
-    formData.append("description", courseDescription);
-    formData.append("image", courseImage);
+    formData.append("qualification", qualification);
+    formData.append("coursesTeaching", coursesTeaching);
+    formData.append("instructorImage", instructorImage);
 
     // Make an API call to add the course to the database
     axios
-      .post("/api/courses", formData)
+      .post("/api/addInstructor", formData)
       .then((response) => {
         // Handle success response
         console.log(response.data);
         // Reset the form fields
-        setCourseTitle("");
+
         setInstructorName("");
-        setCourseDescription("");
-        setCourseImage(null);
+        setQualification("");
+        setCoursesTeaching("");
+        setInstructorImage(null);
       })
       .catch((error) => {
         // Handle error response
@@ -76,18 +79,8 @@ function CreateCourse() {
         </Link>
       </div>
       <div className="main-container-create-course">
-        <h1>Add Course</h1>
+        <h1>Add Instructor</h1>
         <form className="form-create-course" onSubmit={handleSubmit}>
-          <div>
-            <input
-              className="form-element-create-course"
-              type="text"
-              id="courseTitle"
-              value={courseTitle}
-              placeholder="Course Title"
-              onChange={handleCourseTitleChange}
-            />
-          </div>
           <div>
             <input
               className="form-element-create-course"
@@ -99,26 +92,37 @@ function CreateCourse() {
             />
           </div>
           <div>
-            <textarea
+            <input
               className="form-element-create-course"
-              id="courseDescription"
-              value={courseDescription}
-              placeholder="Course Description"
-              onChange={handleCourseDescriptionChange}
-            ></textarea>
+              type="text"
+              id="qualification"
+              value={qualification}
+              placeholder="Qualification"
+              onChange={handleQualificationChange}
+            />
+          </div>
+          <div>
+            <input
+              className="form-element-create-course"
+              type="text"
+              id="coursesTeaching"
+              value={coursesTeaching}
+              placeholder="Course Teaching"
+              onChange={handleCoursesTeachingChange}
+            />
           </div>
           <div className="create-course-img">
-            <label htmlFor="courseImage">Course Image (JPEG/PNG)</label>
+            <label htmlFor="instructorImage">Instructor Image (JPEG/PNG)</label>
             <input
               className="form-element-create-course-choose-img"
               type="file"
-              id="courseImage"
+              id="instructorImage"
               accept="image/jpeg, image/jpg, image/png"
-              onChange={handleCourseImageChange}
+              onChange={handleInstructorImageChange}
             />
           </div>
-          <button type="submit" disabled={!courseImage}>
-            Add Course
+          <button type="submit" disabled={!instructorImage}>
+            Add
           </button>
         </form>
       </div>
@@ -126,4 +130,4 @@ function CreateCourse() {
   );
 }
 
-export default CreateCourse;
+export default AddInstructor;
