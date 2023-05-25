@@ -7,58 +7,73 @@ import flex_img from './Images/aboutus flex.jpeg';
 function ContactUs() {
   return (
     <>
+    <div className="contact_bg">
       <NavComp />
 
-      <div className='main-container'>
-          <NavBarComponent/>
-           </div>
+      <div className='aboutus_bg'>
+        <div className='main-container'>
+          <NavBarComponent />
+        </div>
+        <h1 className='contats_h '> Contact Us</h1>
+      </div>
+      <div className="contact_flex">
+        <div className="col-sm-6 contact_left">
+          <div className="inner_left">
+          <h3 className="contact_heading coler">Inquiries & Free Quotations</h3>
+          <p>Thank you for your interest in Icourse, the leading online course company revolutionizing the way we learn. We are dedicated to providing exceptional educational experiences and are here to assist you in any way we can. Please feel free to reach out to us using the contact information below:</p>
+          <hr />
+          <br />
+          <h6 className="coler">Customer Support:</h6>
+          <p> Email:<u><b> support@icourse.com</b></u></p>
+          <p>Phone: +1-XXX-XXX-XXXX (available Monday to Friday, 9 am to 5 pm EST)</p>
 
-           <div className='aboutUs'>
-        <h2>What We Do:</h2>
-        <p className='about-para'>
-          Our online course website offers a wide range of educational opportunities for learners of all levels. With our user-friendly interface and intuitive navigation, you can easily browse and enroll in courses that align with your interests and goals. Our experienced instructors, who are experts in their respective fields, deliver engaging and interactive lessons that promote active learning. Whether you're looking to acquire new skills, enhance your knowledge, or explore a new passion, our platform provides a flexible and convenient way to achieve your educational aspirations. Join our community of motivated learners and embark on a journey of personal and professional growth today.
-        </p>
-        <h2>Requirements We Fulfill:</h2>
-        <p className='about-para'>
-        Our online course website fulfills several key requirements to ensure a seamless learning experience. First, we offer a diverse range of courses in various subject areas, catering to the needs and interests of our learners. Our courses are designed to be accessible and engaging, utilizing multimedia content, interactive quizzes, and practical exercises to enhance understanding and retention.
-        </p>
-        <p>Second, our platform provides a user-friendly interface that simplifies course discovery, enrollment, and progress tracking. Learners can easily navigate through course catalogs, view detailed syllabi, and monitor their own learning journey with progress indicators and completion certificates.</p>
-        <p>
-        Third, our website features a robust learning management system (LMS) that facilitates effective course delivery and communication. Our instructors have access to tools for uploading course materials, creating assignments, and providing personalized feedback to learners. Additionally, learners can interact with instructors and peers through discussion forums, messaging systems, and virtual classrooms.
-        </p>
-        <p>
-        Furthermore, our online course website prioritizes flexibility, allowing learners to access course content at their own pace and convenience. Our platform is compatible with various devices, enabling learners to study on their preferred devices, whether it's a desktop, laptop, tablet, or smartphone.
-        </p>
+          <h6 className="coler">Technical Support:</h6>
+          <p> Email:<u><b> techsupport@icourse.com</b></u></p>
+          <p>Phone: +1-XXX-XXX-XXXX (available Monday to Friday, 9 am to 5 pm EST)</p>
 
-        <p>
-        Lastly, we prioritize the security and privacy of our users' information. Our website adheres to industry-standard security protocols and employs encryption technologies to safeguard personal data.
-        </p>
-        <p>
-        By fulfilling these requirements, we ensure that our online course website delivers a seamless and enriching learning experience for our users.
-        </p>
-        <div className='about_flex'>
-          <div className='col-sm-5'>
-            <img
-              alt=""
-              src={flex_img}
-              width="600"
-              height=""
-              className="d-inline-block align-top"
-            />
-          </div>
-          <div className='col-sm-7 list_spacing'>
-            <h2>Software Development & Quality Assurance Services</h2>
-            <ul>
-              <li>Software Development, Testing, Automated Testing, User Documentation, UI/UX Design.</li>
-              <li>Legacy Migration, Legacy Support, Maintenance, SQA Automation, Manual QA, Augmented R&D, Initiative Support/Development, Modernization…</li>
-              <li>.NET, Java, JavaScript (Angular, React, TypeScript, Node, etc), HTML5, Responsive, iOS, Android, Salesforce, SharePoint, VB6, Delphi, FoxPro, PROGRESS, C/C++, Oracle Apex, PowerBuilder, RPG, COBOL, DBA, Robohelp, Test Complete, Selenium, Coded UI</li>
-            </ul>
+          <h6 className="coler">Partnership Inquiries:</h6>
+          <p> Email:<u><b> partnerships@icourse.com</b></u></p>
+
+
+          <h6 className="coler">Media Inquiries:</h6>
+          <p> Email:<u><b> media@icourse.com</b></u></p>
+
+          <h6 className="coler"> General Inquiries:</h6>
+          <p> Email:<u><b> info@icourse.com</b></u></p>
+
+
           </div>
         </div>
-      </div>   
-    
+        <div className="col-sm-6 contact_right">
+          <div className="inner_right">
+          <form>
+            <label className="coler" for="full-name">Full Name:</label>
+            <br/>
+            <input className="textfield_align" type="text" id="full-name" name="full-name" required /><br /><br />
+
+            <label className="coler" for="email">Email:</label>
+            <br/>
+            <input className="textfield_align" type="email" id="email" name="email" required /><br /><br />
+
+            <label className="coler" for="phone">Phone Number:</label>
+            <br/>
+            <input className="textfield_align" type="tel" id="phone" name="phone" required /><br /><br />
+
+            <label  className="coler" for="message">Message:</label><br/>
+              <textarea className="textfield_align" id="message" name="message" rows="3" required /><br/><br/>
+
+            <input className="submit_btn" type="submit" value="Submit" />
+          </form>
+          </div>
+        </div>
+
+
+      </div>
+
+
       <div>
-      <Footer/>
+        <Footer />
+      </div>
       </div>
     </>
   );
