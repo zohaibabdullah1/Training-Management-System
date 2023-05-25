@@ -42,6 +42,7 @@ function Router() {
       <Route path="/profile" element={<UserProfilePage/>} />
       <Route path="/createcourse" element={<CreateCourse/>}/>
       <Route path="/createquiz" element={<CreateQuiz/>}/>
+      <Route path="/addinstructor" element={<AddInstructor/>}/>
     </Routes>
   );
 }
