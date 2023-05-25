@@ -20,7 +20,7 @@ const App = () => {
   const dashboard = [
     { img: quiz, heading: "Create Quiz", pageSrc: "/createquiz" },
     { img: course, heading: "Create Course", pageSrc: "/createcourse" },
-    { img: result, heading: "Results", pageSrc: "/ap" },
+    { img: result, heading: "Results", pageSrc: "/admin" },
     { img: instructor, heading: "Add Instructor", pageSrc: "/addinstructor" },
     // { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
     // Add more course objects as needed

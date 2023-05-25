@@ -31,9 +31,9 @@ const App = () => {
 
   const courses = [
    
-    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc:"/ap" },
+    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc:"/" },
     { img: css, Iname: "Mr. Saren", heading: "CSS", pageSrc:"/" },
-    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc:"/login" },
+    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc:"/" },
     { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc:"/" },
     { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
   ];

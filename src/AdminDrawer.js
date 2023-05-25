@@ -27,7 +27,7 @@ function AdminDrawerComp({toggle, open}){
                 </Offcanvas.Title>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to='/ap'>Dashboard</NavLink>
+                  <NavLink className="ham-list" to='/admin'>Dashboard</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">

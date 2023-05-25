@@ -80,7 +80,7 @@ function CreateQuiz() {
         <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
       </div>
       <div className="arrow">
-        <Link to="/ap">
+        <Link to="/admin">
           <i className="fas fa-chevron-circle-left back-arrow"></i>
         </Link>
       </div>
