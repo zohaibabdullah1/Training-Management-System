@@ -1,29 +1,27 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { FormGroup, Label, Input } from "reactstrap";
-import { ButtonGroup, ToggleButton } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
+import { useState } from "react";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
 import Button from "react-bootstrap/Button";
 import NavComp from "../../NavBrandComp";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 
-function RegForm() {
+function AdminLogin() {
   const navigate = useNavigate();
-
-  const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
 
-  const handleRegistration = async(e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (!name) {
-      toast.error("Please Enter Username",
-      {
+    if (!email) {
+      toast.error("Please Enter Email", {
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
@@ -32,102 +30,65 @@ function RegForm() {
       });
       return;
     }
-  else if (!email){
-    toast.error("Please Enter Email Address",
-    {
-      autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true
-      });
-      return; 
-    }
-  else if (!password || !confirmPassword){
-    toast.error("Please Enter Password",
-    {
-      autoClose: 5000,
+    else if (!password) {
+      toast.error("Please Enter Password", {
+        autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true
       });
       return;
-  }
-  else if (password !== confirmPassword) {
-    toast.error("Password does not match!",
-    {
-      // position: 'top-center',
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true
-    });
-    return;
-  }
-      let save={name,email,password,role};
-      axios.post("http://localhost:4000/register",save)
-      .then((res)=>{
-        setName("");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
-        toast.success("You are registered!",
-          {
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-          });
-          navigate("/login");
-      })
-      .catch((err)=>{
-        toast.error(err.response.data.message, {
-          autoClose: 3000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true
-        });
-      })
+    }
+    let save={email,password,role};
+    axios.post("http://localhost:4000/login",save)
+    .then((res)=>{
+      setEmail("");
+      setPassword("");
+      console.log(res);
+      toast.success("Welcome! You are logged in.", {
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      });
+      navigate("/admin");
+    }).catch((error)=>{
+      toast.error(error.response.data.message, {
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      });
+    })
   };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setRole("user");
-    if (name === "name") {
-      setName(value);
-    } else if (name === "email") {
+    setRole("admin");
+    if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
-    } else if (name === "confirmPassword") {
-      setConfirmPassword(value);
     }
   };
-
-  const radios = [
-    { name: "Login", value: "3" },
-    { name: "Register", value: "1" },
-  ];
-
-  const login = () => {
-    navigate("/login");
+  const register = () => {
+    navigate("/adminreg");
   };
-
+  const radios = [
+    { name: "Login", value: "1" },
+    { name: "Register", value: "3" },
+  ];
   return (
     <>
       <div className="login-container">
         <NavComp />
-
         <div className="arrow">
-          <Link to="/login">
-            <i className="fas fa-chevron-circle-left back-arrow"></i>
+          <Link to="/">
+            <i className='fas fa-chevron-circle-left back-arrow'></i>
           </Link>
         </div>
-
         <div className="Toggle">
           <ButtonGroup>
             {radios.map((radio, idx) => (
@@ -145,7 +106,7 @@ function RegForm() {
                 value={radio.value}
                 checked={radioValue === radio.value}
                 onChange={(e) => setRadioValue(e.currentTarget.value)}
-                onClick={login}
+                onClick={register}
               >
                 {radio.name}
               </ToggleButton>
@@ -155,17 +116,8 @@ function RegForm() {
 
         <div className="Login-Form">
           <div className="login">
-            <Form onSubmit={handleRegistration}>
-              <h2 className="display-6">Register</h2>
-              <FormGroup className="position-relative">
-                <Label for="name">User Name</Label>
-                <Input
-                  type="text"
-                  name="name"
-                  value={name}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
+            <Form onSubmit={handleLogin}>
+              <h2 className="display-6">Login</h2>
               <FormGroup className="position-relative">
                 <Label for="email">Email Address</Label>
                 <Input
@@ -176,20 +128,11 @@ function RegForm() {
                 />
               </FormGroup>
               <FormGroup className="position-relative">
-                <Label for="password">Create Password</Label>
+                <Label for="password">Password</Label>
                 <Input
                   type="password"
                   name="password"
                   value={password}
-                  onChange={handleInputChange}
-                />
-              </FormGroup>
-              <FormGroup className="position-relative">
-                <Label for="confirmPassword">Confirm Password</Label>
-                <Input
-                  type="password"
-                  name="confirmPassword"
-                  value={confirmPassword}
                   onChange={handleInputChange}
                 />
               </FormGroup>
@@ -201,15 +144,15 @@ function RegForm() {
                   onChange={handleInputChange}
                 />
               </FormGroup>
-              <Form.Check
-                aria-label="option 1"
-                label="I have read terms & conditions"
-              />
+              <Form.Check aria-label="option 1" label="Remember me" />
               <div className="d-grid gap-2">
                 <Button size="lg" type="submit">
-                  Sign up
+                  Login
                 </Button>
               </div>
+              <Link className="Forgot-Pass" to="/forget">
+                Lost your Password?
+              </Link>
             </Form>
           </div>
         </div>
@@ -218,4 +161,4 @@ function RegForm() {
   );
 }
 
-export default RegForm;
+export default AdminLogin;
