@@ -8,6 +8,7 @@ import flex_img from './Images/aboutus flex.jpeg';
 function AboutUs() {
   return (
     <>
+    <div className='contact_bg'>
 
       {<NavComp />}
       <div className='aboutus_bg'>
@@ -22,11 +23,11 @@ function AboutUs() {
       </div> */}
 
       <div className='aboutUs'>
-        <h2>What We Do:</h2>
+        <h2 className='coler'>What We Do:</h2>
         <p className='about-para'>
           Our online course website offers a wide range of educational opportunities for learners of all levels. With our user-friendly interface and intuitive navigation, you can easily browse and enroll in courses that align with your interests and goals. Our experienced instructors, who are experts in their respective fields, deliver engaging and interactive lessons that promote active learning. Whether you're looking to acquire new skills, enhance your knowledge, or explore a new passion, our platform provides a flexible and convenient way to achieve your educational aspirations. Join our community of motivated learners and embark on a journey of personal and professional growth today.
         </p>
-        <h2>Requirements We Fulfill:</h2>
+        <h2 className='coler'>Requirements We Fulfill:</h2>
         <p className='about-para'>
         Our online course website fulfills several key requirements to ensure a seamless learning experience. First, we offer a diverse range of courses in various subject areas, catering to the needs and interests of our learners. Our courses are designed to be accessible and engaging, utilizing multimedia content, interactive quizzes, and practical exercises to enhance understanding and retention.
         </p>
@@ -55,7 +56,7 @@ function AboutUs() {
             />
           </div>
           <div className='col-sm-7 list_spacing'>
-            <h2>Software Development & Quality Assurance Services</h2>
+            <h2 className='coler'>Software Development & Quality Assurance Services</h2>
             <ul>
               <li>Software Development, Testing, Automated Testing, User Documentation, UI/UX Design.</li>
               <li>Legacy Migration, Legacy Support, Maintenance, SQA Automation, Manual QA, Augmented R&D, Initiative Support/Development, Modernization…</li>
@@ -68,7 +69,7 @@ function AboutUs() {
       <div>
         <Footer />
       </div>
-
+      </div>
     </>
   );
 }
