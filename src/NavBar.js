@@ -40,7 +40,7 @@ function NavBarComponent() {
                 >
                   <div >
                     <div className="drop-down-menu">
-                      <Link className="drop-down-menu" to="/inst">Courses List</Link>
+                      <Link className="drop-down-menu" to="/catlog">Courses List</Link>
                     </div>
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" to="/inst">Enrolled Courses</Link>

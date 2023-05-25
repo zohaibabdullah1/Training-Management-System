@@ -1,74 +1,84 @@
 import React from "react";
-import ListGroup from "react-bootstrap/ListGroup";
-import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import NavComp from "./NavBrandComp";
+import title from "./Images/php.jpg";
+import mongo from "./Images/mongo.png";
+import java from "./Images/Java.jpg";
+import aws from "./Images/aws.png";
+import nodejs from "./Images/nodejs.jpg";
+import html from "./Images/html.jpg";
+import css from "./Images/css.jpg";
+import reactjs from "./Images/reactjs.jpeg";
+import bootstrap from "./Images/bootstrap.jpg";
+import Footer from "./Footer";
+import CourseComp from "./CourseComp";
+import AdminDrawerComp from "./AdminDrawer";
+import AdminNav from "./AdminNav";
 
-const AdminPanel = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
+const App = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
+  const courses = [
+    { img: html, Iname: "Mr. Alex", heading: "HTML" },
+    { img: css, Iname: "Mr. Saren", heading: "CSS" },
+    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap" },
+    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS" },
+    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS" },
+    // Add more course objects as needed
+  ];
+
+  const enrolled_course = [
+    { img: title, Iname: "Mr. Jack", heading: "PHP" },
+    { img: mongo, Iname: "Mr. Alaxender", heading: "Mongo Data" },
+    { img: java, Iname: "Mr. Hales", heading: "Java" },
+    { img: aws, Iname: "Mr. Jack", heading: "AWS" },
+  ];
+
   return (
     <>
-      <div>{<NavComp />}</div>
+      <div className="lms_home">
+        <div>
+          <AdminNav toggle={toggleDrawer} open={isOpen} />
+          <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
+        </div>
 
-      <div>
-        <button className="ham_button" onClick={toggleDrawer}>
-          <i class="fa fa-regular fa-bars"></i>
-        </button>
-        <Drawer
-          open={isOpen}
-          onClose={toggleDrawer}
-          direction="left"
-          className='drawer-container'
-        >
-          <div>
-            <ListGroup>
-              <Offcanvas.Header
-                className="ham-Header"
-                closeButton
-                onClick={toggleDrawer}
-              ></Offcanvas.Header>
-              <Offcanvas.Title className="ham-title">
-                Admin Panel
-              </Offcanvas.Title>
-              <ListGroup.Item className="ham-list" action href="/">
-                Create Course
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action href="/lms">
-                Create Quiz
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action>
-                Manage Courses
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action>
-                Manage Quizzes
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action>
-                Manage Attendance
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action>
-                Create/Update Results
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action>
-                Add Instructors
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action>
-                Manage Accesses
-              </ListGroup.Item>
-              <ListGroup.Item className="ham-list" action href="/login">
-                Sign Out
-                <i className="exit fas fa-sign-out-alt"></i>
-              </ListGroup.Item>
-            </ListGroup>
+        <div>
+          <h4 className="latest_heading">Latest Courses:</h4>
+
+          <div className="latest_flex">
+            {courses.map((course, index) => (
+              <CourseComp
+                key={index}
+                img={course.img}
+                Iname={course.Iname}
+                heading={course.heading}
+              />
+            ))}
           </div>
-        </Drawer>
+        </div>
+
+        <div>
+          <h4 className="latest_heading">Enrolled Courses:</h4>
+
+          <div className="latest_flex">
+            {enrolled_course.map((course, index) => (
+              <CourseComp
+                key={index}
+                img={course.img}
+                Iname={course.Iname}
+                heading={course.heading}
+              />
+            ))}
+          </div>
+        </div>
+        <div>
+          <Footer />
+        </div>
       </div>
     </>
   );
 };
 
-export default AdminPanel;
+export default App;

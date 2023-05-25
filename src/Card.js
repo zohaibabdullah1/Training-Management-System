@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 function Cards({img}){
     return(
 
-        <div>
+        <div >
       <Col>
           <Card className='cat-cards'>
             <Card.Img className='cat-img' variant="top" src={img} />
