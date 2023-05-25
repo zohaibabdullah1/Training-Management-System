@@ -2,7 +2,6 @@ import React from "react";
 import NavComp from './NavBrandComp';
 import NavBarComponent from "./NavBar";
 import Footer from "./Footer";
-import flex_img from './Images/aboutus flex.jpeg';
 
 function ContactUs() {
   return (

@@ -14,13 +14,12 @@ exports.UserRegister = async (req, res) => {
         });
 
         await userData.save();
-        res.json({
-
+        res.status(200).json({
             message: "User Register"
         });
     } catch (error) {
         console.log(error);
-        res.json({
+        res.status(400).json({
             message: "User cannot be Register"
         });
     }
@@ -31,33 +30,33 @@ exports.UserLogin = async (req, res) => {
     if (email && password && role) {
         const userData = await userdata.findOne({ email: email });
         if (userData) {
-            const compass = bcrypt.compare(password, userData.password);
+            const compass = await bcrypt.compare(password, userData.password);
             if (userData.email === email && compass && userData.role===role) {
                 jwt.sign({ name: userData.email }, "seckey", (err, token) => {
                     if (token) {
-                        res.json({
+                        res.status(200).json({
                             message: "user successfully login ",
                             token,
                             userData
                         });
                     } else {
-                        res.json({
+                        res.status(400).json({
                             message: "token cannot be created"
                         });
                     }
                 });
             } else {
-                res.json({
+                res.status(400).json({
                     message: "please enter your correct password"
                 });
             }
         } else {
-            res.json({
+            res.status(400).json({
                 message: "please enter your correct email"
             });
         }
     } else {
-        res.json({
+        res.status(400).json({
             message: "please enter all field"
         });
     }

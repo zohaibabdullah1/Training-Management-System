@@ -5,7 +5,7 @@ import LoginForm from "./Components/Auth/Login";
 import RegForm from "./Components/Auth/Register";
 import Catlogs from "./Catlog";
 import PassReset from "./Pass_reset";
-import App from "./Drawer";
+import App from "./StudentPortal";
 import AdminPanel from "./Admin";
 import AdminLogin from './Components/Admin/AdminLogin';
 import AdminReg from './Components/Admin/AdminReg';
