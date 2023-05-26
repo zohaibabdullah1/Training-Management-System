@@ -23,7 +23,6 @@ exports.postCourse = async (req, res) => {
             message: "Course Created Successfully"
         });
     } catch (error) {
-        console.log(error);
         res.status(400).json({
             message: "Course Not Generated"
         });
@@ -47,7 +46,6 @@ exports.updateCourse = async (req, res) => {
         }
 
         await updatingCourse.save();
-        console.log(updatingCourse)
         res.status(200).json({
             message: "Course update"
         });
