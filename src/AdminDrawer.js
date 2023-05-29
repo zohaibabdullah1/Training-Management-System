@@ -51,7 +51,7 @@ function AdminDrawerComp({toggle, open}){
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to='/'>Add Instructor</NavLink>
+                  <NavLink className="ham-list" to='/addinstructor'>Add Instructor</NavLink>
                 </ListGroup.Item>
 
               </ListGroup>

@@ -19,6 +19,7 @@ function RegForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profilePicture, setProfilePicture] = useState(null);
   const [radioValue, setRadioValue] = useState("1");
+  // const [agreed, setAgreed] = useState(false);
 
   const handleRegistration = async (e) => {
     e.preventDefault();
@@ -59,6 +60,16 @@ function RegForm() {
       });
       return;
     }
+    // else if (!agreed) {
+    //   toast.error("Please agree to the terms and conditions.", {
+    //     autoClose: 5000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //   });
+    //   return;
+    // }
 
     let save = { name, email, password, role, profilePicture };
 
@@ -209,10 +220,17 @@ function RegForm() {
                   onChange={handleInputChange}
                 />
               </FormGroup>
-              <Form.Check
-                aria-label="option 1"
-                label="I have read terms & conditions"
-              />
+              {/* <FormGroup check>
+          <Label check>
+            <Input
+            
+              type="checkbox"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+            />{" "}
+            I agree to the terms and conditions
+          </Label>
+        </FormGroup> */}
               <div className="d-grid gap-2">
                 <Button size="lg" type="submit">
                   Sign up

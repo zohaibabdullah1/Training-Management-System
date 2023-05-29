@@ -1,8 +1,16 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
+
 function Cards({img}){
+  
+    const navigate = useNavigate();
+    function Enroll_Nav(){
+      navigate("/enroll"); 
+    }
+    
     return(
 
         <div >
@@ -16,7 +24,7 @@ function Cards({img}){
                 lead-in to additional content. This content is a little bit
                 longer.
               </Card.Text>
-              <Button variant="dark " className='btn'>Enrole Now</Button>
+              <Button variant="dark " className='btn' onClick={Enroll_Nav}>Enrole Now</Button>
             </Card.Body>
           </Card>
         </Col>

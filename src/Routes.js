@@ -21,6 +21,7 @@ import CreateQuiz from "./CreateQuiz";
 import AddInstructor from "./AddInstructor";
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
+import CourseEnrollmentPage from "./Enrollement";
 
 
 function Router() {
@@ -47,6 +48,7 @@ function Router() {
       <Route path="/addinstructor" element={<AddInstructor/>}/>
       <Route path="/submitquiz" element={<QuizSubmissionPage/>}/>
       <Route path="/result" element={<ResultTable/>}/>
+      <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
     </Routes>
   );
 }

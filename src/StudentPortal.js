@@ -30,18 +30,18 @@ const App = () => {
   };
 
   const courses = [
-    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc: "/" },
+    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc: "/enroll" },
     { img: css, Iname: "Mr. Saren", heading: "CSS", pageSrc: "/" },
-    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc: "/" },
-    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc: "/" },
-    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc: "/" },
+    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc: "/enroll" },
+    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc: "/enroll" },
+    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc: "/enroll" },
   ];
 
   const enrolled_course = [
-    { img: title, Iname: "Mr. Jack", heading: "PHP", pageSrc: "/" },
-    { img: mongo, Iname: "Mr. Alaxender", heading: "MongoDB", pageSrc: "/" },
-    { img: java, Iname: "Mr. Hales", heading: "Java", pageSrc: "/" },
-    { img: aws, Iname: "Mr. Jack", heading: "AWS", pageSrc: "/" },
+    { img: title, Iname: "Mr. Jack", heading: "PHP", pageSrc: "/enroll" },
+    { img: mongo, Iname: "Mr. Alaxender", heading: "MongoDB", pageSrc: "/enroll" },
+    { img: java, Iname: "Mr. Hales", heading: "Java", pageSrc: "/enroll" },
+    { img: aws, Iname: "Mr. Jack", heading: "AWS", pageSrc: "/enroll" },
   ];
 
   return (
@@ -176,7 +176,7 @@ const App = () => {
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to="">
+                  <NavLink className="ham-list" to="/enroll">
                     Enrolled Courses
                   </NavLink>
                 </ListGroup.Item>
