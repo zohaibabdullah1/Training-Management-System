@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
-function ManageCourse() {
+function ManageInstructor() {
     const [isOpen, setIsOpen] = React.useState(false);
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
@@ -27,9 +27,9 @@ function ManageCourse() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Course Name</th>
                         <th>Instructor Name</th>
-                        <th>Description</th>
+                        <th>Qualification</th>
+                        <th>Course Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -49,12 +49,12 @@ function ManageCourse() {
                 </tbody>
             </table>
             <br />
-            <Link to="/createcourse">
+            <Link to="/addinstructor">
                 <Button className='add_btn'>
-                    Add New Course
+                    Add New Instructor
                 </Button>
             </Link>
         </>
     )
 }
-export default ManageCourse;
+export default ManageInstructor

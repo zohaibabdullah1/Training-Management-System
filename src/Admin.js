@@ -34,6 +34,7 @@ const App = () => {
   const more_options = [
     { img: managecourse, heading: "Manage Course", pageSrc: "/managecourse" },
     { img: managequiz, heading: "Manage Quiz", pageSrc: "/managequiz" },
+    { img: instructor, heading: "Manage Instructor", pageSrc: "/manageinst" }
   ];
 
   return (
