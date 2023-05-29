@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
-function ManageCourse() {
+
+function ManageResult() {
     const [isOpen, setIsOpen] = React.useState(false);
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
     };
-
     return (
         <>
             <div>
@@ -17,12 +17,13 @@ function ManageCourse() {
                 <AdminNav toggle={toggleDrawer} open={isOpen} />
                 <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
             </div>
+
+
             <div className="arrow">
                 <Link to="/admin">
                     <i className="fas fa-chevron-circle-left back-arrow"></i>
                 </Link>
             </div>
-
             <table className='course_table'>
                 <thead>
                     <tr>
@@ -55,6 +56,8 @@ function ManageCourse() {
                 </Button>
             </Link>
         </>
+
     )
 }
-export default ManageCourse
+
+export default ManageResult

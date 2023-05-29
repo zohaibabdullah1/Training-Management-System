@@ -20,7 +20,7 @@ const App = () => {
   const dashboard = [
     { img: quiz, heading: "Create Quiz", pageSrc: "/createquiz" },
     { img: course, heading: "Create Course", pageSrc: "/createcourse" },
-    { img: result, heading: "Results", pageSrc: "/admin" },
+    { img: result, heading: "Results", pageSrc: "/manageresult" },
     { img: instructor, heading: "Add Instructor", pageSrc: "/addinstructor" },
     // { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
     // Add more course objects as needed
@@ -28,7 +28,7 @@ const App = () => {
 
   const more_options = [
     { img: managecourse, heading: "Manage Course", pageSrc: "/managecourse" },
-    { img: managequiz, heading: "Manage Quiz", pageSrc: "/" },
+    { img: managequiz, heading: "Manage Quiz", pageSrc: "/managequiz" },
   ];
 
   return (
