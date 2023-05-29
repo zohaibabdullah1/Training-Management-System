@@ -9,6 +9,7 @@ const Route = express.Router();
 Route.use(express.json());
 Route.post("/register", Auth.UserRegister);
 Route.post("/login", Auth.UserLogin);
+
 Route.get("/user", tokenVerify.jwtVerifyToken, Auth.getAllUser);
 Route.get("/user/:id", tokenVerify.jwtVerifyToken, Auth.getUser);
 Route.put("/user/update/:id", tokenVerify.jwtVerifyToken, Auth.updateUser);
