@@ -12,7 +12,7 @@ function PassReset() {
 
       {<NavComp />}
         <div className="arrow">
-    <Link to='/login'><i class='fas fa-chevron-circle-left back-arrow'></i></Link>
+    <Link to='/login'><i className='fas fa-chevron-circle-left back-arrow'></i></Link>
       </div>  
         <div className="Reset-Form">
           <div className="login">

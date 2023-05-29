@@ -3,6 +3,9 @@ import axios from "axios";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
 
 function CreateQuiz() {
   const [quizQuestion, setQuizQuestion] = useState("");
@@ -21,8 +24,8 @@ function CreateQuiz() {
     setQuizQuestion(e.target.value);
   };
 
-  const handleAnswerChange = (e) => {
-    setAnswer(e.target.value);
+  const handleAnswerChange = (selectedOption) => {
+    setAnswer(selectedOption);
   };
 
   const handleOptionOneChange = (e) => {
@@ -36,6 +39,7 @@ function CreateQuiz() {
   const handleOptionThreeChange = (e) => {
     setOptionThree(e.target.value);
   };
+
   const handleOptionFourChange = (e) => {
     setOptionFour(e.target.value);
   };
@@ -88,6 +92,25 @@ function CreateQuiz() {
         <h1>Create Quiz</h1>
         <form className="form-create-course" onSubmit={handleSubmit}>
           <div>
+          <Form.Group>
+              <Form.Label>Subject:</Form.Label>
+              <Dropdown className="sub-select" onSelect={handleAnswerChange}>
+                <Dropdown.Toggle variant="secondary">
+                  {answer ? answer : "Select an option"}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item eventKey="C++">C++</Dropdown.Item>
+                  <Dropdown.Item eventKey="JavaScript">JavaScript</Dropdown.Item>
+                  <Dropdown.Item eventKey="HTML">HTML</Dropdown.Item>
+                  <Dropdown.Item eventKey="CSS">CSS</Dropdown.Item>
+                  <Dropdown.Item eventKey="ReactJS">ReactJS</Dropdown.Item>
+                  <Dropdown.Item eventKey="NodeJs">NodeJs</Dropdown.Item>
+                  <Dropdown.Item eventKey="Express">Express</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Form.Group>
+          </div>
+          <div>
             <input
               className="form-element-create-course"
               type="text"
@@ -97,16 +120,7 @@ function CreateQuiz() {
               onChange={handleQuizQuestionChange}
             />
           </div>
-          <div>
-            <input
-              className="form-element-create-course"
-              type="text"
-              id="answer"
-              value={answer}
-              placeholder="Answer"
-              onChange={handleAnswerChange}
-            />
-          </div>
+         
           <div>
             <input
               className="form-element-create-course"
@@ -147,7 +161,9 @@ function CreateQuiz() {
               onChange={handleOptionFourChange}
             />
           </div>
-          <button type="submit">Create Quiz</button>
+                    
+          
+          <Button type="submit">Create Quiz</Button>
         </form>
       </div>
     </>

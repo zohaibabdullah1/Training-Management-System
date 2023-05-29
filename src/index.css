@@ -1068,3 +1068,48 @@ code {
   background-color:rgb(40,40,43);
 
 }
+
+
+.quiz-submission-page {
+  text-align: center;
+  width: 40%;
+  margin: auto;
+  /* border: #0056b3 solid; */
+  box-shadow: 1px 1px 2px 2px rgb(184, 184, 184);
+  border-radius: 5px;
+  margin-top: 7rem;
+}
+
+.quiz-submission-page h1 {
+  font-size: 60px;
+  font-weight: 300;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-submission-page p {
+  font-size: 18px;
+  margin-bottom: 3rem;
+}
+.quiz-submission-page .see-results-btn {
+  display: inline-block;
+  background-color: #00bda6;;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-submission-page .see-results-btn:hover {
+  background-color: #33d2bf;;
+}
+
+.sub-select
+{
+  /* width: 3rem; */
+  /* margin: 1rem 0 1rem 23.5rem; */
+  margin-bottom: 1rem;
+}
+
