@@ -27,7 +27,7 @@ const App = () => {
   ];
 
   const more_options = [
-    { img: managecourse, heading: "Manage Course", pageSrc: "/" },
+    { img: managecourse, heading: "Manage Course", pageSrc: "/managecourse" },
     { img: managequiz, heading: "Manage Quiz", pageSrc: "/" },
   ];
 
@@ -63,6 +63,7 @@ const App = () => {
                 img={more_options.img}
                 Iname={more_options.Iname}
                 heading={more_options.heading}
+                pageSrc={more_options.pageSrc}
               />
             ))}
           </div>
