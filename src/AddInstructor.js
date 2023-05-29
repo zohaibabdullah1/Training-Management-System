@@ -36,7 +36,7 @@ function AddInstructor() {
     // Create a new FormData object
     const formData = new FormData();
 
-    formData.append("instructor", instructor);
+    formData.append("name", instructor);
     formData.append("qualification", qualification);
     formData.append("course", course);
     formData.append("image", newImage);
@@ -50,7 +50,7 @@ function AddInstructor() {
         setQualification("");
         setCourse("");
         setNewImage(null);
-        navigate("/admin");
+        navigate("/manageinst");
         toast.success("Instructor Added Successfully", {
           autoClose: 2000,
           hideProgressBar: true,

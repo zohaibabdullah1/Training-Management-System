@@ -47,7 +47,7 @@ function CreateCourse() {
         setInstructor("");
         setDescription("");
         setNewImage(null);
-        navigate("/admin");
+        navigate("/managecourse");
         toast.success("Course Added Successfully", {
           autoClose: 2000,
           hideProgressBar: true,

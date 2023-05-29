@@ -68,7 +68,7 @@ function CreateQuiz() {
       headers:{token: token}
     })
     .then((res) => {
-      navigate("/admin");
+      navigate("/managequiz");
       setQuestion("");
       setAnswer("");
       setSubject("");
