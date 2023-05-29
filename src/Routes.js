@@ -38,7 +38,6 @@ function Router() {
       <Route path="/catlog" element={<Catlogs />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
-      <Route path="/inst" element={<Instructors />} />
 
       {/* Admin Routes */}
       <Route path="/adminlogin" element={<AdminLogin />} />
@@ -61,6 +60,7 @@ function Router() {
       <Route path="/selectquiz" element={<Protected Component={SelectQuiz} />} />
       <Route path="/startquiz" element={<Protected Component={Quiz} />} />
       <Route path="/enroll" element={<Protected Component={CourseEnrollmentPage}/>}/>
+      <Route path="/inst" element={<Protected Component={Instructors} />} />
     </Routes>
   );
 }

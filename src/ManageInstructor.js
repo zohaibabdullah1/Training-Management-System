@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import {Table} from "react-bootstrap";
+import axios from "axios";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
 function ManageInstructor() {
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
     };
+    const token = localStorage.getItem("aptoken");
+    const [instructors, setInstructors] = useState([]);
+    useEffect(() => {
+        axios
+            .get("http://localhost:4000/instructor", {
+                headers: {
+                    token: token
+                }
+            })
+            .then((res) => {
+                setInstructors(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [token]);
 
     return (
         <>
@@ -22,8 +40,7 @@ function ManageInstructor() {
                     <i className="fas fa-chevron-circle-left back-arrow"></i>
                 </Link>
             </div>
-
-            <table className='course_table'>
+            <Table className='course_table' striped bordered hover>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -34,20 +51,20 @@ function ManageInstructor() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <Button className='update_btn'>Update</Button>
-                            <Button className='delete_btn'>Delete</Button></td>
-
-                    </tr>
-
-
+                    {instructors.map((item, key) => (
+                        <tr key={key}>
+                            <td>{key + 1}</td>
+                            <td>{item.name}</td>
+                            <td>{item.qualification}</td>
+                            <td>{item.course}</td>
+                            <td>
+                                <Button className='update_btn'>Update</Button>{" "}
+                                <Button className='delete_btn'>Delete</Button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
-            </table>
+            </Table>
             <br />
             <Link to="/addinstructor">
                 <Button className='add_btn'>
