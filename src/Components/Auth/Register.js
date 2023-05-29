@@ -20,24 +20,6 @@ function RegForm() {
   const [newImage, setNewImage] = useState(null);
   const [radioValue, setRadioValue] = useState("1");
 
-  // const handleRegistration=async(e)=>{
-  //   e.preventDefault();
-  //       const formData = new FormData();
-  //       formData.append("name", name);
-  //       formData.append("email", email);
-  //       formData.append("role", role);
-  //       formData.append("password", password);
-  //       formData.append("image", newImage);
-  //       await axios
-  //           .post("http://localhost:4000/register", formData)
-  //           .then((res) => {
-  //               console.log("user register", res);
-  //               navigate("/login");
-  //           })
-  //           .catch((err) => {
-  //               console.log(err.message);
-  //           });
-  // }
   const handleRegistration = async (e) => {
     e.preventDefault();
     if (!name) {

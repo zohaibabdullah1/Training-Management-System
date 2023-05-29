@@ -17,6 +17,7 @@ function AdminReg() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [newImage, setNewImage] = useState(null);
   const [radioValue, setRadioValue] = useState("1");
 
   const handleRegistration = async(e) => {
@@ -66,33 +67,39 @@ function AdminReg() {
     });
     return;
   }
-      let save={name,email,password,role};
-      axios.post("http://localhost:4000/register",save)
-      .then((res)=>{
+  const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("password", password);
+        formData.append("role", role);
+        formData.append("image", newImage);
+    axios
+      .post("http://localhost:4000/register", formData)
+      .then((res) => {
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-        toast.success("You are registered!",
-          {
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-          });
-          navigate("/adminlogin");
+        setNewImage(null);
+        navigate("/adminlogin");
+        toast.success("You are registered!", {
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       })
-      .catch((err)=>{
+      .catch((err) => {
         toast.error(err.response.data.message, {
           autoClose: 3000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
-          draggable: true
+          draggable: true,
         });
-      })
-  };
+      });
+};
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

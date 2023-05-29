@@ -45,7 +45,9 @@ function AdminLogin() {
     .then((res)=>{
       setEmail("");
       setPassword("");
-      console.log(res);
+      const token = res.data.token;
+          localStorage.setItem("token", token);
+          navigate("/admin");
       toast.success("Welcome! You are logged in.", {
         autoClose: 3000,
         hideProgressBar: true,
@@ -53,7 +55,6 @@ function AdminLogin() {
         pauseOnHover: true,
         draggable: true
       });
-      navigate("/admin");
     }).catch((error)=>{
       toast.error(error.response.data.message, {
         autoClose: 3000,
@@ -63,7 +64,11 @@ function AdminLogin() {
         draggable: true
       });
     })
-  };
+    const token = localStorage.getItem("token");
+      if (!token) {
+          navigate("/adminlogin");
+      }
+};
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRole("admin");

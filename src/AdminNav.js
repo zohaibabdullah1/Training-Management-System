@@ -66,7 +66,7 @@ function AdminNav({ toggle }) {
                   </div>
                   <hr />
                   <div className="drop-down-menu">
-                    <Link className="drop-down-menu" to="/inst">
+                    <Link className="drop-down-menu" to="/logout">
                       Logout
                     </Link>
                   </div>
