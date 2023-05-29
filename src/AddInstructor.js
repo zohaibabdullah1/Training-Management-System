@@ -50,7 +50,7 @@ function AddInstructor() {
         setQualification("");
         setCourse("");
         setNewImage(null);
-        navigate("/admin");
+        navigate("/manageinst");
         toast.success("Instructor Added Successfully", {
           autoClose: 2000,
           hideProgressBar: true,

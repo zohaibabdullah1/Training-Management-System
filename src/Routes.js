@@ -24,7 +24,6 @@ import ProtectAdmin from "./Components/Admin/ProtectAdmin";
 import Protected from './Components/Auth/Protected';
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
-import CourseEnrollmentPage from "./Enrollement";
 import ManageQuiz from "./ManageQuiz";
 import ManageCourse from "./ManageCourse";
 import ManageInstructor from "./ManageInstructor";
@@ -48,9 +47,9 @@ function Router() {
       <Route path="/createcourse" element={<ProtectAdmin Component={CreateCourse}/>}/>
       <Route path="/createquiz" element={<ProtectAdmin Component={CreateQuiz}/>}/>
       <Route path="/addinstructor" element={<ProtectAdmin Component={AddInstructor}/>}/>
-      <Route path="/managequiz" element={<Protected Component={ManageQuiz}/>}/>
-      <Route path="/managecourse" element={<Protected Component={ManageCourse}/>}/>
-      <Route path="/manageinst" element={<Protected Component={ManageInstructor}/>}/>
+      <Route path="/managequiz" element={<ProtectAdmin Component={ManageQuiz}/>}/>
+      <Route path="/managecourse" element={<ProtectAdmin Component={ManageCourse}/>}/>
+      <Route path="/manageinst" element={<ProtectAdmin Component={ManageInstructor}/>}/>
 
       {/* User Routes */}
       <Route path="/login" element={<LoginForm />} />
