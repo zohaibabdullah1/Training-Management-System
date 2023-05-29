@@ -29,7 +29,6 @@ exports.postInstructor = async (req, res) => {
         const url = path.join(
             "D:/MERN/React/Training-Management-System/Backend TMS/src/images/instructor/" + req.file.filename
         );
-        console.log(url)
         const Instructor = new instructor({
             name: req.body.name,
             qualification: req.body.qualification,
