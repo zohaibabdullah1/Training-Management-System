@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./images");
+        cb(null, "./src/images/users");
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname));
@@ -18,9 +18,8 @@ exports.upload = multer({ storage: storage });
 exports.UserRegister = async (req, res) => {
     try {
         const url = path.join(
-            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images" + req.file.filename
+            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images/users/" + req.file.filename
         );
-        console.log(url)
         const hashed = bcrypt.hashSync(req.body.password, 10);
         const userData = new userdata({
             name: req.body.name,

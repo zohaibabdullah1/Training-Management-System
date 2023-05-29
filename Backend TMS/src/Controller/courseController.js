@@ -16,7 +16,7 @@ exports.getAllCourse = async (req, res) => {
 
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./images");
+        cb(null, "./src/images/courses");
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + path.extname(file.originalname));
@@ -28,7 +28,7 @@ exports.upload = multer({ storage: storage });
 exports.postCourse = async (req, res) => {
     try {
         const url = path.join(
-            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images" + req.file.filename
+            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images/courses" + req.file.filename
         );
         const Course = new course({
             title: req.body.title,

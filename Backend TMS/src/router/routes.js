@@ -7,7 +7,7 @@ const tokenVerify = require("../middleware/tokenVerify");
 const Route = express.Router();
 
 Route.use(express.json());
-Route.post("/register", Auth.UserRegister);
+Route.post("/register",Auth.upload.single("image"), Auth.UserRegister);
 Route.post("/login", Auth.UserLogin);
 
 Route.get("/user", tokenVerify.jwtVerifyToken, Auth.getAllUser);

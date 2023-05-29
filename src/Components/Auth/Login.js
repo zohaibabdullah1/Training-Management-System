@@ -45,6 +45,9 @@ function LoginForm() {
       .then((res)=>{
         setEmail("");
         setPassword("");
+        const token = res.data.token;
+            localStorage.setItem("token", token);
+            navigate("/lms");
         toast.success("Welcome! You are logged in.", {
           autoClose: 3000,
           hideProgressBar: true,
@@ -52,7 +55,6 @@ function LoginForm() {
           pauseOnHover: true,
           draggable: true
         });
-        navigate("/lms");
       }).catch((error)=>{
         toast.error(error.response.data.message, {
           autoClose: 3000,
@@ -62,6 +64,10 @@ function LoginForm() {
           draggable: true
         });
       })
+      const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
+        }
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
