@@ -23,7 +23,7 @@ import ProtectAdmin from "./Components/Admin/ProtectAdmin";
 import Protected from './Components/Auth/Protected';
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
-import CourseEnrollmentPage from "./Enrollement";
+
 
 function Router() {
   return (
@@ -74,7 +74,7 @@ function Router() {
       <Route path="/createquiz" element={<CreateQuiz/>}/>
       <Route path="/addinstructor" element={<AddInstructor/>}/>
       <Route path="/submitquiz" element={<QuizSubmissionPage/>}/>
-      <Route path="/result" element={<ResultTable/>}/> */}
+      <Route path="/result" element={<ResultTable/>}/>
     </Routes>
   );
 }
