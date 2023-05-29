@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FormGroup, Label, Input, NavbarBrand } from "reactstrap";
+import { FormGroup, Label, Input} from "reactstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import NavComp from "./NavBrandComp";
