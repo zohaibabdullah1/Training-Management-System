@@ -2,6 +2,7 @@ import React from "react";
 import "react-modern-drawer/dist/index.css";
 import Footer from "./Footer";
 import CourseComp from "./CourseComp";
+import { useNavigate } from "react-router";
 import AdminDrawerComp from "./AdminDrawer";
 import AdminNav from "./AdminNav";
 import course from "./Images/course.jpg";
@@ -16,7 +17,11 @@ const App = () => {
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
-
+  const navigate = useNavigate();
+  const handleLogout = () => {
+      localStorage.clear();
+      navigate("/adminlogin");
+  };
   const dashboard = [
     { img: quiz, heading: "Create Quiz", pageSrc: "/createquiz" },
     { img: course, heading: "Create Course", pageSrc: "/createcourse" },
@@ -35,8 +40,8 @@ const App = () => {
     <>
       <div className="lms_home">
         <div>
-          <AdminNav toggle={toggleDrawer} open={isOpen} />
-          <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
+          <AdminNav toggle={toggleDrawer} open={isOpen}  logout={handleLogout}/>
+          <AdminDrawerComp toggle={toggleDrawer} open={isOpen}/>
         </div>
 
         <div className="admin-dashboard-main">

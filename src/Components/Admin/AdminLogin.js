@@ -17,6 +17,7 @@ function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -45,7 +46,9 @@ function AdminLogin() {
     .then((res)=>{
       setEmail("");
       setPassword("");
-      console.log(res);
+      const token = res.data.token;
+          localStorage.setItem("aptoken", token);
+          navigate("/admin");
       toast.success("Welcome! You are logged in.", {
         autoClose: 3000,
         hideProgressBar: true,
@@ -53,7 +56,6 @@ function AdminLogin() {
         pauseOnHover: true,
         draggable: true
       });
-      navigate("/admin");
     }).catch((error)=>{
       toast.error(error.response.data.message, {
         autoClose: 3000,
@@ -63,7 +65,15 @@ function AdminLogin() {
         draggable: true
       });
     })
-  };
+    const token = localStorage.getItem("token");
+      if (!token) {
+          navigate("/adminlogin");
+      }
+};
+
+const togglePasswordVisibility = () => {
+  setShowPassword((prevState) => !prevState);
+};
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRole("admin");
@@ -130,11 +140,21 @@ function AdminLogin() {
               <FormGroup className="position-relative">
                 <Label for="password">Password</Label>
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
                   onChange={handleInputChange}
                 />
+                <span
+                  className={`password-toggle ${showPassword ? "show" : ""}`}
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <i className="far fa-eye-slash"></i>
+                  ) : (
+                    <i className="far fa-eye"></i>
+                  )}
+                </span>
               </FormGroup>
               <FormGroup className="position-relative">
                 <Input

@@ -17,6 +17,7 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -45,6 +46,9 @@ function LoginForm() {
       .then((res)=>{
         setEmail("");
         setPassword("");
+        const token = res.data.token;
+            localStorage.setItem("token", token);
+            navigate("/lms");
         toast.success("Welcome! You are logged in.", {
           autoClose: 3000,
           hideProgressBar: true,
@@ -52,7 +56,6 @@ function LoginForm() {
           pauseOnHover: true,
           draggable: true
         });
-        navigate("/lms");
       }).catch((error)=>{
         toast.error(error.response.data.message, {
           autoClose: 3000,
@@ -62,7 +65,12 @@ function LoginForm() {
           draggable: true
         });
       })
+      const token = localStorage.getItem("token");
+        if (!token) {
+            navigate("/login");
+        }
   };
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRole("user");
@@ -72,13 +80,20 @@ function LoginForm() {
       setPassword(value);
     }
   };
+  
   const register = () => {
     navigate("/register");
   };
+  
   const radios = [
     { name: "Login", value: "1" },
     { name: "Register", value: "3" },
   ];
+  
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
   return (
     <>
       <div className="login-container">
@@ -129,11 +144,21 @@ function LoginForm() {
               <FormGroup className="position-relative">
                 <Label for="password">Password</Label>
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
                   onChange={handleInputChange}
                 />
+                <span
+                  className={`password-toggle ${showPassword ? "show" : ""}`}
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <i className="far fa-eye-slash"></i>
+                  ) : (
+                    <i className="far fa-eye"></i>
+                  )}
+                </span>
               </FormGroup>
               <FormGroup className="position-relative">
                 <Input

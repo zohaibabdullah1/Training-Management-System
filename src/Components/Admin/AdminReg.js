@@ -17,7 +17,10 @@ function AdminReg() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [newImage, setNewImage] = useState(null);
   const [radioValue, setRadioValue] = useState("1");
+  const [agreed, setAgreed] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegistration = async(e) => {
     e.preventDefault();
@@ -54,6 +57,17 @@ function AdminReg() {
       });
       return;
   }
+
+  else if (!newImage) {
+    toast.error("Upload Image!", {
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    return;
+  } 
   else if (password !== confirmPassword) {
     toast.error("Password does not match!",
     {
@@ -66,33 +80,50 @@ function AdminReg() {
     });
     return;
   }
-      let save={name,email,password,role};
-      axios.post("http://localhost:4000/register",save)
-      .then((res)=>{
+
+  else if (!agreed) {
+    toast.error("Please agree to the terms and conditions.", {
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    return;
+  }
+  const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("password", password);
+        formData.append("role", role);
+        formData.append("image", newImage);
+    axios
+      .post("http://localhost:4000/register", formData)
+      .then((res) => {
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-        toast.success("You are registered!",
-          {
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-          });
-          navigate("/adminlogin");
+        setNewImage(null);
+        navigate("/adminlogin");
+        toast.success("You are registered!", {
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
       })
-      .catch((err)=>{
+      .catch((err) => {
         toast.error(err.response.data.message, {
           autoClose: 3000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
-          draggable: true
+          draggable: true,
         });
-      })
-  };
+      });
+};
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -113,6 +144,9 @@ function AdminReg() {
     { name: "Register", value: "1" },
   ];
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
   const login = () => {
     navigate("/adminlogin");
   };
@@ -178,19 +212,41 @@ function AdminReg() {
               <FormGroup className="position-relative">
                 <Label for="password">Create Password</Label>
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
                   onChange={handleInputChange}
                 />
+                <i
+                  className={`far ${
+                    showPassword ? "fa-eye-slash" : "fa-eye"
+                  } password-icon`}
+                  onClick={togglePasswordVisibility}
+                ></i>
               </FormGroup>
               <FormGroup className="position-relative">
                 <Label for="confirmPassword">Confirm Password</Label>
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   value={confirmPassword}
                   onChange={handleInputChange}
+                  />
+                <i
+                  className={`far ${
+                    showPassword ? "fa-eye-slash" : "fa-eye"
+                  } password-icon`}
+                  onClick={togglePasswordVisibility}>
+
+                </i>
+
+              </FormGroup>
+              <FormGroup className="position-relative">
+                <Label for="image">Profile Picture</Label>
+                <Input
+                  type="file"
+                  name="image"
+                  onChange={(e)=>{setNewImage(e.target.files[0])}}
                 />
               </FormGroup>
               <FormGroup className="position-relative">
@@ -201,10 +257,16 @@ function AdminReg() {
                   onChange={handleInputChange}
                 />
               </FormGroup>
-              <Form.Check
-                aria-label="option 1"
-                label="I have read terms & conditions"
-              />
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    checked={agreed}
+                    onChange={(e) => setAgreed(e.target.checked)}
+                  />{" "}
+                  I agree to the terms and conditions
+                </Label>
+              </FormGroup>
               <div className="d-grid gap-2">
                 <Button size="lg" type="submit">
                   Sign up

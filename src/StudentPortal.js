@@ -14,12 +14,13 @@ import css from "./Images/css.jpg";
 import reactjs from "./Images/reactjs.jpeg";
 import bootstrap from "./Images/bootstrap.jpg";
 import Container from "react-bootstrap/Container";
+import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import CourseComp from "./CourseComp";
 import { NavLink } from "react-router-dom";
 
@@ -29,19 +30,25 @@ const App = () => {
     setIsOpen((prevState) => !prevState);
   };
 
+  const navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/login");
+    };
+
   const courses = [
-    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc: "/" },
+    { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc: "/enroll" },
     { img: css, Iname: "Mr. Saren", heading: "CSS", pageSrc: "/" },
-    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc: "/" },
-    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc: "/" },
-    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc: "/" },
+    { img: bootstrap, Iname: "Mr. Jackel", heading: "Bootstrap", pageSrc: "/enroll" },
+    { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc: "/enroll" },
+    { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc: "/enroll" },
   ];
 
   const enrolled_course = [
-    { img: title, Iname: "Mr. Jack", heading: "PHP", pageSrc: "/" },
-    { img: mongo, Iname: "Mr. Alaxender", heading: "MongoDB", pageSrc: "/" },
-    { img: java, Iname: "Mr. Hales", heading: "Java", pageSrc: "/" },
-    { img: aws, Iname: "Mr. Jack", heading: "AWS", pageSrc: "/" },
+    { img: title, Iname: "Mr. Jack", heading: "PHP", pageSrc: "/enroll" },
+    { img: mongo, Iname: "Mr. Alaxender", heading: "MongoDB", pageSrc: "/enroll" },
+    { img: java, Iname: "Mr. Hales", heading: "Java", pageSrc: "/enroll" },
+    { img: aws, Iname: "Mr. Jack", heading: "AWS", pageSrc: "/enroll" },
   ];
 
   return (
@@ -130,8 +137,8 @@ const App = () => {
                     </div>
                     <hr />
                     <div className="drop-down-menu">
-                      <Link className="drop-down-menu" to="/inst">
-                        Logout
+                      <Link className="drop-down-menu" >
+                      <Button onClick={handleLogout}>Logout</Button>
                       </Link>
                     </div>
                   </NavDropdown>
@@ -176,7 +183,7 @@ const App = () => {
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to="">
+                  <NavLink className="ham-list" to="/enroll">
                     Enrolled Courses
                   </NavLink>
                 </ListGroup.Item>
@@ -194,8 +201,8 @@ const App = () => {
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to="/login">
-                    Sign Out
+                  <NavLink className="ham-list">
+                  <Button onClick={handleLogout}>Logout</Button>
                   </NavLink>
                 </ListGroup.Item>
               </ListGroup>

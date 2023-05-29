@@ -1,5 +1,6 @@
 import Container from "react-bootstrap/Container";
 import React from "react";
+import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,7 +8,7 @@ import logo from "./Icoures.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 
-function AdminNav({ toggle }) {
+function AdminNav({ toggle,logout }) {
   return (
     <>
       <div>
@@ -66,8 +67,8 @@ function AdminNav({ toggle }) {
                   </div>
                   <hr />
                   <div className="drop-down-menu">
-                    <Link className="drop-down-menu" to="/inst">
-                      Logout
+                    <Link className="drop-down-menu">
+                    <Button onClick={logout}>Logout</Button>
                     </Link>
                   </div>
                 </NavDropdown>
