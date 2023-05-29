@@ -1113,14 +1113,11 @@ code {
   margin-bottom: 1rem;
 }
 
-table, th, td {
-  border: 1px solid black;
-  padding: 0rem 1rem;
-}
-table{
-  width: 50%;
+
+.course_table{
+  width: 90%;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .update_btn{
@@ -1128,7 +1125,6 @@ table{
   color:#fff;
   font-size: 16px;
   border: 1px solid #00bda6;
-  margin-right: 1rem;
   }
 .update_btn:hover{
 background-color: #fff;
@@ -1142,7 +1138,6 @@ border: 1px solid #00bda6;
   background-color:rgb(255,109,52);
   color: rgb(255, 255, 255);
   font-size: 16px;
-  margin: 1rem;
   border: 1px solid rgb(255,109,52);
 
 }

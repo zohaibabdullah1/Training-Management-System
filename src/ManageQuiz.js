@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 
 function ManageQuiz() {
 
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
     };
