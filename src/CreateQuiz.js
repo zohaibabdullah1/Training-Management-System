@@ -10,6 +10,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 function CreateQuiz() {
   const [quizQuestion, setQuizQuestion] = useState("");
   const [answer, setAnswer] = useState("");
+  const [course, setCourse] = useState("");
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
   const [optionThree, setOptionThree] = useState("");
@@ -26,6 +27,10 @@ function CreateQuiz() {
 
   const handleAnswerChange = (selectedOption) => {
     setAnswer(selectedOption);
+  };
+  const handleCourseChange = (eventKey) => {
+    setCourse(eventKey);
+    console.log("Selected Answer:", eventKey);
   };
 
   const handleOptionOneChange = (e) => {
@@ -44,6 +49,10 @@ function CreateQuiz() {
     setOptionFour(e.target.value);
   };
 
+
+ 
+    
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -51,6 +60,7 @@ function CreateQuiz() {
     const formData = new FormData();
     formData.append("quetiosn", quizQuestion);
     formData.append("answer", answer);
+    formData.append("course", course);
     formData.append("optionOne", optionOne);
     formData.append("optionTwo", optionTwo);
     formData.append("optionThree", optionThree);
@@ -65,6 +75,7 @@ function CreateQuiz() {
         // Reset the form fields
         setQuizQuestion("");
         setAnswer("");
+        setCourse("");
         setOptionOne("");
         setOptionTwo("");
         setOptionThree("");
@@ -94,9 +105,9 @@ function CreateQuiz() {
           <div>
           <Form.Group>
               <Form.Label>Subject:</Form.Label>
-              <Dropdown className="sub-select" onSelect={handleAnswerChange}>
+              <Dropdown className="sub-select" onSelect={handleCourseChange}>
                 <Dropdown.Toggle variant="secondary">
-                  {answer ? answer : "Select an option"}
+                  {course ? course : "Select an option"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item eventKey="C++">C++</Dropdown.Item>
@@ -121,6 +132,16 @@ function CreateQuiz() {
             />
           </div>
          
+          <div>
+            <input
+              className="form-element-create-course"
+              type="text"
+              id="quizAnswer"
+              value={answer}
+              placeholder="Correct answer"
+              onChange={handleAnswerChange}
+            />
+          </div>
           <div>
             <input
               className="form-element-create-course"
