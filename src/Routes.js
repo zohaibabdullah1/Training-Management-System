@@ -22,11 +22,12 @@ import AddInstructor from "./AddInstructor";
 import Protected from './Components/Auth/Protected';
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
+import CourseEnrollmentPage from "./Enrollement";
 
 function Router() {
   return (
     <Routes>
-            <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegForm />} />
       <Route path="/catlog" element={<Catlogs />} />
@@ -47,7 +48,7 @@ function Router() {
       <Route path="/addinstructor" element={<AddInstructor/>}/>
       <Route path="/submitquiz" element={<QuizSubmissionPage/>}/>
       <Route path="/result" element={<ResultTable/>}/>
-
+      <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
       {/* <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegForm />} />

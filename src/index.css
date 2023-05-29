@@ -1113,3 +1113,10 @@ code {
   margin-bottom: 1rem;
 }
 
+.enrolle{
+  font-weight: 300;
+  font-size: 46px;
+}
+.enrolle-button{
+  margin: 2rem;
+}
