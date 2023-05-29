@@ -2,38 +2,32 @@ import React, { useState } from "react";
 import axios from "axios";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link,useNavigate } from "react-router-dom";
 
 function AddInstructor() {
+  const navigate = useNavigate();
+  const token = localStorage.getItem("aptoken");
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const [instructorName, setInstructorName] = useState("");
+  const [instructor, setInstructor] = useState("");
   const [qualification, setQualification] = useState("");
-  const [coursesTeaching, setCoursesTeaching] = useState("");
-  const [instructorImage, setInstructorImage] = useState(null);
+  const [course, setCourse] = useState("");
+  const [newImage, setNewImage] = useState(null);
 
   const handleQualificationChange = (e) => {
     setQualification(e.target.value);
   };
 
-  const handleInstructorNameChange = (e) => {
-    setInstructorName(e.target.value);
+  const handleInstructorChange = (e) => {
+    setInstructor(e.target.value);
   };
 
-  const handleCoursesTeachingChange = (e) => {
-    setCoursesTeaching(e.target.value);
-  };
-
-  const handleInstructorImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file && file.type.match("image/jpeg|image/jpg|image/png")) {
-      setInstructorImage(file);
-    } else {
-      setInstructorImage(null);
-    }
+  const handleCourseChange = (e) => {
+    setCourse(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -42,11 +36,38 @@ function AddInstructor() {
     // Create a new FormData object
     const formData = new FormData();
 
-    formData.append("instructorName", instructorName);
+    formData.append("instructor", instructor);
     formData.append("qualification", qualification);
-    formData.append("coursesTeaching", coursesTeaching);
-    formData.append("instructorImage", instructorImage);
+    formData.append("course", course);
+    formData.append("image", newImage);
 
+    axios
+      .post("http://localhost:4000/instructor/post", formData,{
+        headers:{token: token}
+      })
+      .then((res) => {
+        setInstructor("");
+        setQualification("");
+        setCourse("");
+        setNewImage(null);
+        navigate("/admin");
+        toast.success("Instructor Added Successfully", {
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message, {
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      });
     // Make an API call to add the course to the database
     axios
       .post("/api/addInstructor", formData)
@@ -55,10 +76,10 @@ function AddInstructor() {
         console.log(response.data);
         // Reset the form fields
 
-        setInstructorName("");
+        setInstructor("");
         setQualification("");
-        setCoursesTeaching("");
-        setInstructorImage(null);
+        setCourse("");
+        setNewImage(null);
       })
       .catch((error) => {
         // Handle error response
@@ -86,9 +107,9 @@ function AddInstructor() {
               className="form-element-create-course"
               type="text"
               id="instructorName"
-              value={instructorName}
+              value={instructor}
               placeholder="Instructor Name"
-              onChange={handleInstructorNameChange}
+              onChange={handleInstructorChange}
             />
           </div>
           <div>
@@ -106,9 +127,9 @@ function AddInstructor() {
               className="form-element-create-course"
               type="text"
               id="coursesTeaching"
-              value={coursesTeaching}
+              value={course}
               placeholder="Course Teaching"
-              onChange={handleCoursesTeachingChange}
+              onChange={handleCourseChange}
             />
           </div>
           <div className="create-course-img">
@@ -118,10 +139,10 @@ function AddInstructor() {
               type="file"
               id="instructorImage"
               accept="image/jpeg, image/jpg, image/png"
-              onChange={handleInstructorImageChange}
+              onChange={(e)=>{setNewImage(e.target.files[0])}}
             />
           </div>
-          <button type="submit" disabled={!instructorImage}>
+          <button type="submit" disabled={!newImage}>
             Add
           </button>
         </form>
