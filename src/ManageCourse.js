@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Table from "react-bootstrap";
+import axios from "axios";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
@@ -9,11 +11,25 @@ function ManageCourse() {
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
     };
-
+    const token = localStorage.getItem("token");
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        axios
+            .get("http://localhost:4000/course", {
+                headers: {
+                    token: token
+                }
+            })
+            .then((res) => {
+                setCourses(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [token]);
     return (
         <>
             <div>
-                {/* <NavComp/> */}
                 <AdminNav toggle={toggleDrawer} open={isOpen} />
                 <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
             </div>
@@ -22,8 +38,28 @@ function ManageCourse() {
                     <i className="fas fa-chevron-circle-left back-arrow"></i>
                 </Link>
             </div>
-
-            <table className='course_table'>
+            <Table striped bordered hover>
+                <thead>
+                <tr>
+                        <th>ID</th>
+                        <th>Course Title</th>
+                        <th>Description</th>
+                        <th>Instructor Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {courses.map((item, key) => (
+                        <tr key={key}>
+                            <td>{key + 1}</td>
+                            <td>{item.title}</td>
+                            <td>{item.description}</td>
+                            <td>{item.instructor}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+            {/* <table className='course_table'>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -47,7 +83,7 @@ function ManageCourse() {
 
 
                 </tbody>
-            </table>
+            </table> */}
             <br />
             <Link to="/createcourse">
                 <Button className='add_btn'>
