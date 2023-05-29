@@ -19,15 +19,37 @@ import UserProfilePage from "./UserProfile";
 import CreateCourse from "./CreateCourse";
 import CreateQuiz from "./CreateQuiz";
 import AddInstructor from "./AddInstructor";
+import Protected from './Components/Auth/Protected';
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
 import CourseEnrollmentPage from "./Enrollement";
-
 
 function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LoginForm />} />
+      <Route path="/register" element={<RegForm />} />
+      <Route path="/catlog" element={<Catlogs />} />
+      <Route path="/forget" element={<PassReset />} />
+      <Route path="/lms" element={<Protected Component={App} />} />
+      <Route path="/admin" element={<AdminPanel />} />
+      <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route path="/adminreg" element={<AdminReg />} />
+      <Route path="/selectquiz" element={<SelectQuiz />} />
+      <Route path="/startquiz" element={<Quiz />} />
+      <Route path="/cpp" element={<Cpp />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/inst" element={<Instructors />} />
+      <Route path="/profile" element={<UserProfilePage/>} />
+      <Route path="/createcourse" element={<CreateCourse/>}/>
+      <Route path="/createquiz" element={<CreateQuiz/>}/>
+      <Route path="/addinstructor" element={<AddInstructor/>}/>
+      <Route path="/submitquiz" element={<QuizSubmissionPage/>}/>
+      <Route path="/result" element={<ResultTable/>}/>
+      <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
+      {/* <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegForm />} />
       <Route path="/catlog" element={<Catlogs />} />
@@ -47,8 +69,7 @@ function Router() {
       <Route path="/createquiz" element={<CreateQuiz/>}/>
       <Route path="/addinstructor" element={<AddInstructor/>}/>
       <Route path="/submitquiz" element={<QuizSubmissionPage/>}/>
-      <Route path="/result" element={<ResultTable/>}/>
-      <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
+      <Route path="/result" element={<ResultTable/>}/> */}
     </Routes>
   );
 }

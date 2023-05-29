@@ -17,7 +17,7 @@ function RegForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [profilePicture, setProfilePicture] = useState(null);
+  const [newImage, setNewImage] = useState(null);
   const [radioValue, setRadioValue] = useState("1");
   // const [agreed, setAgreed] = useState(false);
 
@@ -71,17 +71,21 @@ function RegForm() {
     //   return;
     // }
 
-    let save = { name, email, password, role, profilePicture };
-
+    const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("password", password);
+        formData.append("role", role);
+        formData.append("image", newImage);
     axios
-      .post("http://localhost:4000/register", save)
+      .post("http://localhost:4000/register", formData)
       .then((res) => {
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-        setProfilePicture(null);
-
+        setNewImage(null);
+        navigate("/login");
         toast.success("You are registered!", {
           autoClose: 5000,
           hideProgressBar: true,
@@ -89,8 +93,6 @@ function RegForm() {
           pauseOnHover: true,
           draggable: true,
         });
-
-        navigate("/login");
       })
       .catch((err) => {
         toast.error(err.response.data.message, {
@@ -114,8 +116,6 @@ function RegForm() {
       setPassword(value);
     } else if (name === "confirmPassword") {
       setConfirmPassword(value);
-    } else if (name === "profilePicture") {
-      setProfilePicture(e.target.files[0]);
     }
   };
 
@@ -205,11 +205,11 @@ function RegForm() {
                 />
               </FormGroup>
               <FormGroup className="position-relative">
-                <Label for="profilePicture">Profile Picture</Label>
+                <Label for="image">Profile Picture</Label>
                 <Input
                   type="file"
-                  name="profilePicture"
-                  onChange={handleInputChange}
+                  name="image"
+                  onChange={(e)=>{setNewImage(e.target.files[0])}}
                 />
               </FormGroup>
               <FormGroup className="position-relative">

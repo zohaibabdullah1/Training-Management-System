@@ -19,7 +19,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import CourseComp from "./CourseComp";
 import { NavLink } from "react-router-dom";
 
@@ -28,6 +28,12 @@ const App = () => {
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  const navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/login");
+    };
 
   const courses = [
     { img: html, Iname: "Mr. Alex", heading: "HTML", pageSrc: "/enroll" },
@@ -130,8 +136,9 @@ const App = () => {
                     </div>
                     <hr />
                     <div className="drop-down-menu">
-                      <Link className="drop-down-menu" to="/inst">
-                        Logout
+                      <Link className="drop-down-menu" >
+                      <button onClick={handleLogout}>Logout</button>
+                        {/* Logout */}
                       </Link>
                     </div>
                   </NavDropdown>
