@@ -14,6 +14,7 @@ import css from "./Images/css.jpg";
 import reactjs from "./Images/reactjs.jpeg";
 import bootstrap from "./Images/bootstrap.jpg";
 import Container from "react-bootstrap/Container";
+import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -137,8 +138,7 @@ const App = () => {
                     <hr />
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" >
-                      <button onClick={handleLogout}>Logout</button>
-                        {/* Logout */}
+                      <Button onClick={handleLogout}>Logout</Button>
                       </Link>
                     </div>
                   </NavDropdown>
@@ -201,8 +201,8 @@ const App = () => {
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to="/login">
-                    Sign Out
+                  <NavLink className="ham-list">
+                  <Button onClick={handleLogout}>Logout</Button>
                   </NavLink>
                 </ListGroup.Item>
               </ListGroup>

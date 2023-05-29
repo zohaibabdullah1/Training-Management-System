@@ -201,6 +201,14 @@ function AdminReg() {
                 />
               </FormGroup>
               <FormGroup className="position-relative">
+                <Label for="image">Profile Picture</Label>
+                <Input
+                  type="file"
+                  name="image"
+                  onChange={(e)=>{setNewImage(e.target.files[0])}}
+                />
+              </FormGroup>
+              <FormGroup className="position-relative">
                 <Input
                   type="hidden"
                   name="role"
