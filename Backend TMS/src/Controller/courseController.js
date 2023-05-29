@@ -1,4 +1,6 @@
 const course = require("../Model/CoursesModel");
+const path = require("path");
+const multer = require("multer");
 
 exports.getAllCourse = async (req, res) => {
     try {
@@ -11,12 +13,28 @@ exports.getAllCourse = async (req, res) => {
         });
     }
 };
+
+let storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "./images");
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+exports.upload = multer({ storage: storage });
+
 exports.postCourse = async (req, res) => {
     try {
+        const url = path.join(
+            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images" + req.file.filename
+        );
         const Course = new course({
             title: req.body.title,
             description: req.body.description,
-            instructor: req.body.instructor
+            instructor: req.body.instructor,
+            image:url,
         });
         await Course.save();
         res.status(200).json({
