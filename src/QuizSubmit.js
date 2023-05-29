@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const QuizSubmissionPage = () => {
   // Function to handle quiz submission
-  const handleSubmit = () => {
+  // const handleSubmit = () => {
     // Perform quiz submission logic
     // Redirect to the results page
-  };
+  // };
 
   return (
     <div className="quiz-submission-page">

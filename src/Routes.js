@@ -10,8 +10,9 @@ import AdminPanel from "./Admin";
 import AdminLogin from './Components/Admin/AdminLogin';
 import AdminReg from './Components/Admin/AdminReg';
 import SelectQuiz from "./SelectQuiz";
-import Cpp from "./C++";
+// import Cpp from "./C++";
 import AboutUs from "./AboutUs";
+import CourseEnrollmentPage from "./Enrollement";
 import ContactUs from "./ContactUs";
 import Quiz from "./Quiz";
 import Instructors from "./Instructors";
@@ -60,7 +61,7 @@ function Router() {
       <Route path="/lms" element={<Protected Component={App} />} />
       <Route path="/selectquiz" element={<Protected Component={SelectQuiz} />} />
       <Route path="/startquiz" element={<Protected Component={Quiz} />} />
-      <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
+      <Route path="/enroll" element={<Protected Component={CourseEnrollmentPage}/>}/>
     </Routes>
   );
 }

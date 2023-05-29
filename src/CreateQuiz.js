@@ -2,95 +2,102 @@ import React, { useState } from "react";
 import axios from "axios";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Link,useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 
 function CreateQuiz() {
-  const [quizQuestion, setQuizQuestion] = useState("");
+  const navigate = useNavigate();
+  const token = localStorage.getItem("aptoken");
+  const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
-  const [course, setCourse] = useState("");
-  const [optionOne, setOptionOne] = useState("");
-  const [optionTwo, setOptionTwo] = useState("");
-  const [optionThree, setOptionThree] = useState("");
-  const [optionFour, setOptionFour] = useState("");
+  const [subject, setSubject] = useState("");
+  const [opt1, setOpt1] = useState("");
+  const [opt2, setOpt2] = useState("");
+  const [opt3, setOpt3] = useState("");
+  const [opt4, setOpt4] = useState("");
 
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const handleQuizQuestionChange = (e) => {
-    setQuizQuestion(e.target.value);
+  const handleQuestionChange = (e) => {
+    setQuestion(e.target.value);
   };
 
-  const handleAnswerChange = (selectedOption) => {
-    setAnswer(selectedOption);
+  const handleAnswerChange = (e) => {
+    setAnswer(e.target.value);
   };
-  const handleCourseChange = (eventKey) => {
-    setCourse(eventKey);
-    console.log("Selected Answer:", eventKey);
-  };
-
-  const handleOptionOneChange = (e) => {
-    setOptionOne(e.target.value);
+  const handleSubjectChange = (eventKey) => {
+    setSubject(eventKey);
   };
 
-  const handleOptionTwoChange = (e) => {
-    setOptionTwo(e.target.value);
+  const handleOpt1Change = (e) => {
+    setOpt1(e.target.value);
   };
 
-  const handleOptionThreeChange = (e) => {
-    setOptionThree(e.target.value);
+  const handleOpt2Change = (e) => {
+    setOpt2(e.target.value);
   };
 
-  const handleOptionFourChange = (e) => {
-    setOptionFour(e.target.value);
+  const handleOpt3Change = (e) => {
+    setOpt3(e.target.value);
   };
 
-
- 
-    
+  const handleOpt4Change = (e) => {
+    setOpt4(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Create a new FormData object
-    const formData = new FormData();
-    formData.append("quetiosn", quizQuestion);
-    formData.append("answer", answer);
-    formData.append("course", course);
-    formData.append("optionOne", optionOne);
-    formData.append("optionTwo", optionTwo);
-    formData.append("optionThree", optionThree);
-    formData.append("optionFour", optionFour);
-
-    // Make an API call to add the course to the database
+    // const formData = new FormData();
+    // formData.append("subject", subject);
+    // formData.append("question", question);
+    // formData.append("answer", answer);
+    // formData.append("opt1", opt1);
+    // formData.append("opt2", opt2);
+    // formData.append("opt3", opt3);
+    // formData.append("opt4", opt4);
+    let formData={subject,question,answer,opt1,opt2,opt3,opt4}
+    console.log(formData)
     axios
-      .post("/api/createquiz", formData)
-      .then((response) => {
-        // Handle success response
-        console.log(response.data);
-        // Reset the form fields
-        setQuizQuestion("");
-        setAnswer("");
-        setCourse("");
-        setOptionOne("");
-        setOptionTwo("");
-        setOptionThree("");
-        setOptionFour("");
-      })
-      .catch((error) => {
-        // Handle error response
-        console.error(error);
+    .post("http://localhost:4000/quiz/post", formData,{
+      headers:{token: token}
+    })
+    .then((res) => {
+      navigate("/admin");
+      setQuestion("");
+      setAnswer("");
+      setSubject("");
+      setOpt1("");
+      setOpt2("");
+      setOpt3("");
+      setOpt4("");
+      toast.success("Quiz Added Successfully", {
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
       });
+    })
+    .catch((err) => {
+      toast.error(err.response.data.message, {
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    });
   };
 
   return (
     <>
       <div>
-        {/* <NavComp/> */}
         <AdminNav toggle={toggleDrawer} open={isOpen} />
         <AdminDrawerComp toggle={toggleDrawer} open={isOpen} />
       </div>
@@ -105,9 +112,9 @@ function CreateQuiz() {
           <div>
           <Form.Group>
               <Form.Label>Subject:</Form.Label>
-              <Dropdown className="sub-select" onSelect={handleCourseChange}>
+              <Dropdown className="sub-select" onSelect={handleSubjectChange}>
                 <Dropdown.Toggle variant="secondary">
-                  {course ? course : "Select an option"}
+                  {subject ? subject : "Select an option"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item eventKey="C++">C++</Dropdown.Item>
@@ -126,9 +133,9 @@ function CreateQuiz() {
               className="form-element-create-course"
               type="text"
               id="quizQuestion"
-              value={quizQuestion}
+              value={question}
               placeholder="Write Question"
-              onChange={handleQuizQuestionChange}
+              onChange={handleQuestionChange}
             />
           </div>
          
@@ -147,9 +154,9 @@ function CreateQuiz() {
               className="form-element-create-course"
               type="text"
               id="optionOne"
-              value={optionOne}
+              value={opt1}
               placeholder="Option One"
-              onChange={handleOptionOneChange}
+              onChange={handleOpt1Change}
             />
           </div>
           <div>
@@ -157,9 +164,9 @@ function CreateQuiz() {
               className="form-element-create-course"
               type="text"
               id="optionTwo"
-              value={optionTwo}
+              value={opt2}
               placeholder="Option Two"
-              onChange={handleOptionTwoChange}
+              onChange={handleOpt2Change}
             />
           </div>
           <div>
@@ -167,9 +174,9 @@ function CreateQuiz() {
               className="form-element-create-course"
               type="text"
               id="optionThree"
-              value={optionThree}
+              value={opt3}
               placeholder="Option Three"
-              onChange={handleOptionThreeChange}
+              onChange={handleOpt3Change}
             />
           </div>
           <div>
@@ -177,13 +184,11 @@ function CreateQuiz() {
               className="form-element-create-course"
               type="text"
               id="optionFour"
-              value={optionFour}
+              value={opt4}
               placeholder="Option Four"
-              onChange={handleOptionFourChange}
+              onChange={handleOpt4Change}
             />
           </div>
-                    
-          
           <Button type="submit">Create Quiz</Button>
         </form>
       </div>
