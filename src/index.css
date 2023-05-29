@@ -1113,3 +1113,65 @@ code {
   margin-bottom: 1rem;
 }
 
+table, th, td {
+  border: 1px solid black;
+  padding: 0rem 1rem;
+}
+table{
+  width: 50%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.update_btn{
+  background-color: #00bda6;
+  color:#fff;
+  font-size: 16px;
+  border: 1px solid #00bda6;
+  margin-right: 1rem;
+  }
+.update_btn:hover{
+background-color: #fff;
+color: #00bda6;
+font-size: 16px;
+border: 1px solid #00bda6;
+/* margin-right: 5px; */
+}
+
+.delete_btn{
+  background-color:rgb(255,109,52);
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  margin: 1rem;
+  border: 1px solid rgb(255,109,52);
+
+}
+
+.delete_btn:hover{
+  background-color: rgb(255, 255, 255);
+  color: rgb(255,109,52);
+  font-size: 16px;
+  /* margin: 1rem; */
+  border: 1px solid rgb(255,109,52);
+}
+
+.add_btn{
+  background-color:#00bda6;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 40px;
+}
+
+.add_btn:hover{
+  background-color:#fff;
+  color:  #00bda6;
+  border: 1px solid #00bda6;
+  border-radius: 10px;
+  font-size: 16px;
+  height: 40px;
+}
+
+.add_btn:active{
+  background-color:#fff;
+  color:  #00bda6;
+}
