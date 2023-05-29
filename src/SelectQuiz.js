@@ -12,7 +12,6 @@ function SelectQuiz(){
           <ListGroup >
 
           <Link className="selectQuiz-list" to="/startquiz">C++</Link>
-          <Link className="selectQuiz-list" to="/startquiz">C#</Link>
           <Link className="selectQuiz-list" to="/startquiz">JavaScript</Link>
           <Link className="selectQuiz-list" to="/startquiz">HTML</Link>
           <Link className="selectQuiz-list" to="/startquiz">CSS</Link>

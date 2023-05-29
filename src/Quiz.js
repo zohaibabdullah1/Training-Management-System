@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 // import "./Quiz.css";
 
 function Quiz() {
+  const navigate = useNavigate();
     const questions = [
         {
           question: "What is the main function in C++?",
@@ -70,6 +72,7 @@ function Quiz() {
     //   position: 'top-center',
       autoClose: 2000,
     });
+    navigate("/submitquiz");
   };
 
   return (

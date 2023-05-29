@@ -5,8 +5,8 @@ import { ButtonGroup, ToggleButton } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavComp from "../../NavBrandComp";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function RegForm() {
@@ -17,81 +17,79 @@ function RegForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
   const [radioValue, setRadioValue] = useState("1");
 
-  const handleRegistration = async(e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault();
     if (!name) {
-      toast.error("Please Enter Username",
-      {
+      toast.error("Please Enter Username", {
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true
+        draggable: true,
       });
       return;
-    }
-  else if (!email){
-    toast.error("Please Enter Email Address",
-    {
-      autoClose: 5000,
+    } else if (!email) {
+      toast.error("Please Enter Email Address", {
+        autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true
+        draggable: true,
       });
-      return; 
-    }
-  else if (!password || !confirmPassword){
-    toast.error("Please Enter Password",
-    {
-      autoClose: 5000,
+      return;
+    } else if (!password || !confirmPassword) {
+      toast.error("Please Enter Password", {
+        autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true
+        draggable: true,
       });
       return;
-  }
-  else if (password !== confirmPassword) {
-    toast.error("Password does not match!",
-    {
-      // position: 'top-center',
-      autoClose: 5000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true
-    });
-    return;
-  }
-      let save={name,email,password,role};
-      axios.post("http://localhost:4000/register",save)
-      .then((res)=>{
+    } else if (password !== confirmPassword) {
+      toast.error("Password does not match!", {
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+      return;
+    }
+
+    let save = { name, email, password, role, profilePicture };
+
+    axios
+      .post("http://localhost:4000/register", save)
+      .then((res) => {
         setName("");
         setEmail("");
         setPassword("");
         setConfirmPassword("");
-        toast.success("You are registered!",
-          {
-            autoClose: 5000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true
-          });
-          navigate("/login");
+        setProfilePicture(null);
+
+        toast.success("You are registered!", {
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+
+        navigate("/login");
       })
-      .catch((err)=>{
+      .catch((err) => {
         toast.error(err.response.data.message, {
           autoClose: 3000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: true,
-          draggable: true
+          draggable: true,
         });
-      })
+      });
   };
 
   const handleInputChange = (e) => {
@@ -105,6 +103,8 @@ function RegForm() {
       setPassword(value);
     } else if (name === "confirmPassword") {
       setConfirmPassword(value);
+    } else if (name === "profilePicture") {
+      setProfilePicture(e.target.files[0]);
     }
   };
 
@@ -190,6 +190,14 @@ function RegForm() {
                   type="password"
                   name="confirmPassword"
                   value={confirmPassword}
+                  onChange={handleInputChange}
+                />
+              </FormGroup>
+              <FormGroup className="position-relative">
+                <Label for="profilePicture">Profile Picture</Label>
+                <Input
+                  type="file"
+                  name="profilePicture"
                   onChange={handleInputChange}
                 />
               </FormGroup>
