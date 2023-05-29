@@ -14,12 +14,13 @@ exports.getQuiz = async (req, res) => {
 exports.postQuiz = async (req, res) => {
     try {
         const Quiz = new quiz({
+            subject: req.body.subject,
             question: req.body.question,
             answer: req.body.answer,
             opt1: req.body.opt1,
             opt2: req.body.opt2,
             opt3: req.body.opt3,
-            opt4: req.body.opt4,
+            opt4: req.body.opt4
         });
         await Quiz.save();
         res.status(200).json({
@@ -35,10 +36,13 @@ exports.postQuiz = async (req, res) => {
 
 exports.updateQuiz = async (req, res) => {
     try {
-        const { question, answer, opt1, opt2, opt3, opt4 } = req.body;
+        const { subject, question, answer, opt1, opt2, opt3, opt4 } = req.body;
         const updatingQuiz = await quiz.findOne({
             _id: req.params.id
         });
+        if (subject) {
+            updatingQuiz.subject = subject;
+        }
         if (question) {
             updatingQuiz.question = question;
         }
