@@ -28,7 +28,7 @@ exports.upload = multer({ storage: storage });
 exports.postCourse = async (req, res) => {
     try {
         const url = path.join(
-            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images/courses" + req.file.filename
+            "D:/MERN/React/Training-Management-System/Backend TMS/src/images/courses/" + req.file.filename
         );
         const Course = new course({
             title: req.body.title,

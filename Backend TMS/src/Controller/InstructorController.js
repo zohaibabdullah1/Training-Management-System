@@ -27,7 +27,7 @@ exports.upload = multer({ storage: storage });
 exports.postInstructor = async (req, res) => {
     try {
         const url = path.join(
-            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images/instructor" + req.file.filename
+            "D:/MERN/React/Training-Management-System/Backend TMS/src/images/instructor/" + req.file.filename
         );
         console.log(url)
         const Instructor = new instructor({

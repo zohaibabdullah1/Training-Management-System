@@ -18,7 +18,7 @@ exports.upload = multer({ storage: storage });
 exports.UserRegister = async (req, res) => {
     try {
         const url = path.join(
-            "E:/JS/Contour/React/Training-Management-System/Backend TMS/src/images/users/" + req.file.filename
+            "D:/MERN/React/Training-Management-System/Backend TMS/src/images/users/" + req.file.filename
         );
         const hashed = bcrypt.hashSync(req.body.password, 10);
         const userData = new userdata({
