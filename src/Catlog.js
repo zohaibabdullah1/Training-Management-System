@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import NavComp from "./NavBrandComp";
 import Cards from "./Card";
 import img1 from "./Images/img1.jpg";
@@ -10,6 +12,22 @@ import NavBarComponent from "./NavBar";
 import Footer from "./Footer";
 
 function Catlogs() {
+  const token = localStorage.getItem("aptoken");
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        axios
+            .get("http://localhost:4000/course", {
+                headers: {
+                    token: token
+                }
+            })
+            .then((res) => {
+                setCourses(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }, [token]);
   return (
     <>
       {<NavComp/>}
@@ -29,15 +47,18 @@ function Catlogs() {
           start learning English.
         </p>
         <div className="col1">
-          {<Cards img={img1} />}
+        {courses.map((item, key) => (
+                        <Cards course={item}/>
+                    ))}
+          {/* {<Cards img={img1} />}
           {<Cards img={img2} />}
-          {<Cards img={img3} />}
+          {<Cards img={img3} />} */}
         </div>
-        <div className="col1">
+        {/* <div className="col1">
           {<Cards img={img4} />}
           {<Cards img={img5} />}
           {<Cards img={img6} />}
-        </div>
+        </div> */}
       </div>
 
       <div>
