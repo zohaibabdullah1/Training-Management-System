@@ -19,6 +19,7 @@ import UserProfilePage from "./UserProfile";
 import CreateCourse from "./CreateCourse";
 import CreateQuiz from "./CreateQuiz";
 import AddInstructor from "./AddInstructor";
+import ProtectAdmin from "./Components/Admin/ProtectAdmin";
 import Protected from './Components/Auth/Protected';
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
@@ -27,27 +28,31 @@ import CourseEnrollmentPage from "./Enrollement";
 function Router() {
   return (
     <Routes>
+      {/* Access Without Login */}
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<LoginForm />} />
-      <Route path="/register" element={<RegForm />} />
-      <Route path="/catlog" element={<Catlogs />} />
       <Route path="/forget" element={<PassReset />} />
-      <Route path="/lms" element={<Protected Component={App} />} />
-      <Route path="/admin" element={<AdminPanel />} />
-      <Route path="/adminlogin" element={<AdminLogin />} />
-      <Route path="/adminreg" element={<AdminReg />} />
-      <Route path="/selectquiz" element={<SelectQuiz />} />
-      <Route path="/startquiz" element={<Quiz />} />
-      <Route path="/cpp" element={<Cpp />} />
+      <Route path="/catlog" element={<Catlogs />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
       <Route path="/inst" element={<Instructors />} />
-      <Route path="/profile" element={<UserProfilePage/>} />
-      <Route path="/createcourse" element={<CreateCourse/>}/>
-      <Route path="/createquiz" element={<CreateQuiz/>}/>
-      <Route path="/addinstructor" element={<AddInstructor/>}/>
-      <Route path="/submitquiz" element={<QuizSubmissionPage/>}/>
-      <Route path="/result" element={<ResultTable/>}/>
+
+      {/* Admin Routes */}
+      <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route path="/adminreg" element={<AdminReg />} />
+      <Route path="/admin" element={<ProtectAdmin Component={AdminPanel} />} />
+      <Route path="/createcourse" element={<ProtectAdmin Component={CreateCourse}/>}/>
+      <Route path="/createquiz" element={<ProtectAdmin Component={CreateQuiz}/>}/>
+      <Route path="/addinstructor" element={<ProtectAdmin Component={AddInstructor}/>}/>
+
+      {/* User Routes */}
+      <Route path="/login" element={<LoginForm />} />
+      <Route path="/register" element={<RegForm />} />
+      <Route path="/profile" element={<Protected Component={UserProfilePage}/>} />
+      <Route path="/submitquiz" element={<Protected Component={QuizSubmissionPage} />}/>
+      <Route path="/result" element={<Protected Component={ResultTable} />}/>
+      <Route path="/lms" element={<Protected Component={App} />} />
+      <Route path="/selectquiz" element={<Protected Component={SelectQuiz} />} />
+      <Route path="/startquiz" element={<Protected Component={Quiz} />} />
       <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
       {/* <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />

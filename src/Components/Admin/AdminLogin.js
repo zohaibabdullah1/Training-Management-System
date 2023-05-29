@@ -46,7 +46,7 @@ function AdminLogin() {
       setEmail("");
       setPassword("");
       const token = res.data.token;
-          localStorage.setItem("token", token);
+          localStorage.setItem("aptoken", token);
           navigate("/admin");
       toast.success("Welcome! You are logged in.", {
         autoClose: 3000,
