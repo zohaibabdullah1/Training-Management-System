@@ -17,6 +17,7 @@ function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -68,6 +69,10 @@ function AdminLogin() {
       if (!token) {
           navigate("/adminlogin");
       }
+};
+
+const togglePasswordVisibility = () => {
+  setShowPassword((prevState) => !prevState);
 };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -135,11 +140,21 @@ function AdminLogin() {
               <FormGroup className="position-relative">
                 <Label for="password">Password</Label>
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
                   onChange={handleInputChange}
                 />
+                <span
+                  className={`password-toggle ${showPassword ? "show" : ""}`}
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <i className="far fa-eye-slash"></i>
+                  ) : (
+                    <i className="far fa-eye"></i>
+                  )}
+                </span>
               </FormGroup>
               <FormGroup className="position-relative">
                 <Input

@@ -17,6 +17,7 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [radioValue, setRadioValue] = useState("1");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -69,6 +70,7 @@ function LoginForm() {
             navigate("/login");
         }
   };
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setRole("user");
@@ -78,13 +80,20 @@ function LoginForm() {
       setPassword(value);
     }
   };
+  
   const register = () => {
     navigate("/register");
   };
+  
   const radios = [
     { name: "Login", value: "1" },
     { name: "Register", value: "3" },
   ];
+  
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+
   return (
     <>
       <div className="login-container">
@@ -135,11 +144,21 @@ function LoginForm() {
               <FormGroup className="position-relative">
                 <Label for="password">Password</Label>
                 <Input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   value={password}
                   onChange={handleInputChange}
                 />
+                <span
+                  className={`password-toggle ${showPassword ? "show" : ""}`}
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <i className="far fa-eye-slash"></i>
+                  ) : (
+                    <i className="far fa-eye"></i>
+                  )}
+                </span>
               </FormGroup>
               <FormGroup className="position-relative">
                 <Input
