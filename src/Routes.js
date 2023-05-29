@@ -23,6 +23,7 @@ import ProtectAdmin from "./Components/Admin/ProtectAdmin";
 import Protected from './Components/Auth/Protected';
 import QuizSubmissionPage from "./QuizSubmit";
 import ResultTable from "./Result";
+import CourseEnrollmentPage from "./Enrollement";
 
 function Router() {
   return (
@@ -52,7 +53,7 @@ function Router() {
       <Route path="/lms" element={<Protected Component={App} />} />
       <Route path="/selectquiz" element={<Protected Component={SelectQuiz} />} />
       <Route path="/startquiz" element={<Protected Component={Quiz} />} />
-
+      <Route path="/enroll" element={<CourseEnrollmentPage/>}/>
       {/* <Route path="/" element={<Home />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegForm />} />
