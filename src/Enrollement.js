@@ -37,7 +37,7 @@ function CourseEnrollmentPage() {
 
 <NavComp/>
       <div className="arrow">
-        <Link to="/admin">
+        <Link to="/lms">
           <i className="fas fa-chevron-circle-left back-arrow"></i>
         </Link>
       </div>
