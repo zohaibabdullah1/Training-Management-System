@@ -6,7 +6,7 @@ import NavBarComponent from "./NavBar";
 import Footer from "./Footer";
 
 function Catlogs() {
-  const token = localStorage.getItem("aptoken");
+  const token = localStorage.getItem("token");
     const [courses, setCourses] = useState([]);
     useEffect(() => {
         axios
