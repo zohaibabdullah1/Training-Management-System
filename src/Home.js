@@ -6,11 +6,26 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FormGroup, Input } from "reactstrap";
 import {Link} from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavBarComponent from './NavBar';
 import Footer from './Footer';
 
 
 function Home() {
+
+
+  const Feed_back = (e) => {
+    toast.success("Thank you for your Feedback.", {
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+    });
+  };
+
+
   return (
     <div>
       <div className='background_image'>
@@ -82,7 +97,7 @@ function Home() {
                 <Input  className='field-set' type="email" placeholder='Email Address' />
               </FormGroup>
               <div className="d-grid gap-2">
-                <Button className='feedback_btn' size="lg">Submit</Button>
+                <Button className='feedback_btn' size="lg" onClick={Feed_back}>Submit</Button>
               </div>
             </Form>
           </div>

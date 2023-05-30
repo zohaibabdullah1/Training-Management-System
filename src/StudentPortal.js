@@ -43,6 +43,7 @@ const App = () => {
     { img: reactjs, Iname: "Mr. Aram", heading: "ReactJS", pageSrc: "/enroll" },
     { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc: "/enroll" },
   ];
+  
 
   const enrolled_course = [
     { img: title, Iname: "Mr. Jack", heading: "PHP", pageSrc: "/enroll" },

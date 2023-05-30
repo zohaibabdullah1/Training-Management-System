@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { FormGroup, Label, Input} from "reactstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import NavComp from "./NavBrandComp";
 
 function CourseEnrollmentPage() {
@@ -16,19 +18,37 @@ function CourseEnrollmentPage() {
 
   const handleEnrollment = () => {
     if (!name || !email || !course) {
-      alert("Please fill in all the required fields.");
+      toast.error("Please fill in all the required fields.", {
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      });
       return;
     }
 
     if (!agreed) {
-      alert("Please agree to the terms and conditions.");
+      toast.error("Please agree to the terms and conditions.", {
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      });
       return;
     }
 
     // Handle course enrollment logic here
 
-    alert("You have successfully enrolled in the course!");
-    navigate("/dashboard"); 
+    toast.success("Your Course is Enrolled.", {
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+    });
+    navigate("/lms"); 
   };
 
   return (
