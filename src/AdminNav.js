@@ -68,7 +68,7 @@ function AdminNav({ toggle,logout }) {
                   <hr />
                   <div className="drop-down-menu">
                     <Link className="drop-down-menu">
-                    <Button onClick={logout}>Logout</Button>
+                    <Button className="logout_admin" onClick={logout}>Logout</Button>
                     </Link>
                   </div>
                 </NavDropdown>

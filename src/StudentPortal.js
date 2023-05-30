@@ -138,7 +138,7 @@ const App = () => {
                     <hr />
                     <div className="drop-down-menu">
                       <Link className="drop-down-menu" >
-                      <Button onClick={handleLogout}>Logout</Button>
+                      <Button className="logout_admin" onClick={handleLogout}>Logout</Button>
                       </Link>
                     </div>
                   </NavDropdown>
