@@ -27,14 +27,11 @@ const App = () => {
     { img: course, heading: "Create Course", pageSrc: "/createcourse" },
     { img: result, heading: "Results", pageSrc: "/manageresult" },
     { img: instructor, heading: "Add Instructor", pageSrc: "/addinstructor" },
-    // { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
-    // Add more course objects as needed
-  ];
-
-  const more_options = [
     { img: managecourse, heading: "Manage Course", pageSrc: "/managecourse" },
     { img: managequiz, heading: "Manage Quiz", pageSrc: "/managequiz" },
     { img: instructor, heading: "Manage Instructor", pageSrc: "/manageinst" }
+    // { img: nodejs, Iname: "Mr. Jonas", heading: "NodeJS", pageSrc:"/" },
+    // Add more course objects as needed
   ];
 
   return (
@@ -56,20 +53,6 @@ const App = () => {
                 Iname={course.Iname}
                 heading={course.heading}
                 pageSrc={course.pageSrc}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="admin-dashboard-main">
-          <div className="admin-dashboard">
-            {more_options.map((more_options, index) => (
-              <CourseComp
-                key={index}
-                img={more_options.img}
-                Iname={more_options.Iname}
-                heading={more_options.heading}
-                pageSrc={more_options.pageSrc}
               />
             ))}
           </div>

@@ -4,23 +4,18 @@ import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-function Cards({course}) {
+function Cards({ course }) {
   const navigate = useNavigate();
   function Enroll_Nav() {
     navigate("/enroll");
   }
-  console.log(course.image)
+  console.log(course.image);
 
-    return(
-        <div >
+  return (
+    <div >
       <Col>
-        <Card className="cat-cards">
-          <Card.Img
-            className="cat-img"
-            variant="top"
-            src={course.image}
-            alt={course.title}
-          />
+        <Card  className="cat-cards" >
+          <Card.Img variant="top" src={course.image} alt={course.title} />
           <Card.Body>
             <Card.Title>{course.title}</Card.Title>
             <Card.Title>{course.instructor}</Card.Title>
@@ -30,7 +25,7 @@ function Cards({course}) {
             </Button>
           </Card.Body>
         </Card>
-      </Col>
+        </Col>
     </div>
   );
 }

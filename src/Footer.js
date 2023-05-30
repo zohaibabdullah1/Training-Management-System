@@ -5,7 +5,7 @@ function Footer(){
     return(
 
         <>
-        <div>
+        <div className='footer-body'>
 
         <div className='fotter_bg'>
         <div className='col-sm-4 fotter_main'>
@@ -30,8 +30,6 @@ function Footer(){
             <img
               alt=""
               src={gmaps}
-              width="350px"
-              height="150px"
               className="d-inline-block align-top p_margin"
             />
 
