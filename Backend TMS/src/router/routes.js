@@ -21,11 +21,13 @@ Route.put("/quiz/update/:id", tokenVerify.jwtVerifyToken, Quiz.updateQuiz);
 Route.delete("/quiz/delete/:id", tokenVerify.jwtVerifyToken, Quiz.deleteQuiz);
 
 Route.get("/course", tokenVerify.jwtVerifyToken, Course.getAllCourse);
+Route.get("/course/:id", tokenVerify.jwtVerifyToken, Course.getCourse);
 Route.post("/course/post", Course.upload.single("image"), tokenVerify.jwtVerifyToken, Course.postCourse);
 Route.put("/course/update/:id", tokenVerify.jwtVerifyToken, Course.updateCourse);
 Route.delete("/course/delete/:id", tokenVerify.jwtVerifyToken, Course.deleteCourse);
 
 Route.get("/instructor", tokenVerify.jwtVerifyToken, Instructor.getAllInstructor);
+Route.get("/instructor/:id", tokenVerify.jwtVerifyToken, Instructor.getInstructor);
 Route.post("/instructor/post", Instructor.upload.single("image"), tokenVerify.jwtVerifyToken, Instructor.postInstructor);
 Route.put("/instructor/update/:id", tokenVerify.jwtVerifyToken, Instructor.updateInstructor);
 Route.delete("/instructor/delete/:id", tokenVerify.jwtVerifyToken, Instructor.deleteInstructor);

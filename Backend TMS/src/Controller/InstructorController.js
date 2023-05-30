@@ -13,6 +13,19 @@ exports.getAllInstructor = async (req, res) => {
         });
     }
 };
+
+exports.getInstructor = async (req, res) => {
+    try {
+        const oneInstructor = await instructor.findOne({ _id: req.params.id});
+        res.status(200).send(oneInstructor);
+    } catch (error) {
+        res.status(400).json({
+            message: "no data found",
+            error
+        });
+    }
+};
+
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "./src/images/instructor");
