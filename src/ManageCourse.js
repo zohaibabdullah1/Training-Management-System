@@ -58,7 +58,7 @@ function ManageCourse() {
   };
 
   //Update Method API
-    const SelectUser = (id) => {
+    const SelectCourse = (id) => {
         handleShow();
         axios
       .get(`http://localhost:4000/course/${id}`, {
@@ -76,16 +76,13 @@ function ManageCourse() {
         console.log(err);
       });
       };
-      const UpdateEmployee = () => {
+      const UpdateCourse = () => {
         let course = {title, description, instructor};
         axios
         .put(`http://localhost:4000/course/update/${userId}`, course,{
           headers:{token: token}
         })
         .then((res) => {
-          setTitle("");
-          setInstructor("");
-          setDescription("");
           getCourses();
         })
         .catch((err) => {
@@ -122,7 +119,7 @@ function ManageCourse() {
               <td>{item.description}</td>
               <td>{item.instructor}</td>
               <td>
-                <Button className="update_btn" onClick={() => SelectUser(item._id)}>Update</Button>{" "}
+                <Button className="update_btn" onClick={() => SelectCourse(item._id)}>Update</Button>{" "}
                 <Button className='delete_btn' onClick={() => handleDelete(item._id)}>Delete</Button>
               </td>
             </tr>
@@ -174,8 +171,8 @@ function ManageCourse() {
               />
             </Form.Group>
             <Form.Group className="btn_modal">
-              <Button type="submit" onClick={UpdateEmployee} variant="primary">
-                Update Employee
+              <Button type="submit" onClick={UpdateCourse} variant="primary">
+                Update Course
               </Button>
             </Form.Group>
           </Form>

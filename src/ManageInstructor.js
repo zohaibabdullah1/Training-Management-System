@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {Table} from "react-bootstrap";
 import axios from "axios";
-// import Form from "react-bootstrap/Form";
-// import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
@@ -13,16 +14,16 @@ function ManageInstructor() {
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
     };
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-    // const [userId, setUserId] = useState("");
-    // const [title, setTitle] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [instructor, setInstructor] = useState("");
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const [userId, setUserId] = useState("");
+    const [name, setName] = useState("");
+    const [qualification, setQualification] = useState("");
+    const [course, setCourse] = useState("");
     const token = localStorage.getItem("aptoken");
     const [instructors, setInstructors] = useState([]);
-    useEffect(() => {
+    const getInstructors=()=>{
         axios
             .get("http://localhost:4000/instructor", {
                 headers: {
@@ -35,7 +36,58 @@ function ManageInstructor() {
             .catch((err) => {
                 console.log(err);
             });
-    }, [token]);
+    }
+    useEffect(() => {
+        getInstructors();
+    }, [instructors]);
+
+    const handleDelete = async (id) => {
+        try {
+          await axios.delete(`http://localhost:4000/instructor/delete/${id}`,{
+            headers: {
+              token: token,
+            },
+          })
+          .then((res) => {
+            getInstructors();
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+      //Update Method API
+        const SelectInstructor = (id) => {
+            handleShow();
+            axios
+          .get(`http://localhost:4000/instructor/${id}`, {
+            headers: {
+              token: token,
+            },
+          })
+          .then((res) => {
+            setName(res.data.name);
+            setQualification(res.data.qualification);
+            setCourse(res.data.course);
+            setUserId(res.data._id);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+          };
+          const UpdateInstructor = () => {
+            let instructor = {name, qualification, course};
+            axios
+            .put(`http://localhost:4000/instructor/update/${userId}`, instructor,{
+              headers:{token: token}
+            })
+            .then((res) => {
+              getInstructors();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+          };
 
     return (
         <>
@@ -67,8 +119,8 @@ function ManageInstructor() {
                             <td>{item.qualification}</td>
                             <td>{item.course}</td>
                             <td>
-                                <Button className='update_btn'>Update</Button>{" "}
-                                <Button className='delete_btn'>Delete</Button>
+                              <Button className="update_btn" onClick={() => SelectInstructor(item._id)}>Update</Button>{" "}
+                              <Button className='delete_btn' onClick={() => handleDelete(item._id)}>Delete</Button>
                             </td>
                         </tr>
                     ))}
@@ -80,54 +132,54 @@ function ManageInstructor() {
                     Add New Instructor
                 </Button>
             </Link>
-            {/* <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Update Course</Modal.Title>
+          <Modal.Title>Update instructor</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Course Title</Form.Label>
+              <Form.Label>Instructor Name</Form.Label>
               <Form.Control
-                name="title"
+                name="name"
                 type="text"
-                value={title}
+                value={name}
                 onChange={(e) => {
-                  setTitle(e.target.value);
+                  setName(e.target.value);
                 }}
                 autoFocus
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Description</Form.Label>
+              <Form.Label>Qualification</Form.Label>
               <Form.Control
-                name="description"
+                name="qualification"
                 type="text"
-                value={description}
+                value={qualification}
                 onChange={(e) => {
-                  setDescription(e.target.value);
+                  setQualification(e.target.value);
                 }}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Instructor Name</Form.Label>
+              <Form.Label>Course Name</Form.Label>
               <Form.Control
-                name="instructor"
+                name="course"
                 type="text"
-                value={instructor}
+                value={course}
                 onChange={(e) => {
-                  setInstructor(e.target.value);
+                  setCourse(e.target.value);
                 }}
               />
             </Form.Group>
             <Form.Group className="btn_modal">
-              <Button type="submit" onClick={UpdateEmployee} variant="primary">
-                Update Employee
+              <Button type="submit" onClick={UpdateInstructor} variant="primary">
+                Update Instructor
               </Button>
             </Form.Group>
           </Form>
         </Modal.Body>
-      </Modal> */}
+      </Modal>
         </>
     )
 }
