@@ -14,6 +14,18 @@ exports.getAllCourse = async (req, res) => {
     }
 };
 
+exports.getCourse = async (req, res) => {
+    try {
+        const oneCourse = await course.findOne({ _id: req.params.id});
+        res.status(200).send(oneCourse);
+    } catch (error) {
+        res.status(400).json({
+            message: "no data found",
+            error
+        });
+    }
+};
+
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, "./src/images/courses");

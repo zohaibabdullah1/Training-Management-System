@@ -3,6 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {Table} from "react-bootstrap";
 import axios from "axios";
+// import Form from "react-bootstrap/Form";
+// import Modal from "react-bootstrap/Modal";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
@@ -11,6 +13,13 @@ function ManageInstructor() {
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
     };
+    // const [show, setShow] = useState(false);
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+    // const [userId, setUserId] = useState("");
+    // const [title, setTitle] = useState("");
+    // const [description, setDescription] = useState("");
+    // const [instructor, setInstructor] = useState("");
     const token = localStorage.getItem("aptoken");
     const [instructors, setInstructors] = useState([]);
     useEffect(() => {
@@ -71,6 +80,54 @@ function ManageInstructor() {
                     Add New Instructor
                 </Button>
             </Link>
+            {/* <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Update Course</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Course Title</Form.Label>
+              <Form.Control
+                name="title"
+                type="text"
+                value={title}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                autoFocus
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                name="description"
+                type="text"
+                value={description}
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Instructor Name</Form.Label>
+              <Form.Control
+                name="instructor"
+                type="text"
+                value={instructor}
+                onChange={(e) => {
+                  setInstructor(e.target.value);
+                }}
+              />
+            </Form.Group>
+            <Form.Group className="btn_modal">
+              <Button type="submit" onClick={UpdateEmployee} variant="primary">
+                Update Employee
+              </Button>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+      </Modal> */}
         </>
     )
 }
