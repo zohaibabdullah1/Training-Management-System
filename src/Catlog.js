@@ -2,12 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NavComp from "./NavBrandComp";
 import Cards from "./Card";
-import img1 from "./Images/img1.jpg";
-import img2 from "./Images/img2.jpg";
-import img3 from "./Images/img3.jpg";
-import img4 from "./Images/img4.jpg";
-import img5 from "./Images/img5.jpg";
-import img6 from "./Images/img6.jpg";
 import NavBarComponent from "./NavBar";
 import Footer from "./Footer";
 
@@ -48,17 +42,9 @@ function Catlogs() {
         </p>
         <div className="col1">
         {courses.map((item, key) => (
-                        <Cards course={item}/>
+                        <Cards key={key} course={item}/>
                     ))}
-          {/* {<Cards img={img1} />}
-          {<Cards img={img2} />}
-          {<Cards img={img3} />} */}
         </div>
-        {/* <div className="col1">
-          {<Cards img={img4} />}
-          {<Cards img={img5} />}
-          {<Cards img={img6} />}
-        </div> */}
       </div>
 
       <div>

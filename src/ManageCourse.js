@@ -13,7 +13,7 @@ function ManageCourse() {
     };
     const token = localStorage.getItem("aptoken");
     const [courses, setCourses] = useState([]);
-    useEffect(() => {
+    const ApiFetch = () => {
         axios
             .get("http://localhost:4000/course", {
                 headers: {
@@ -26,7 +26,23 @@ function ManageCourse() {
             .catch((err) => {
                 console.log(err);
             });
-    }, [token]);
+      };
+    useEffect(() => {
+        ApiFetch();
+    }, []);
+
+    // const handleDelete = async (id) => {
+        
+    //     try {
+    //       await axios.delete(`http://localhost:4000/data/${id}`).then((result) => {
+    //         result.json().then((resp) => {});
+    //         ApiFetch();
+    //       });
+    //       ApiFetch();
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   };
     return (
         <>
             <div>
@@ -57,7 +73,7 @@ function ManageCourse() {
                             <td>{item.instructor}</td>
                             <td>
                                 <Button className='update_btn'>Update</Button>{" "}
-                                <Button className='delete_btn'>Delete</Button>
+                                {/* <Button className='delete_btn' onClick={() => handleDelete(item._id)}>Delete</Button> */}
                             </td>
                         </tr>
                     ))}
