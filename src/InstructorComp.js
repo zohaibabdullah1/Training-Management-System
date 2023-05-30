@@ -1,5 +1,5 @@
 import React from "react";
-function InstComp({img,desc}) {
+function InstComp({item,desc}) {
   return (
     <>
 
@@ -7,10 +7,10 @@ function InstComp({img,desc}) {
 
       <div className="aboutUs">
         <div className="instructor">
-          <img className="inst-img" src={img} alt="Instructor" />
+          <img className="inst-img" src={item.image} alt={item.name} />
           <div>
-            <h3>Nicole Brown</h3>
-            <h6>Programming Teacher</h6>
+            <h3>{item.name}</h3>
+            <h6>{item.course}</h6>
 
             <p>
               {desc}

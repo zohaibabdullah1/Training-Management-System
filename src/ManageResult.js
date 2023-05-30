@@ -24,19 +24,23 @@ function ManageResult() {
                     <i className="fas fa-chevron-circle-left back-arrow"></i>
                 </Link>
             </div>
-            <table className='course_table'>
+            <table className='course_table' striped bordered hover>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Instructor Name</th>
-                        <th>Qualification</th>
+                        <th>Student Email</th>
                         <th>Course Name</th>
+                        <th>Total marks</th>
+                        <th>Obtain Marks</th>
+                        <th>Grades</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -49,12 +53,6 @@ function ManageResult() {
 
                 </tbody>
             </table>
-            <br />
-            <Link to="/createcourse">
-                <Button className='add_btn'>
-                    Add Instructor
-                </Button>
-            </Link>
         </>
 
     )

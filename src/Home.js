@@ -91,10 +91,10 @@ function Home() {
           <div className='feedback_field'>
           <Form>
               <FormGroup className="position-relative">
-                <Input className='field-set' type="text" placeholder='Full Name' />
+                <Input className='field-set' type="mail" placeholder='Email Address' />
               </FormGroup>
               <FormGroup className="position-relative">
-                <Input  className='field-set' type="email" placeholder='Email Address' />
+                <Input  className='field-set' type="textarea" placeholder='Message' />
               </FormGroup>
               <div className="d-grid gap-2">
                 <Button className='feedback_btn' size="lg" onClick={Feed_back}>Submit</Button>
