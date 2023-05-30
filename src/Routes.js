@@ -26,9 +26,9 @@ import ResultTable from "./Result";
 import ManageQuiz from "./ManageQuiz";
 import ManageCourse from "./ManageCourse";
 import ManageInstructor from "./ManageInstructor";
+import ManageResult from "./ManageResult";
+import UserProfile from "./UserProfile";
 import CourseEnrollmentPage from './Enrollement'
-// import PlaylistPage from "./CourseData";
-
 
 function Router() {
   return (
@@ -39,7 +39,7 @@ function Router() {
       <Route path="/catlog" element={<Catlogs />} />
       <Route path="/about" element={<AboutUs />} />
       <Route path="/contact" element={<ContactUs />} />
-
+      <Route path="/userprofile" element={<UserProfile/>}/>
       {/* Admin Routes */}
       <Route path="/adminlogin" element={<AdminLogin />} />
       <Route path="/adminreg" element={<AdminReg />} />
@@ -50,6 +50,7 @@ function Router() {
       <Route path="/managequiz" element={<ProtectAdmin Component={ManageQuiz}/>}/>
       <Route path="/managecourse" element={<ProtectAdmin Component={ManageCourse}/>}/>
       <Route path="/manageinst" element={<ProtectAdmin Component={ManageInstructor}/>}/>
+      <Route path="/manageresult" element={<  ProtectAdmin Component={ManageResult}/>}/>
 
       {/* User Routes */}
       <Route path="/login" element={<LoginForm />} />

@@ -39,15 +39,15 @@ function AdminDrawerComp({toggle, open}){
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to='/'>Manage Courses</NavLink>
+                  <NavLink className="ham-list" to='/managecourse'>Manage Courses</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to='/'>Manage Quizes</NavLink>
+                  <NavLink className="ham-list" to='/managequiz'>Manage Quizes</NavLink>
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
-                  <NavLink className="ham-list" to='/'>Create/Update Results</NavLink> 
+                  <NavLink className="ham-list" to='/manageresult'>Create/Update Results</NavLink> 
                 </ListGroup.Item>
 
                 <ListGroup.Item className="ham-list">
