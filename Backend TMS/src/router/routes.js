@@ -16,6 +16,7 @@ Route.put("/user/update/:id", tokenVerify.jwtVerifyToken, Auth.updateUser);
 Route.delete("/user/delete/:id", tokenVerify.jwtVerifyToken, Auth.deleteUser);
 
 Route.get("/quiz", tokenVerify.jwtVerifyToken, Quiz.getQuiz);
+Route.get("/quiz/show/:subject", tokenVerify.jwtVerifyToken, Quiz.getQuizSubject);
 Route.post("/quiz/post", tokenVerify.jwtVerifyToken, Quiz.postQuiz);
 Route.put("/quiz/update/:id", tokenVerify.jwtVerifyToken, Quiz.updateQuiz);
 Route.delete("/quiz/delete/:id", tokenVerify.jwtVerifyToken, Quiz.deleteQuiz);

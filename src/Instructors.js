@@ -1,12 +1,31 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect,useState} from "react";
 import NavComp from "./NavBrandComp";
-// import { Link } from "react-router-dom";
+import axios from "axios";
 import NavBarComponent from "./NavBar";
 import Footer from "./Footer";
-import inst1 from "../src/Images/inst1.jpg";
 import InstComp from "./InstructorComp";
 
 function Instructor() {
+  const token = localStorage.getItem("token");
+  const [instructors, setInstructors] = useState([]);
+    const getInstructors=()=>{
+        axios
+            .get("http://localhost:4000/instructor", {
+                headers: {
+                    token: token
+                }
+            })
+            .then((res) => {
+                setInstructors(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+    useEffect(() => {
+        getInstructors();
+    }, [instructors]);
 
     const desc = `I am the founder of A Cloud Guru and an Amazon Web Services
     community hero. I hold every associate certification and I am a
@@ -28,20 +47,25 @@ function Instructor() {
         </div>
         <h1 className="contats_h "> Instructors</h1>
       </div>
-
-      <div className="aboutUs">
-        <InstComp img={inst1} desc={desc} />
-      </div>
-      <hr className="hr" />
-      <div className="aboutUs">
-        <InstComp img={inst1} desc={desc} />
-      </div>
-      <hr className="hr" />
-
-      <div className="aboutUs">
-        <InstComp img={inst1} desc={desc} />
-      </div>
-      <div>
+          {instructors.map((item, key) => (
+            <>
+              <div className="aboutUs" key={key}>
+                <InstComp item={item} desc={desc}/>
+              </div>
+                <hr className="hr" />
+            </>
+                        // <tr key={key}>
+                        //     <td>{key + 1}</td>
+                        //     <td>{item.name}</td>
+                        //     <td>{item.qualification}</td>
+                        //     <td>{item.course}</td>
+                        //     <td>
+                        //       <Button className="update_btn" onClick={() => SelectInstructor(item._id)}>Update</Button>{" "}
+                        //       <Button className='delete_btn' onClick={() => handleDelete(item._id)}>Delete</Button>
+                        //     </td>
+                        // </tr>
+        ))}
+            <div>
         <Footer />
       </div>
     </>
