@@ -11,6 +11,19 @@ exports.getQuiz = async (req, res) => {
         });
     }
 };
+
+exports.getQuizSubject = async (req, res) => {
+    try {
+        const QuizSubject = await quiz.find({ subject: req.params.subject});
+        res.status(200).send(QuizSubject);
+    } catch (error) {
+        res.status(400).json({
+            message: "no data found",
+            error
+        });
+    }
+};
+
 exports.postQuiz = async (req, res) => {
     try {
         const Quiz = new quiz({
