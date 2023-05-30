@@ -9,7 +9,7 @@ import Modal from "react-bootstrap/Modal";
 import AdminNav from "./AdminNav";
 import AdminDrawerComp from "./AdminDrawer";
 
-function ManageInstructor() {
+function ManageUsers() {
     const [isOpen, setIsOpen] = useState(false);
     const toggleDrawer = () => {
         setIsOpen((prevState) => !prevState);
@@ -105,9 +105,9 @@ function ManageInstructor() {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Instructor Name</th>
-                        <th>Qualification</th>
-                        <th>Course Name</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -183,4 +183,4 @@ function ManageInstructor() {
         </>
     )
 }
-export default ManageInstructor
+export default ManageUsers;
