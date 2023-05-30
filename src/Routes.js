@@ -26,7 +26,8 @@ import ResultTable from "./Result";
 import ManageQuiz from "./ManageQuiz";
 import ManageCourse from "./ManageCourse";
 import ManageInstructor from "./ManageInstructor";
-import PlaylistPage from "./CourseData";
+import CourseEnrollmentPage from './Enrollement'
+// import PlaylistPage from "./CourseData";
 
 
 function Router() {
